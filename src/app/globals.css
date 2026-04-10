@@ -1,26 +1,84 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Brand fonts (mapped from next/font CSS variables in layout.tsx) */
+  --font-display: var(--font-playfair), Georgia, serif;
+  --font-accent: var(--font-cormorant), Georgia, serif;
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+
+  /* Primary palette */
+  --color-cream: #FAF7F2;
+  --color-warm-white: #FEFCF9;
+  --color-sage: #8FA68F;
+  --color-charcoal: #2D2926;
+  --color-deep-brown: #1E1B18;
+
+  /* Secondary palette */
+  --color-sand: #E8DFD3;
+  --color-sand-light: #F2EDE6;
+  --color-warm-gray: #8A7D72;
+  --color-taupe: #B8A99A;
+
+  /* Accent palette */
+  --color-blush: #D4A69A;
+  --color-blush-light: #F0DDD8;
+  --color-gold: #C4A265;
+  --color-gold-light: #E8D5B0;
+  --color-sage-light: #E8EFE8;
+  --color-sage-muted: #A8BCA8;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-charcoal);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: var(--color-sage);
+    color: var(--color-warm-white);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .section-label {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-sage);
+  }
+
+  .headline-display {
+    font-family: var(--font-display);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: var(--color-charcoal);
+  }
+
+  .headline-accent {
+    font-family: var(--font-accent);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.05;
+    color: var(--color-charcoal);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }

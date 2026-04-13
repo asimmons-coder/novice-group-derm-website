@@ -149,5 +149,5 @@ export const stats = [
   { value: '30+', label: 'Years Botox Experience', sublabel: 'Dr. Fred Novice' },
   { value: '3', label: 'Board-Certified Dermatologists', sublabel: 'One family' },
   { value: 'In-House', label: 'Dermatopathology', sublabel: 'Same doctor, same diagnosis' },
-  { value: '4.9', label: 'Patient Rating', sublabel: 'Across review platforms' },
+  { value: 'Family-Owned', label: 'Since 1999', sublabel: 'Bloomfield Hills, MI' },
 ];

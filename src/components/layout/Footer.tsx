@@ -11,12 +11,12 @@ const practiceLinks = [
   { label: 'Patient Resources', href: '/patient-resources' },
   { label: 'Insurance', href: '/patient-resources#insurance' },
   { label: 'Forms', href: '/patient-resources#forms' },
+  { label: 'Pay Online', href: 'https://novicegroupderm.ema.md/ema/pay/onlinepay' },
 ];
 
 const connectLinks = [
-  { label: 'Instagram', href: '#', icon: InstagramIcon },
-  { label: 'Facebook', href: '#', icon: FacebookIcon },
-  { label: 'LinkedIn', href: '#', icon: LinkedinIcon },
+  { label: 'Instagram', href: 'https://www.instagram.com/novicegroupderm/', icon: InstagramIcon },
+  { label: 'Facebook', href: 'https://www.facebook.com/Novice-Group-Dermatology-105346554710060/', icon: FacebookIcon },
 ];
 
 export function Footer() {
@@ -40,9 +40,13 @@ export function Footer() {
               </li>
               <li className="flex gap-3">
                 <Phone size={16} className="text-sage shrink-0 mt-0.5" />
-                <a href={`tel:${site.phoneRaw}`} className="hover:text-warm-white transition">
-                  {site.phone}
-                </a>
+                <span>
+                  <a href={`tel:${site.phoneRaw}`} className="hover:text-warm-white transition">
+                    P. {site.phone}
+                  </a>
+                  <br />
+                  <span className="text-cream/50">F. {site.fax}</span>
+                </span>
               </li>
               <li className="flex gap-3">
                 <Mail size={16} className="text-sage shrink-0 mt-0.5" />
@@ -120,9 +124,14 @@ export function Footer() {
                 );
               })}
               <li>
-                <Link href="/contact" className="hover:text-warm-white transition-colors">
-                  Reviews
-                </Link>
+                <a
+                  href="https://goo.gl/maps/CQcnFPqJiwpAJLcm9"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-warm-white transition-colors"
+                >
+                  Google Reviews
+                </a>
               </li>
             </ul>
             <p className="mt-6 text-xs text-cream/50">{site.hours}</p>

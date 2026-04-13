@@ -12,9 +12,16 @@ export const site = {
   },
   phone: '(248) 932-3376',
   phoneRaw: '+12489323376',
+  fax: '(248) 932-1046',
   email: 'Skin@novicegroupderm.com',
-  hours: 'Monday–Friday 8:30 AM – 5:00 PM',
-  hoursShort: 'Mon–Fri · 8:30 – 5:00',
+  payOnline: 'https://novicegroupderm.ema.md/ema/pay/onlinepay',
+  googleMaps: 'https://goo.gl/maps/CQcnFPqJiwpAJLcm9',
+  hours: 'Monday-Friday 9:00 AM - 6:00 PM',
+  hoursShort: 'Mon-Fri 9:00 - 6:00',
+  social: {
+    facebook: 'https://www.facebook.com/Novice-Group-Dermatology-105346554710060/',
+    instagram: 'https://www.instagram.com/novicegroupderm/',
+  },
   affiliations: [
     'Corewell Health William Beaumont University Hospital (Royal Oak)',
     'Corewell Health Trenton Hospital',

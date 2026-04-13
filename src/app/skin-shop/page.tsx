@@ -11,21 +11,24 @@ import { images } from '@/lib/images';
 import { clsx } from '@/lib/clsx';
 
 const products = [
-  { name: 'Gentle Daily Cleanser', category: 'Cleanser', price: '$38', image: images.shop.cleanser, brand: 'SkinMedica' },
-  { name: 'Foaming AHA Cleanser', category: 'Cleanser', price: '$42', image: images.shop.cleanser, brand: 'SkinCeuticals' },
-  { name: 'Mineral Sunscreen SPF 50', category: 'Sunscreen', price: '$42', image: images.shop.sunscreen, brand: 'EltaMD' },
-  { name: 'Tinted Sunscreen SPF 46', category: 'Sunscreen', price: '$48', image: images.shop.sunscreen, brand: 'EltaMD' },
-  { name: 'Retinol Renewal Serum', category: 'Retinoid', price: '$76', image: images.shop.retinoid, brand: 'SkinCeuticals' },
-  { name: 'Tretinoin Microsphere', category: 'Retinoid', price: '$95', image: images.shop.retinoid, brand: 'Rx' },
-  { name: 'Hydrating Repair Cream', category: 'Moisturizer', price: '$54', image: images.shop.moisturizer, brand: 'CeraVe' },
-  { name: 'Barrier Repair Lotion', category: 'Moisturizer', price: '$48', image: images.shop.moisturizer, brand: 'EltaMD' },
-  { name: 'Vitamin C E Ferulic', category: 'Treatment', price: '$182', image: images.shop.serum, brand: 'SkinCeuticals' },
-  { name: 'Brightening Eye Cream', category: 'Treatment', price: '$72', image: images.shop.eye, brand: 'SkinMedica' },
-  { name: 'Hydrating Lip Balm', category: 'Treatment', price: '$24', image: images.shop.lip, brand: 'Aquaphor' },
-  { name: 'Hydrating B5 Mask', category: 'Treatment', price: '$58', image: images.shop.mask, brand: 'SkinCeuticals' },
+  { name: 'Facial Cleanser', category: 'Cleanser', price: '$38', image: images.shop.cleanser, brand: 'SkinMedica' },
+  { name: 'AHA/BHA Exfoliating Cleanser', category: 'Cleanser', price: '$47', image: images.shop.cleanser, brand: 'SkinMedica' },
+  { name: 'Intellishade Original SPF 45', category: 'Sunscreen', price: '$80', image: images.shop.sunscreen, brand: 'Revision Skincare' },
+  { name: 'Intellishade Matte SPF 45', category: 'Sunscreen', price: '$80', image: images.shop.sunscreen, brand: 'Revision Skincare' },
+  { name: 'Intellishade TruPhysical SPF 45', category: 'Sunscreen', price: '$80', image: images.shop.sunscreen, brand: 'Revision Skincare' },
+  { name: 'Intellishade Clear SPF 50', category: 'Sunscreen', price: '$80', image: images.shop.sunscreen, brand: 'Revision Skincare' },
+  { name: 'Total Defense + Repair SPF 34', category: 'Sunscreen', price: '$68', image: images.shop.sunscreen, brand: 'SkinMedica' },
+  { name: 'Hydrating Serum', category: 'Serum', price: '$72', image: images.shop.serum, brand: 'Revision Skincare' },
+  { name: 'HA5 Rejuvenating Hydrator', category: 'Serum', price: '$178', image: images.shop.serum, brand: 'SkinMedica' },
+  { name: 'TNS Advanced+ Serum', category: 'Serum', price: '$295', image: images.shop.serum, brand: 'SkinMedica' },
+  { name: 'LUMIVIVE System', category: 'Serum', price: '$265', image: images.shop.serum, brand: 'SkinMedica' },
+  { name: 'Replenish Hydrating Cream', category: 'Moisturizer', price: '$66', image: images.shop.moisturizer, brand: 'SkinMedica' },
+  { name: 'Dermal Repair Cream', category: 'Moisturizer', price: '$129', image: images.shop.moisturizer, brand: 'SkinMedica' },
+  { name: 'Ceramide Treatment Cream', category: 'Moisturizer', price: '$69', image: images.shop.moisturizer, brand: 'SkinMedica' },
+  { name: 'Firming Night Cream', category: 'Moisturizer', price: '$65', image: images.shop.moisturizer, brand: 'Revision Skincare' },
 ];
 
-const categories = ['All', 'Cleanser', 'Sunscreen', 'Retinoid', 'Moisturizer', 'Treatment'];
+const categories = ['All', 'Cleanser', 'Sunscreen', 'Serum', 'Moisturizer'];
 
 export default function SkinShopPage() {
   const [filter, setFilter] = useState('All');

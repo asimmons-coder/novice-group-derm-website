@@ -131,17 +131,18 @@ export const providers = [
   },
   {
     slug: 'erin-koppelman',
-    name: 'Erin Koppelman',
-    role: 'Licensed Aesthetician',
-    yearsExperience: 'Skincare specialist',
-    headline: 'Personalized skincare and advanced cosmetic treatments.',
-    bio: 'Erin specializes in advanced skincare treatments and cosmetic procedures, working closely with the Novice physicians to deliver personalized results. From medical-grade facials to chemical peels and microneedling, her work complements the dermatology team and helps patients achieve their best skin.',
+    name: 'Erin Koppelman, MSN, APRN, NP-C',
+    role: 'Board-Certified Nurse Practitioner',
+    yearsExperience: '13+ years',
+    headline: 'Hospital-trained clinician with a passion for dermatology.',
+    bio: 'Erin is a board-certified Nurse Practitioner who earned her Bachelor of Science in Nursing at the University of Michigan and her Master of Science in Nursing in Adult Primary Care at Wayne State University. Before specializing in dermatology, she practiced hospital-based medicine in both cardiology and intensive care. She is a member of the American Academy of Nurse Practitioners, Michigan Council of Nurse Practitioners, and the National Academy of Dermatology Nurse Practitioners.',
     credentials: [
-      'Licensed Aesthetician',
-      'Advanced Skincare Specialist',
-      'Cosmetic Treatment Expert',
+      'BSN, University of Michigan School of Nursing (2005)',
+      'MSN Adult Primary Care, Wayne State University (2012)',
+      'Board-Certified Nurse Practitioner (NP-C)',
+      'AANP, MCNP, NADNP member',
     ],
-    specialties: ['Facials', 'Chemical Peels', 'Microneedling', 'Skincare Coaching'],
+    specialties: ['General Dermatology', 'Skin Screenings', 'Cosmetic Treatments', 'Patient Education'],
   },
 ];
 
@@ -149,5 +150,5 @@ export const stats = [
   { value: '30+', label: 'Years Botox Experience', sublabel: 'Dr. Fred Novice' },
   { value: '3', label: 'Board-Certified Dermatologists', sublabel: 'One family' },
   { value: 'In-House', label: 'Dermatopathology', sublabel: 'Same doctor, same diagnosis' },
-  { value: 'Family-Owned', label: 'Since 1999', sublabel: 'Bloomfield Hills, MI' },
+  { value: '4.8', label: 'Patient Rating', sublabel: '318 Google reviews' },
 ];

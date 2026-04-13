@@ -82,7 +82,7 @@ export function Testimonials() {
 
         <div className="mt-10 flex flex-col items-center gap-3">
           <a
-            href="https://www.google.com/maps/place/Novice+Group+Dermatology/"
+            href="https://goo.gl/maps/CQcnFPqJiwpAJLcm9"
             target="_blank"
             rel="noopener noreferrer"
             className="text-xs uppercase tracking-widest text-sage hover:text-charcoal transition-colors font-semibold"

@@ -5,11 +5,8 @@ import { ArrowLink } from '@/components/ui/Button';
 import { Reveal, StaggerGroup, StaggerItem } from '@/components/ui/Reveal';
 
 const brands = [
-  { name: 'SkinCeuticals', category: 'Clinical Skincare' },
-  { name: 'SkinMedica', category: 'Medical-Grade' },
-  { name: 'EltaMD', category: 'Sun Protection' },
-  { name: 'CeraVe', category: 'Barrier Repair' },
-  { name: 'Aquaphor', category: 'Dermatologist Trusted' },
+  { name: 'SkinMedica', category: 'Medical-Grade Skincare' },
+  { name: 'Revision Skincare', category: 'Clinical Results' },
 ];
 
 export function SkinShopTeaser() {
@@ -27,7 +24,7 @@ export function SkinShopTeaser() {
         <ArrowLink href="/skin-shop">Shop All Products</ArrowLink>
       </Reveal>
 
-      <StaggerGroup className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+      <StaggerGroup className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
         {brands.map((b) => (
           <StaggerItem key={b.name}>
             <Link

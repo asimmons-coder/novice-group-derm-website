@@ -122,25 +122,14 @@ export default function PatientResourcesPage() {
             Download and complete these forms before your visit, or arrive 15
             minutes early to fill them out in the office.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl">
-            {[
-              { name: 'New Patient Intake Form', size: 'PDF · 2 pages' },
-              { name: 'Medical History Form', size: 'PDF · 3 pages' },
-              { name: 'HIPAA Authorization', size: 'PDF · 1 page' },
-              { name: 'Records Release Form', size: 'PDF · 1 page' },
-            ].map((f) => (
-              <a
-                key={f.name}
-                href="#"
-                className="flex items-center justify-between gap-4 bg-cream border border-sand rounded-2xl px-6 py-5 hover:border-charcoal hover:-translate-y-0.5 transition-all"
-              >
-                <div>
-                  <p className="font-display text-base text-charcoal">{f.name}</p>
-                  <p className="text-xs text-warm-gray mt-1">{f.size}</p>
-                </div>
-                <FileDown size={18} className="text-sage" />
-              </a>
-            ))}
+          <div className="bg-cream border border-sand rounded-2xl px-6 py-5 max-w-3xl">
+            <p className="font-display text-base text-charcoal">
+              Patient forms are provided at your first visit or can be requested by calling the office.
+            </p>
+            <p className="text-sm text-warm-gray mt-2">
+              Call <a href="tel:+12489323376" className="text-sage hover:text-charcoal transition-colors font-semibold">(248) 932-3376</a> or email{' '}
+              <a href="mailto:Skin@novicegroupderm.com" className="text-sage hover:text-charcoal transition-colors font-semibold">Skin@novicegroupderm.com</a> to request forms in advance.
+            </p>
           </div>
         </Reveal>
       </Section>

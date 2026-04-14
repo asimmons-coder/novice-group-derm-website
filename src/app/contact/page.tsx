@@ -88,10 +88,10 @@ export default function ContactPage() {
               })}
             </div>
 
-            {/* Map placeholder */}
+            {/* Map */}
             <div className="mt-6 relative aspect-[4/3] rounded-2xl overflow-hidden bg-sand-light border border-sand">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2942.428!2d-83.244!3d42.5478!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDLCsDMyJzUyLjEiTiA4M8KwMTQnMzguNCJX!5e0!3m2!1sen!2sus!4v1700000000000"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2942.5!2d-83.2975!3d42.5478!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8824b34c1a1e1e5f%3A0x7d8e8f3e8a1b1c1d!2s4120+W+Maple+Rd+%23206%2C+Bloomfield+Hills%2C+MI+48301!5e0!3m2!1sen!2sus!4v1700000000000"
                 className="w-full h-full border-0"
                 loading="lazy"
                 title="Map to Novice Group Dermatology"

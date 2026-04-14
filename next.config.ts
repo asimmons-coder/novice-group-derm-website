@@ -15,6 +15,12 @@ const nextConfig: NextConfig = {
         port: "",
         pathname: "/boon-public-assets/**",
       },
+      {
+        protocol: "https",
+        hostname: "novicegroupderm.com",
+        port: "",
+        pathname: "/wp-content/uploads/**",
+      },
     ],
   },
 };

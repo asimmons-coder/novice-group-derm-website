@@ -31,9 +31,12 @@ export function ContactForm() {
     reset,
   } = useForm<FormData>();
 
-  const onSubmit = async (_data: FormData) => {
-    // Placeholder — wire this up to a real handler / email service.
-    await new Promise((r) => setTimeout(r, 800));
+  const onSubmit = async (data: FormData) => {
+    const subject = encodeURIComponent(`Website Inquiry: ${data.reason}`);
+    const body = encodeURIComponent(
+      `Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone || 'Not provided'}\nReason: ${data.reason}\n\n${data.message}`
+    );
+    window.location.href = `mailto:Skin@novicegroupderm.com?subject=${subject}&body=${body}`;
     setSubmitted(true);
     reset();
   };

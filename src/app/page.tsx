@@ -3,7 +3,6 @@ import { DifferentiatorStrip } from '@/components/home/DifferentiatorStrip';
 import { OurStory } from '@/components/home/OurStory';
 import { ServicesGrid } from '@/components/home/ServicesGrid';
 import { WhyNovice } from '@/components/home/WhyNovice';
-import { InteractiveShowcase } from '@/components/home/InteractiveShowcase';
 import { LabStory } from '@/components/home/LabStory';
 import { Testimonials } from '@/components/home/Testimonials';
 import { CosmeticCTA } from '@/components/home/CosmeticCTA';
@@ -18,7 +17,6 @@ export default function HomePage() {
       <OurStory />
       <ServicesGrid />
       <WhyNovice />
-      <InteractiveShowcase />
       <LabStory />
       <Testimonials />
       <CosmeticCTA />

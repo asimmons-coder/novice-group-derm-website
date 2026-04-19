@@ -1,115 +1,83 @@
 import Image from 'next/image';
-import { SignatureHeadline, SectionLabel } from '@/components/ui/SignatureHeadline';
 import { LinkButton } from '@/components/ui/Button';
 import { Reveal, StaggerGroup, StaggerItem } from '@/components/ui/Reveal';
-import { Container } from '@/components/ui/Container';
-import { images } from '@/lib/images';
+
+const HERO_IMAGE =
+  'https://novicegroupderm.com/wp-content/uploads/2025/12/Homepage_Desktop-scaled.jpg';
 
 export function Hero() {
   return (
-    <section className="relative pt-36 md:pt-44 pb-20 md:pb-28 overflow-hidden">
-      {/* Decorative ambient layers */}
-      <div
-        aria-hidden
-        className="absolute inset-0 -z-10"
-        style={{
-          background:
-            'radial-gradient(circle at 12% 18%, rgba(143,166,143,0.10) 0%, transparent 45%), radial-gradient(circle at 88% 82%, rgba(212,166,154,0.12) 0%, transparent 45%)',
-        }}
-      />
-      <div
-        aria-hidden
-        className="absolute -top-40 -left-40 w-96 h-96 rounded-full border border-sand/60 -z-10"
-      />
-      <div
-        aria-hidden
-        className="absolute -bottom-32 right-0 w-[520px] h-[520px] rounded-full border border-sand/40 -z-10"
-      />
+    <section className="relative min-h-screen flex items-center pt-24 md:pt-32 overflow-hidden">
+      <div className="absolute inset-0 -z-10">
+        <Image
+          src={HERO_IMAGE}
+          alt="The Novice Group Dermatology team"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-right md:object-center"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-gradient-to-r from-cream via-cream/70 to-transparent md:via-cream/40"
+        />
+      </div>
 
-      <Container size="wide">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Text */}
-          <StaggerGroup className="lg:col-span-6 max-w-xl">
-            <StaggerItem>
-              <SectionLabel>Three Generations of Expertise</SectionLabel>
-            </StaggerItem>
-            <StaggerItem>
-              <SignatureHeadline
-                as="h1"
-                primary="Skin health,"
-                accent="elevated."
-                size="xl"
-                className="mb-8"
-              />
-            </StaggerItem>
-            <StaggerItem>
-              <p className="text-lg text-warm-gray leading-relaxed mb-10 max-w-md">
-                A family-owned dermatology practice in Bloomfield Hills offering
-                medical, cosmetic, surgical, and in-house pathology care under
-                one roof. Three board-certified dermatologists. One uncompromising
-                standard.
-              </p>
-            </StaggerItem>
-            <StaggerItem>
-              <div className="flex flex-wrap gap-4">
-                <LinkButton href="/contact" variant="primary" size="lg" withArrow>
-                  Book a Consultation
-                </LinkButton>
-                <LinkButton href="/our-story" variant="outline" size="lg">
-                  Meet Our Team
-                </LinkButton>
-              </div>
-            </StaggerItem>
-          </StaggerGroup>
+      <div className="max-w-7xl w-full mx-auto px-6 md:px-12 relative">
+        <StaggerGroup className="max-w-2xl">
+          <StaggerItem>
+            <span className="inline-block text-gold uppercase tracking-[0.4em] text-xs font-semibold mb-6">
+              Est. 1999, Bloomfield Hills, MI
+            </span>
+          </StaggerItem>
 
-          {/* Image */}
-          <Reveal delay={0.2} className="lg:col-span-6">
-            <div className="relative">
-              <div className="relative aspect-[4/5] w-full max-w-[560px] mx-auto rounded-[2.5rem] overflow-hidden shadow-2xl">
-                <Image
-                  src={images.hero.portrait}
-                  alt="Editorial portrait representing the Novice Group Dermatology team"
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 90vw, 560px"
-                  className="object-cover"
-                />
-                <div
-                  aria-hidden
-                  className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-charcoal/20"
-                />
-              </div>
+          <StaggerItem>
+            <h1 className="font-[family-name:var(--font-display)] text-5xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight text-charcoal mb-8">
+              Love your skin,
+              <br />
+              <span className="font-[family-name:var(--font-accent)] italic font-normal text-warm-gray">
+                from generation
+              </span>
+              <br />
+              to generation.
+            </h1>
+          </StaggerItem>
 
-              {/* Floating badge */}
-              <Reveal
-                delay={0.6}
-                className="absolute -bottom-6 -left-6 md:-left-12 bg-warm-white shadow-xl rounded-2xl px-6 py-5 border border-sand"
-              >
-                <div className="flex items-center gap-4">
-                  <div className="h-12 w-px bg-gold" />
-                  <div>
-                    <p className="font-display text-3xl text-charcoal leading-none">
-                      25<span className="text-gold">+</span>
-                    </p>
-                    <p className="mt-1 text-[10px] uppercase tracking-[0.2em] text-warm-gray font-semibold">
-                      Years of Excellence
-                    </p>
-                  </div>
-                </div>
-              </Reveal>
+          <StaggerItem>
+            <p className="text-lg md:text-xl text-charcoal/70 mb-10 leading-relaxed max-w-lg">
+              A private, family-owned practice led by a father-daughter trio of
+              board-certified dermatologists. World-class medical, surgical,
+              and cosmetic care for over 25 years.
+            </p>
+          </StaggerItem>
 
-              <Reveal
-                delay={0.8}
-                className="hidden md:block absolute -top-4 -right-6 bg-cream/80 backdrop-blur-md border border-sand rounded-full px-5 py-2.5 shadow-md"
-              >
-                <p className="text-[10px] uppercase tracking-[0.2em] font-semibold text-charcoal">
-                  Bloomfield Hills, MI
-                </p>
-              </Reveal>
+          <StaggerItem>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <LinkButton href="/contact" variant="dark" size="lg" withArrow>
+                Schedule a Visit
+              </LinkButton>
+              <LinkButton href="/services" variant="outline" size="lg">
+                Explore Services
+              </LinkButton>
             </div>
-          </Reveal>
-        </div>
-      </Container>
+          </StaggerItem>
+        </StaggerGroup>
+      </div>
+
+      <Reveal
+        delay={0.4}
+        aria-hidden
+        className="absolute right-[-10%] top-[18%] hidden lg:block w-96 h-96 rounded-full border border-gold/25 pointer-events-none"
+      >
+        <span className="sr-only">decoration</span>
+      </Reveal>
+      <Reveal
+        delay={0.6}
+        aria-hidden
+        className="absolute right-[6%] bottom-[8%] hidden lg:block w-64 h-64 rounded-full border border-taupe/30 pointer-events-none"
+      >
+        <span className="sr-only">decoration</span>
+      </Reveal>
     </section>
   );
 }

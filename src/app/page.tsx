@@ -4,6 +4,7 @@ import { OurStory } from '@/components/home/OurStory';
 import { ServicesGrid } from '@/components/home/ServicesGrid';
 import { WhyNovice } from '@/components/home/WhyNovice';
 import { InteractiveShowcase } from '@/components/home/InteractiveShowcase';
+import { LabStory } from '@/components/home/LabStory';
 import { Testimonials } from '@/components/home/Testimonials';
 import { CosmeticCTA } from '@/components/home/CosmeticCTA';
 import { SkinShopTeaser } from '@/components/home/SkinShopTeaser';
@@ -18,6 +19,7 @@ export default function HomePage() {
       <ServicesGrid />
       <WhyNovice />
       <InteractiveShowcase />
+      <LabStory />
       <Testimonials />
       <CosmeticCTA />
       <SkinShopTeaser />

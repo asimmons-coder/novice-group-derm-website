@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Section, Container } from '@/components/ui/Container';
 import { SignatureHeadline, SectionLabel } from '@/components/ui/SignatureHeadline';
@@ -45,6 +44,17 @@ const products = [
 ];
 
 const categories = ['All', 'Cleanser', 'Sunscreen', 'Serum', 'Moisturizer', 'Eyes', 'Neck', 'Treatment'];
+
+// Soft per-category tint so the grid has gentle variety instead of one flat color.
+const categoryTint: Record<string, string> = {
+  Cleanser: 'bg-sand-light',
+  Sunscreen: 'bg-gold-light/50',
+  Serum: 'bg-sage-light',
+  Moisturizer: 'bg-blush-light/60',
+  Eyes: 'bg-sage-light',
+  Neck: 'bg-sand-light',
+  Treatment: 'bg-gold-light/40',
+};
 
 export default function SkinShopPage() {
   const [filter, setFilter] = useState('All');
@@ -108,39 +118,44 @@ export default function SkinShopPage() {
               transition={{ duration: 0.4 }}
             >
               <div className="group h-full bg-warm-white border border-sand rounded-3xl overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all duration-500 flex flex-col">
-                <div className="relative aspect-square overflow-hidden bg-sand-light">
-                  <Image
-                    src={p.image}
-                    alt={p.name}
-                    fill
-                    sizes="(max-width: 768px) 45vw, 280px"
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
+                <div
+                  className={clsx(
+                    'relative aspect-square overflow-hidden flex flex-col items-center justify-center text-center px-6',
+                    categoryTint[p.category] ?? 'bg-sand-light',
+                  )}
+                >
+                  {/* Brand monogram watermark */}
+                  <span
+                    aria-hidden
+                    className="pointer-events-none select-none absolute -bottom-8 -right-3 font-display leading-none text-[9rem] text-charcoal/[0.05] transition-transform duration-700 group-hover:scale-110"
+                  >
+                    {p.brand.charAt(0)}
+                  </span>
+                  <span className="relative text-[10px] uppercase tracking-[0.25em] text-warm-gray font-semibold mb-3">
+                    {p.brand}
+                  </span>
+                  <h3 className="relative font-display text-lg text-charcoal leading-snug">
+                    {p.name}
+                  </h3>
+                  <span className="relative mt-4 flex items-center gap-2 text-[9px] uppercase tracking-[0.2em] text-sage font-semibold">
+                    <span className="h-px w-4 bg-sage/40" />
+                    {p.category}
+                    <span className="h-px w-4 bg-sage/40" />
+                  </span>
                   <div className="absolute top-4 left-4 bg-warm-white/90 backdrop-blur px-3 py-1 rounded-full">
                     <span className="text-[9px] uppercase tracking-[0.15em] font-bold text-sage">
                       Derm Recommended
                     </span>
                   </div>
                 </div>
-                <div className="p-6 flex-1 flex flex-col">
-                  <p className="text-[10px] uppercase tracking-[0.2em] text-warm-gray mb-2">
-                    {p.brand}
-                  </p>
-                  <h3 className="font-display text-base text-charcoal mb-1 leading-snug flex-1">
-                    {p.name}
-                  </h3>
-                  <p className="text-[10px] uppercase tracking-[0.15em] text-sage font-semibold mb-3">
-                    {p.category}
-                  </p>
-                  <div className="flex items-center justify-between mt-auto">
-                    <span className="text-base font-medium text-charcoal">{p.price}</span>
-                    <button
-                      type="button"
-                      className="text-[11px] uppercase tracking-widest text-warm-gray group-hover:text-sage transition-colors font-semibold"
-                    >
-                      View →
-                    </button>
-                  </div>
+                <div className="p-6 flex items-center justify-between">
+                  <span className="text-base font-medium text-charcoal">{p.price}</span>
+                  <button
+                    type="button"
+                    className="text-[11px] uppercase tracking-widest text-warm-gray group-hover:text-sage transition-colors font-semibold"
+                  >
+                    View →
+                  </button>
                 </div>
               </div>
             </motion.div>

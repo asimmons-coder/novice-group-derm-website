@@ -7,6 +7,7 @@ import { LabStory } from '@/components/home/LabStory';
 import { Testimonials } from '@/components/home/Testimonials';
 import { CosmeticCTA } from '@/components/home/CosmeticCTA';
 import { SkinShopTeaser } from '@/components/home/SkinShopTeaser';
+import { FAQ } from '@/components/home/FAQ';
 import { BookingCTA } from '@/components/home/BookingCTA';
 
 export default function HomePage() {
@@ -21,6 +22,7 @@ export default function HomePage() {
       <Testimonials />
       <CosmeticCTA />
       <SkinShopTeaser />
+      <FAQ />
       <BookingCTA />
     </>
   );

@@ -2,7 +2,7 @@ import { Section } from '@/components/ui/Container';
 import { SignatureHeadline } from '@/components/ui/SignatureHeadline';
 import { LinkButton } from '@/components/ui/Button';
 import { Reveal } from '@/components/ui/Reveal';
-import { site } from '@/lib/site';
+import { site, booking } from '@/lib/site';
 
 export function BookingCTA() {
   return (
@@ -20,7 +20,13 @@ export function BookingCTA() {
           or call to book a medical or cosmetic consultation.
         </p>
         <div className="mt-10 flex flex-wrap justify-center gap-4">
-          <LinkButton href="/contact" variant="white" size="lg" withArrow>
+          <LinkButton
+            href={booking.url}
+            external={booking.external}
+            variant="white"
+            size="lg"
+            withArrow
+          >
             Book Online
           </LinkButton>
           <LinkButton

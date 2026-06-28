@@ -4,6 +4,7 @@ import './globals.css';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { JsonLd } from '@/components/seo/JsonLd';
+import { Analytics } from '@/components/seo/Analytics';
 
 const playfair = Playfair_Display({
   variable: '--font-playfair',
@@ -30,7 +31,8 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL('https://novicegroupderm.com'),
   title: {
-    default: 'Novice Group Dermatology | Skin Health, Elevated',
+    default:
+      'Dermatologist in Bloomfield Hills, MI | Medical, Cosmetic & Dermatopathology Care - Novice Group Dermatology',
     template: '%s | Novice Group Dermatology',
   },
   description:
@@ -83,6 +85,7 @@ export default function RootLayout({
           Skip to content
         </a>
         <JsonLd />
+        <Analytics />
         <Navbar />
         <main id="main-content" className="flex-1">
           {children}

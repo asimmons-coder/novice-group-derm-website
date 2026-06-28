@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { Logo } from '@/components/ui/Logo';
 import { LinkButton } from '@/components/ui/Button';
-import { navLinks } from '@/lib/site';
+import { navLinks, booking } from '@/lib/site';
 import { clsx } from '@/lib/clsx';
 
 export function Navbar() {
@@ -59,7 +59,7 @@ export function Navbar() {
         </ul>
 
         <div className="hidden lg:block">
-          <LinkButton href="/contact" variant="primary" size="md">
+          <LinkButton href={booking.url} external={booking.external} variant="primary" size="md">
             Book Online
           </LinkButton>
         </div>
@@ -101,7 +101,7 @@ export function Navbar() {
             ))}
           </ul>
           <div className="mt-auto pt-12">
-            <LinkButton href="/contact" variant="primary" size="lg" className="w-full">
+            <LinkButton href={booking.url} external={booking.external} variant="primary" size="lg" className="w-full">
               Book Online
             </LinkButton>
             <p className="mt-6 text-center text-sm text-warm-gray">

@@ -159,3 +159,47 @@ export const stats = [
   { value: 'In-House', label: 'Dermatopathology', sublabel: 'Same doctor, same diagnosis' },
   { value: '4.8', label: 'Patient Rating', sublabel: '318 Google reviews' },
 ];
+
+// Online booking. To switch every "Book Online" button from the contact form to
+// real online scheduling, set NEXT_PUBLIC_BOOKING_URL to the ModMed EMA
+// self-scheduling URL (in Vercel project env, or a local .env.local). Until that
+// URL exists, Book Online routes to the contact page rather than a dead end.
+const bookingUrlRaw = process.env.NEXT_PUBLIC_BOOKING_URL?.trim();
+export const booking = {
+  url: bookingUrlRaw || '/contact',
+  isLive: Boolean(bookingUrlRaw),
+  external: Boolean(bookingUrlRaw && /^https?:\/\//.test(bookingUrlRaw)),
+};
+
+// FAQ surfaced on the homepage and emitted as FAQPage schema for AI answer
+// engines. Every answer is grounded in verified practice details above.
+export const faqs = [
+  {
+    q: 'Do you offer Botox and fillers?',
+    a: 'Yes. Dr. Fred Novice has more than 30 years of Botox and dermal filler experience and is among the most experienced cosmetic injectors practicing today. We offer Botox, Dysport, and a full range of dermal fillers for natural, subtle results.',
+  },
+  {
+    q: 'Do you do skin cancer screenings?',
+    a: 'Yes. Full-body skin cancer screenings and the surgical removal of skin cancers are a core part of our medical dermatology practice, including coordination of Mohs surgery when it is needed.',
+  },
+  {
+    q: 'Who are the doctors at Novice Group Dermatology?',
+    a: 'Our providers are Dr. Fred Novice, MD (founder, board-certified dermatologist and dermatopathologist), Dr. Karlee Novice, MD, Dr. Taylor Novice, MD, MBA, and Erin Koppelman, MSN, APRN, NP-C. Three generations of the Novice family practice together in Bloomfield Hills.',
+  },
+  {
+    q: 'Are your dermatologists board-certified?',
+    a: 'Yes. All three of our dermatologists are board-certified, and Dr. Fred and Dr. Taylor are also trained in dermatopathology, so the same physicians who examine your skin can read your biopsy.',
+  },
+  {
+    q: 'What is dermatopathology, and why does it matter?',
+    a: 'Dermatopathology is the microscopic diagnosis of skin disease. Because we read biopsies in-house, the doctor who examines your skin is part of diagnosing it under the microscope. Almost no other local practice offers this continuity of care.',
+  },
+  {
+    q: 'What insurance do you accept?',
+    a: 'We accept most major plans, including Aetna, Humana, United Healthcare, Blue Cross Blue Shield, Cigna, Medicare, Medicaid, and Priority Health. Contact our office to confirm coverage for your specific plan.',
+  },
+  {
+    q: 'Where are you located and what are your hours?',
+    a: 'We are at 4120 West Maple Road, Suite 206, Bloomfield Hills, MI 48301, open Monday through Friday from 9:00 AM to 6:00 PM.',
+  },
+];

@@ -150,12 +150,9 @@ export default function SkinShopPage() {
                 </div>
                 <div className="p-6 flex items-center justify-between">
                   <span className="text-base font-medium text-charcoal">{p.price}</span>
-                  <button
-                    type="button"
-                    className="text-[11px] uppercase tracking-widest text-warm-gray group-hover:text-sage transition-colors font-semibold"
-                  >
-                    View →
-                  </button>
+                  <span className="text-[11px] uppercase tracking-widest text-warm-gray group-hover:text-sage transition-colors font-semibold">
+                    In Office
+                  </span>
                 </div>
               </div>
             </motion.div>

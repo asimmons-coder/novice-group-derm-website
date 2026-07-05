@@ -5,8 +5,7 @@ import { SignatureHeadline, SectionLabel } from '@/components/ui/SignatureHeadli
 import { ArrowLink } from '@/components/ui/Button';
 import { Reveal } from '@/components/ui/Reveal';
 
-const LAB_IMAGE =
-  'https://storage.googleapis.com/boon-public-assets/Screenshot%202026-04-08%20at%204.32.23%E2%80%AFPM.png';
+const LAB_IMAGE = '/images/lab-microscope.jpg';
 
 export function LabStory() {
   return (

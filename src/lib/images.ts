@@ -5,26 +5,28 @@
 
 export const images = {
   hero: {
-    main: 'https://storage.googleapis.com/boon-public-assets/Screenshot%202026-04-08%20at%204.31.33%E2%80%AFPM.png',
-    portrait: 'https://storage.googleapis.com/boon-public-assets/Screenshot%202026-04-08%20at%204.31.33%E2%80%AFPM.png',
+    // Real practice photography, self-hosted (harvested from the legacy site
+    // pre-cutover; legacy wp-content URLs die when the domain flips)
+    main: '/images/hero-family.jpg',
+    portrait: '/images/hero-family.jpg',
     practice:
       'https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?auto=format&fit=crop&q=85&w=1600',
   },
   providers: {
-    fred: 'https://storage.googleapis.com/boon-public-assets/fnovice.jpg',
-    karlee: 'https://storage.googleapis.com/boon-public-assets/knovice.jpg',
-    taylor: 'https://storage.googleapis.com/boon-public-assets/tnovice.jpg',
-    erin: 'https://storage.googleapis.com/boon-public-assets/ekoppel.jpg',
+    fred: '/images/providers/fred.jpg',
+    karlee: '/images/providers/karlee.jpg',
+    taylor: '/images/providers/taylor.jpg',
+    erin: '/images/providers/erin.jpg',
   },
+  lab: '/images/lab-microscope.jpg',
+  hallway: '/images/providers-hallway.jpg',
   services: {
     medical:
       'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=85&w=1200',
     cosmetic:
       'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&q=85&w=1200',
-    surgical:
-      'https://images.unsplash.com/photo-1666214280557-f1b5022eb634?auto=format&fit=crop&q=85&w=1200',
-    pathology:
-      'https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&q=85&w=1200',
+    surgical: '/images/surgical-detail.jpg',
+    pathology: '/images/lab-microscope.jpg',
   },
   cosmetic: {
     // Self-hosted CC0 photo (Wikimedia Commons, "Doctor performing Botox injection")

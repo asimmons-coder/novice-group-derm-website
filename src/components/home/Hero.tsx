@@ -2,8 +2,7 @@ import Image from 'next/image';
 import { LinkButton } from '@/components/ui/Button';
 import { Reveal, StaggerGroup, StaggerItem } from '@/components/ui/Reveal';
 
-const HERO_IMAGE =
-  'https://novicegroupderm.com/wp-content/uploads/2025/12/Homepage_Desktop-scaled.jpg';
+const HERO_IMAGE = '/images/hero-family.jpg';
 
 export function Hero() {
   return (

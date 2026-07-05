@@ -27,14 +27,16 @@ export const images = {
       'https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&q=85&w=1200',
   },
   cosmetic: {
-    botox:
-      'https://images.unsplash.com/photo-1559599101-f09722fb4948?auto=format&fit=crop&q=85&w=1200',
+    // Self-hosted CC0 photo (Wikimedia Commons, "Doctor performing Botox injection")
+    botox: '/images/botox-injection.jpg',
     fillers:
-      'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&q=85&w=1200',
-    laser:
-      'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=85&w=1200',
-    peels:
       'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=85&w=1200',
+    kybella:
+      'https://images.unsplash.com/photo-1666214280557-f1b5022eb634?auto=format&fit=crop&q=85&w=1200',
+    laser:
+      'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=85&w=1200',
+    peels:
+      'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&q=85&w=1200',
     microneedling:
       'https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&q=85&w=1200',
   },

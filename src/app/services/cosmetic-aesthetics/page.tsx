@@ -32,7 +32,7 @@ const treatments = [
     name: 'Kybella',
     description:
       'Non-surgical reduction of submental fullness. A few sessions, lasting results — no surgery required.',
-    image: images.cosmetic.laser,
+    image: images.cosmetic.kybella,
   },
   {
     name: 'Microneedling with PRP',

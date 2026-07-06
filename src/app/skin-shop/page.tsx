@@ -19,39 +19,44 @@ interface Product {
   image: string | null;
 }
 
+// Official brand product photography (SkinMedica via Dermstore CDN, Revision
+// from revisionskincare.com), standardized onto white 900x900 canvases and
+// self-hosted. Lytera 2.0 and LUMIVIVE are discontinued by SkinMedica with no
+// official image available anywhere; they keep the typographic tile pending
+// Carly's product-list review.
 const products: Product[] = [
   // Cleansers
-  { name: 'Facial Cleanser', category: 'Cleanser', price: '$38', image: '/images/shop/facial-cleanser.png', brand: 'SkinMedica' },
-  { name: 'AHA/BHA Exfoliating Cleanser', category: 'Cleanser', price: '$47', image: null, brand: 'SkinMedica' },
+  { name: 'Facial Cleanser', category: 'Cleanser', price: '$38', image: '/images/shop/facial-cleanser.jpg', brand: 'SkinMedica' },
+  { name: 'AHA/BHA Exfoliating Cleanser', category: 'Cleanser', price: '$47', image: '/images/shop/aha-bha-cleanser.jpg', brand: 'SkinMedica' },
   // Sunscreens
-  { name: 'Intellishade Original', category: 'Sunscreen', price: '$80', image: null, brand: 'Revision Skincare' },
-  { name: 'Intellishade Matte', category: 'Sunscreen', price: '$80', image: null, brand: 'Revision Skincare' },
-  { name: 'Intellishade TruPhysical', category: 'Sunscreen', price: '$80', image: null, brand: 'Revision Skincare' },
-  { name: 'Intellishade Clear SPF 50', category: 'Sunscreen', price: '$80', image: '/images/shop/intellishade-clear.png', brand: 'Revision Skincare' },
-  { name: 'Total Defense + Repair SPF 34', category: 'Sunscreen', price: '$68', image: null, brand: 'SkinMedica' },
+  { name: 'Intellishade Original', category: 'Sunscreen', price: '$80', image: '/images/shop/intellishade-original.jpg', brand: 'Revision Skincare' },
+  { name: 'Intellishade Matte', category: 'Sunscreen', price: '$80', image: '/images/shop/intellishade-matte.jpg', brand: 'Revision Skincare' },
+  { name: 'Intellishade TruPhysical', category: 'Sunscreen', price: '$80', image: '/images/shop/intellishade-truphysical.jpg', brand: 'Revision Skincare' },
+  { name: 'Intellishade Clear SPF 50', category: 'Sunscreen', price: '$80', image: '/images/shop/intellishade-clear.jpg', brand: 'Revision Skincare' },
+  { name: 'Total Defense + Repair SPF 34', category: 'Sunscreen', price: '$68', image: '/images/shop/total-defense-spf34.jpg', brand: 'SkinMedica' },
   // Serums
-  { name: 'Hydrating Serum', category: 'Serum', price: '$72', image: '/images/shop/hydrating-serum.png', brand: 'Revision Skincare' },
-  { name: 'HA5 Rejuvenating Hydrator', category: 'Serum', price: '$178', image: '/images/shop/ha5-rejuvenating-hydrator.png', brand: 'SkinMedica' },
-  { name: 'TNS Advanced+ Serum', category: 'Serum', price: '$295', image: null, brand: 'SkinMedica' },
+  { name: 'Hydrating Serum', category: 'Serum', price: '$72', image: '/images/shop/hydrating-serum.jpg', brand: 'Revision Skincare' },
+  { name: 'HA5 Rejuvenating Hydrator', category: 'Serum', price: '$178', image: '/images/shop/ha5.jpg', brand: 'SkinMedica' },
+  { name: 'TNS Advanced+ Serum', category: 'Serum', price: '$295', image: '/images/shop/tns-advanced.jpg', brand: 'SkinMedica' },
   { name: 'LUMIVIVE System', category: 'Serum', price: '$265', image: null, brand: 'SkinMedica' },
   // Moisturizers
-  { name: 'Replenish Hydrating Cream', category: 'Moisturizer', price: '$66', image: '/images/shop/replenish-hydrating-cream.png', brand: 'SkinMedica' },
-  { name: 'Dermal Repair Cream', category: 'Moisturizer', price: '$129', image: '/images/shop/dermal-repair-cream.png', brand: 'SkinMedica' },
-  { name: 'Ceramide Treatment Cream', category: 'Moisturizer', price: '$69', image: '/images/shop/ceramide-treatment-cream.png', brand: 'SkinMedica' },
-  { name: 'Firming Night Cream', category: 'Moisturizer', price: '$65', image: '/images/shop/firming-night-cream.png', brand: 'Revision Skincare' },
+  { name: 'Replenish Hydrating Cream', category: 'Moisturizer', price: '$66', image: '/images/shop/replenish.jpg', brand: 'SkinMedica' },
+  { name: 'Dermal Repair Cream', category: 'Moisturizer', price: '$129', image: '/images/shop/dermal-repair.jpg', brand: 'SkinMedica' },
+  { name: 'Ceramide Treatment Cream', category: 'Moisturizer', price: '$69', image: '/images/shop/ceramide.jpg', brand: 'SkinMedica' },
+  { name: 'Firming Night Cream', category: 'Moisturizer', price: '$65', image: '/images/shop/firming-night-cream.jpg', brand: 'Revision Skincare' },
   // Eyes
-  { name: 'DEJ Eye Cream', category: 'Eyes', price: '$97', image: '/images/shop/dej-eye-cream.png', brand: 'Revision Skincare' },
-  { name: 'Instant Bright Eye Cream', category: 'Eyes', price: '$88', image: '/images/shop/instant-bright-eye-cream.png', brand: 'SkinMedica' },
-  { name: 'TNS Eye Repair', category: 'Eyes', price: '$102', image: null, brand: 'SkinMedica' },
+  { name: 'DEJ Eye Cream', category: 'Eyes', price: '$97', image: '/images/shop/dej-eye-cream.jpg', brand: 'Revision Skincare' },
+  { name: 'Instant Bright Eye Cream', category: 'Eyes', price: '$88', image: '/images/shop/instant-bright-eye.jpg', brand: 'SkinMedica' },
+  { name: 'TNS Eye Repair', category: 'Eyes', price: '$102', image: '/images/shop/tns-eye-repair.jpg', brand: 'SkinMedica' },
   // Neck
-  { name: 'Nectifirm', category: 'Neck', price: '$86', image: '/images/shop/nectifirm.png', brand: 'Revision Skincare' },
-  { name: 'Nectifirm Advanced', category: 'Neck', price: '$142', image: '/images/shop/nectifirm-advanced.png', brand: 'Revision Skincare' },
+  { name: 'Nectifirm', category: 'Neck', price: '$86', image: '/images/shop/nectifirm.jpg', brand: 'Revision Skincare' },
+  { name: 'Nectifirm Advanced', category: 'Neck', price: '$142', image: '/images/shop/nectifirm-advanced.jpg', brand: 'Revision Skincare' },
   // Treatments
-  { name: 'Scar Recovery Gel with Centelline', category: 'Treatment', price: '$44', image: null, brand: 'SkinMedica' },
+  { name: 'Scar Recovery Gel with Centelline', category: 'Treatment', price: '$44', image: '/images/shop/scar-recovery.jpg', brand: 'SkinMedica' },
   { name: 'Lytera 2.0', category: 'Treatment', price: '$154', image: null, brand: 'SkinMedica' },
-  { name: 'Retinol 0.25', category: 'Treatment', price: '$62', image: null, brand: 'SkinMedica' },
-  { name: 'Retinol 0.5', category: 'Treatment', price: '$78', image: null, brand: 'SkinMedica' },
-  { name: 'Retinol 1.0', category: 'Treatment', price: '$93', image: null, brand: 'SkinMedica' },
+  { name: 'Retinol 0.25', category: 'Treatment', price: '$62', image: '/images/shop/retinol-025.jpg', brand: 'SkinMedica' },
+  { name: 'Retinol 0.5', category: 'Treatment', price: '$78', image: '/images/shop/retinol-05.jpg', brand: 'SkinMedica' },
+  { name: 'Retinol 1.0', category: 'Treatment', price: '$93', image: '/images/shop/retinol-10.jpg', brand: 'SkinMedica' },
 ];
 
 const categories = ['All', 'Cleanser', 'Sunscreen', 'Serum', 'Moisturizer', 'Eyes', 'Neck', 'Treatment'];
@@ -131,18 +136,13 @@ export default function SkinShopPage() {
               <div className="group h-full bg-warm-white border border-sand rounded-3xl overflow-hidden hover:-translate-y-1 hover:shadow-xl transition-all duration-500 flex flex-col">
                 {p.image ? (
                   <>
-                    <div
-                      className={clsx(
-                        'relative aspect-square overflow-hidden',
-                        categoryTint[p.category] ?? 'bg-sand-light',
-                      )}
-                    >
+                    <div className="relative aspect-square overflow-hidden bg-white border-b border-sand/60">
                       <Image
                         src={p.image}
                         alt={`${p.brand} ${p.name}`}
                         fill
                         sizes="(max-width: 768px) 50vw, 25vw"
-                        className="object-contain p-8 transition-transform duration-700 group-hover:scale-105"
+                        className="object-contain p-6 transition-transform duration-700 group-hover:scale-105"
                       />
                       <div className="absolute top-4 left-4 bg-warm-white/90 backdrop-blur px-3 py-1 rounded-full">
                         <span className="text-[9px] uppercase tracking-[0.15em] font-bold text-sage">

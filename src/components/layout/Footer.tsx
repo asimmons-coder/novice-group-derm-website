@@ -7,7 +7,6 @@ import { site, services } from '@/lib/site';
 
 const practiceLinks = [
   { label: 'Our Story', href: '/our-story' },
-  { label: 'Providers', href: '/our-story#providers' },
   { label: 'Patient Resources', href: '/patient-resources' },
   { label: 'Insurance', href: '/patient-resources#insurance' },
   { label: 'Forms', href: '/patient-resources#forms' },

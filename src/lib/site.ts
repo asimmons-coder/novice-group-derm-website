@@ -42,7 +42,6 @@ export const site = {
 export const navLinks = [
   { label: 'Our Story', href: '/our-story' },
   { label: 'Services', href: '/services' },
-  { label: 'Providers', href: '/our-story#providers' },
   { label: 'Skin Shop', href: '/skin-shop' },
   { label: 'Patient Resources', href: '/patient-resources' },
   { label: 'Contact', href: '/contact' },

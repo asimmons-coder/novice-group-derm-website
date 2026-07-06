@@ -17,6 +17,9 @@ interface Product {
   // Self-hosted product photo (harvested from the legacy site pre-cutover).
   // null = original photo is gone; the card falls back to a typographic tile.
   image: string | null;
+  // 2-3 short lines shown in the hover overlay. Manufacturer-standard
+  // descriptions only; no clinical claims beyond the brands' own.
+  facts: string[];
 }
 
 // Official brand product photography (SkinMedica via Dermstore CDN, Revision
@@ -26,37 +29,62 @@ interface Product {
 // Carly's product-list review.
 const products: Product[] = [
   // Cleansers
-  { name: 'Facial Cleanser', category: 'Cleanser', price: '$38', image: '/images/shop/facial-cleanser.jpg', brand: 'SkinMedica' },
-  { name: 'AHA/BHA Exfoliating Cleanser', category: 'Cleanser', price: '$47', image: '/images/shop/aha-bha-cleanser.jpg', brand: 'SkinMedica' },
+  { name: 'Facial Cleanser', category: 'Cleanser', price: '$38', image: '/images/shop/facial-cleanser.jpg', brand: 'SkinMedica',
+    facts: ['Gentle daily cleanser for all skin types', 'Removes makeup and impurities without stripping', 'The first step of any regimen, AM and PM'] },
+  { name: 'AHA/BHA Exfoliating Cleanser', category: 'Cleanser', price: '$47', image: '/images/shop/aha-bha-cleanser.jpg', brand: 'SkinMedica',
+    facts: ['Exfoliating cleanser with AHA and BHA acids', 'Smooths texture and evens tone', 'Best for normal to oily skin'] },
   // Sunscreens
-  { name: 'Intellishade Original', category: 'Sunscreen', price: '$80', image: '/images/shop/intellishade-original.jpg', brand: 'Revision Skincare' },
-  { name: 'Intellishade Matte', category: 'Sunscreen', price: '$80', image: '/images/shop/intellishade-matte.jpg', brand: 'Revision Skincare' },
-  { name: 'Intellishade TruPhysical', category: 'Sunscreen', price: '$80', image: '/images/shop/intellishade-truphysical.jpg', brand: 'Revision Skincare' },
-  { name: 'Intellishade Clear SPF 50', category: 'Sunscreen', price: '$80', image: '/images/shop/intellishade-clear.jpg', brand: 'Revision Skincare' },
-  { name: 'Total Defense + Repair SPF 34', category: 'Sunscreen', price: '$68', image: '/images/shop/total-defense-spf34.jpg', brand: 'SkinMedica' },
+  { name: 'Intellishade Original', category: 'Sunscreen', price: '$80', image: '/images/shop/intellishade-original.jpg', brand: 'Revision Skincare',
+    facts: ['5-in-1 tinted moisturizer with SPF 45', 'Peptides support a firmer, younger look', 'Sheer tint adapts to most skin tones'] },
+  { name: 'Intellishade Matte', category: 'Sunscreen', price: '$80', image: '/images/shop/intellishade-matte.jpg', brand: 'Revision Skincare',
+    facts: ['Tinted moisturizer with SPF 45', 'Matte finish controls shine all day', 'Ideal for combination and oily skin'] },
+  { name: 'Intellishade TruPhysical', category: 'Sunscreen', price: '$80', image: '/images/shop/intellishade-truphysical.jpg', brand: 'Revision Skincare',
+    facts: ['100% mineral tinted SPF 45', 'Zinc and titanium filters, no chemical actives', 'A favorite for sensitive skin'] },
+  { name: 'Intellishade Clear SPF 50', category: 'Sunscreen', price: '$80', image: '/images/shop/intellishade-clear.jpg', brand: 'Revision Skincare',
+    facts: ['Weightless invisible SPF 50', 'No tint, no white cast', 'Wears beautifully under makeup'] },
+  { name: 'Total Defense + Repair SPF 34', category: 'Sunscreen', price: '$68', image: '/images/shop/total-defense-spf34.jpg', brand: 'SkinMedica',
+    facts: ['Broad-spectrum SPF 34 with antioxidants', 'Defends against UVA, UVB, and infrared', 'Supports skin repair while it protects'] },
   // Serums
-  { name: 'Hydrating Serum', category: 'Serum', price: '$72', image: '/images/shop/hydrating-serum.jpg', brand: 'Revision Skincare' },
-  { name: 'HA5 Rejuvenating Hydrator', category: 'Serum', price: '$178', image: '/images/shop/ha5.jpg', brand: 'SkinMedica' },
-  { name: 'TNS Advanced+ Serum', category: 'Serum', price: '$295', image: '/images/shop/tns-advanced.jpg', brand: 'SkinMedica' },
-  { name: 'LUMIVIVE System', category: 'Serum', price: '$265', image: null, brand: 'SkinMedica' },
+  { name: 'Hydrating Serum', category: 'Serum', price: '$72', image: '/images/shop/hydrating-serum.jpg', brand: 'Revision Skincare',
+    facts: ['Lightweight hyaluronic hydration boost', 'Layers under any moisturizer', 'All skin types, AM and PM'] },
+  { name: 'HA5 Rejuvenating Hydrator', category: 'Serum', price: '$178', image: '/images/shop/ha5.jpg', brand: 'SkinMedica',
+    facts: ['Five forms of hyaluronic acid', 'Instantly smooths the look of fine lines', 'Supports the skin’s own hydration'] },
+  { name: 'TNS Advanced+ Serum', category: 'Serum', price: '$295', image: '/images/shop/tns-advanced.jpg', brand: 'SkinMedica',
+    facts: ['SkinMedica’s flagship growth factor serum', 'Targets coarse wrinkles and sagging skin', 'Visible improvement in as little as 2 weeks'] },
+  { name: 'LUMIVIVE System', category: 'Serum', price: '$265', image: null, brand: 'SkinMedica',
+    facts: ['Two-step day and night defense system', 'AM shields against blue light and pollution', 'PM supports overnight recovery'] },
   // Moisturizers
-  { name: 'Replenish Hydrating Cream', category: 'Moisturizer', price: '$66', image: '/images/shop/replenish.jpg', brand: 'SkinMedica' },
-  { name: 'Dermal Repair Cream', category: 'Moisturizer', price: '$129', image: '/images/shop/dermal-repair.jpg', brand: 'SkinMedica' },
-  { name: 'Ceramide Treatment Cream', category: 'Moisturizer', price: '$69', image: '/images/shop/ceramide.jpg', brand: 'SkinMedica' },
-  { name: 'Firming Night Cream', category: 'Moisturizer', price: '$65', image: '/images/shop/firming-night-cream.jpg', brand: 'Revision Skincare' },
+  { name: 'Replenish Hydrating Cream', category: 'Moisturizer', price: '$66', image: '/images/shop/replenish.jpg', brand: 'SkinMedica',
+    facts: ['Lightweight daily moisturizer', 'Replenishes moisture without heaviness', 'Normal to dry skin'] },
+  { name: 'Dermal Repair Cream', category: 'Moisturizer', price: '$129', image: '/images/shop/dermal-repair.jpg', brand: 'SkinMedica',
+    facts: ['Ultra-rich restorative moisturizer', 'Vitamins C and E nourish dry skin', 'A longtime favorite for mature skin'] },
+  { name: 'Ceramide Treatment Cream', category: 'Moisturizer', price: '$69', image: '/images/shop/ceramide.jpg', brand: 'SkinMedica',
+    facts: ['Ceramide barrier-repair cream', 'Calms dry or sensitized skin', 'Well suited to post-procedure care'] },
+  { name: 'Firming Night Cream', category: 'Moisturizer', price: '$65', image: '/images/shop/firming-night-cream.jpg', brand: 'Revision Skincare',
+    facts: ['Overnight firming treatment', 'Peptides and antioxidants work while you sleep', 'Wake to smoother-feeling skin'] },
   // Eyes
-  { name: 'DEJ Eye Cream', category: 'Eyes', price: '$97', image: '/images/shop/dej-eye-cream.jpg', brand: 'Revision Skincare' },
-  { name: 'Instant Bright Eye Cream', category: 'Eyes', price: '$88', image: '/images/shop/instant-bright-eye.jpg', brand: 'SkinMedica' },
-  { name: 'TNS Eye Repair', category: 'Eyes', price: '$102', image: '/images/shop/tns-eye-repair.jpg', brand: 'SkinMedica' },
+  { name: 'DEJ Eye Cream', category: 'Eyes', price: '$97', image: '/images/shop/dej-eye-cream.jpg', brand: 'Revision Skincare',
+    facts: ['Total eye-area rejuvenation', 'Improves the look of crow’s feet and upper lids', 'Backed by Revision’s clinical studies'] },
+  { name: 'Instant Bright Eye Cream', category: 'Eyes', price: '$88', image: '/images/shop/instant-bright-eye.jpg', brand: 'SkinMedica',
+    facts: ['Brightens tired-looking eyes on contact', 'Optical diffusers soften dark circles', 'Firms and hydrates over time'] },
+  { name: 'TNS Eye Repair', category: 'Eyes', price: '$102', image: '/images/shop/tns-eye-repair.jpg', brand: 'SkinMedica',
+    facts: ['Growth factor eye cream', 'Targets crow’s feet and dark circles', 'Rich texture, ideal at night'] },
   // Neck
-  { name: 'Nectifirm', category: 'Neck', price: '$86', image: '/images/shop/nectifirm.jpg', brand: 'Revision Skincare' },
-  { name: 'Nectifirm Advanced', category: 'Neck', price: '$142', image: '/images/shop/nectifirm-advanced.jpg', brand: 'Revision Skincare' },
+  { name: 'Nectifirm', category: 'Neck', price: '$86', image: '/images/shop/nectifirm.jpg', brand: 'Revision Skincare',
+    facts: ['The original neck-firming cream', 'Smooths crepey skin on neck and décolleté', 'Start here for early signs of aging'] },
+  { name: 'Nectifirm Advanced', category: 'Neck', price: '$142', image: '/images/shop/nectifirm-advanced.jpg', brand: 'Revision Skincare',
+    facts: ['Next-generation neck firming', 'Eight peptides plus plant extracts', 'For moderate to advanced neck aging'] },
   // Treatments
-  { name: 'Scar Recovery Gel with Centelline', category: 'Treatment', price: '$44', image: '/images/shop/scar-recovery.jpg', brand: 'SkinMedica' },
-  { name: 'Lytera 2.0', category: 'Treatment', price: '$154', image: null, brand: 'SkinMedica' },
-  { name: 'Retinol 0.25', category: 'Treatment', price: '$62', image: '/images/shop/retinol-025.jpg', brand: 'SkinMedica' },
-  { name: 'Retinol 0.5', category: 'Treatment', price: '$78', image: '/images/shop/retinol-05.jpg', brand: 'SkinMedica' },
-  { name: 'Retinol 1.0', category: 'Treatment', price: '$93', image: '/images/shop/retinol-10.jpg', brand: 'SkinMedica' },
+  { name: 'Scar Recovery Gel with Centelline', category: 'Treatment', price: '$44', image: '/images/shop/scar-recovery.jpg', brand: 'SkinMedica',
+    facts: ['Minimizes the appearance of scars', 'Centelline calms and supports healing skin', 'Begin once the skin has closed'] },
+  { name: 'Lytera 2.0', category: 'Treatment', price: '$154', image: null, brand: 'SkinMedica',
+    facts: ['Brightens dark spots and discoloration', 'Hydroquinone-free pigment correction', 'Pairs well with daily SPF'] },
+  { name: 'Retinol 0.25', category: 'Treatment', price: '$62', image: '/images/shop/retinol-025.jpg', brand: 'SkinMedica',
+    facts: ['Entry-strength nightly retinol', 'Refines texture and softens fine lines', 'The right starting point for retinol beginners'] },
+  { name: 'Retinol 0.5', category: 'Treatment', price: '$78', image: '/images/shop/retinol-05.jpg', brand: 'SkinMedica',
+    facts: ['Mid-strength nightly retinol', 'Refines texture and softens fine lines', 'Step up once 0.25 is well tolerated'] },
+  { name: 'Retinol 1.0', category: 'Treatment', price: '$93', image: '/images/shop/retinol-10.jpg', brand: 'SkinMedica',
+    facts: ['Maximum-strength nightly retinol', 'For experienced retinol users', 'Use PM only, always pair with SPF'] },
 ];
 
 const categories = ['All', 'Cleanser', 'Sunscreen', 'Serum', 'Moisturizer', 'Eyes', 'Neck', 'Treatment'];
@@ -71,6 +99,24 @@ const categoryTint: Record<string, string> = {
   Neck: 'bg-sand-light',
   Treatment: 'bg-gold-light/40',
 };
+
+function QuickFacts({ facts }: { facts: string[] }) {
+  return (
+    <div
+      aria-hidden
+      className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 bg-deep-brown/95 px-6 text-center opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 pointer-events-none"
+    >
+      <span className="text-[9px] uppercase tracking-[0.25em] text-gold font-bold">
+        Quick Facts
+      </span>
+      {facts.map((fact) => (
+        <p key={fact} className="text-[13px] leading-snug text-warm-white/90">
+          {fact}
+        </p>
+      ))}
+    </div>
+  );
+}
 
 export default function SkinShopPage() {
   const [filter, setFilter] = useState('All');
@@ -149,6 +195,7 @@ export default function SkinShopPage() {
                           Derm Recommended
                         </span>
                       </div>
+                      <QuickFacts facts={p.facts} />
                     </div>
                     <div className="px-6 pt-5 flex-1 flex flex-col items-center text-center">
                       <span className="text-[10px] uppercase tracking-[0.25em] text-warm-gray font-semibold mb-1.5">
@@ -189,6 +236,7 @@ export default function SkinShopPage() {
                         Derm Recommended
                       </span>
                     </div>
+                    <QuickFacts facts={p.facts} />
                   </div>
                 )}
                 <div className="p-6 flex items-center justify-between">

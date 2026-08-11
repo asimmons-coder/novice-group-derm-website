@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Container } from '@/components/ui/Container';
 import { SignatureHeadline, SectionLabel } from '@/components/ui/SignatureHeadline';
 import { Reveal } from '@/components/ui/Reveal';
@@ -10,6 +11,7 @@ interface PageHeroProps {
   description?: string;
   bg?: 'cream' | 'sand-light' | 'gradient-cosmetic';
   align?: 'left' | 'center';
+  image?: { src: string; alt: string };
   children?: React.ReactNode;
 }
 
@@ -27,8 +29,20 @@ export function PageHero({
   description,
   bg = 'cream',
   align = 'left',
+  image,
   children,
 }: PageHeroProps) {
+  const content = (
+    <>
+      <SectionLabel align={align}>{label}</SectionLabel>
+      <SignatureHeadline as="h1" primary={primary} accent={accent} size="xl" align={align} />
+      {description && (
+        <p className="mt-8 text-lg text-warm-gray leading-relaxed max-w-2xl">{description}</p>
+      )}
+      {children}
+    </>
+  );
+
   return (
     <section className={clsx('relative pt-36 md:pt-44 pb-16 md:pb-24 overflow-hidden', bgClasses[bg])}>
       <div
@@ -41,14 +55,29 @@ export function PageHero({
       />
 
       <Container size="wide">
-        <Reveal className={clsx(align === 'center' && 'text-center', 'max-w-3xl', align === 'center' && 'mx-auto')}>
-          <SectionLabel align={align}>{label}</SectionLabel>
-          <SignatureHeadline as="h1" primary={primary} accent={accent} size="xl" align={align} />
-          {description && (
-            <p className="mt-8 text-lg text-warm-gray leading-relaxed max-w-2xl">{description}</p>
-          )}
-          {children}
-        </Reveal>
+        {image ? (
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            <Reveal className={clsx('lg:col-span-7', align === 'center' && 'text-center')}>
+              {content}
+            </Reveal>
+            <Reveal className="lg:col-span-5">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-xl">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 90vw, 40vw"
+                  className="object-cover"
+                />
+              </div>
+            </Reveal>
+          </div>
+        ) : (
+          <Reveal className={clsx(align === 'center' && 'text-center', 'max-w-3xl', align === 'center' && 'mx-auto')}>
+            {content}
+          </Reveal>
+        )}
       </Container>
     </section>
   );

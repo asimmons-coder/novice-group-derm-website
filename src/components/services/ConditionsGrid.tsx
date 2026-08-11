@@ -28,7 +28,7 @@ export function ConditionsGrid({
       <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {conditions.map((c) => (
           <StaggerItem key={c.name}>
-            <div className="h-full bg-warm-white border border-sand rounded-2xl p-7 hover:border-sage hover:-translate-y-1 hover:shadow-lg transition-all duration-500">
+            <div className="h-full bg-warm-white border border-sand rounded-2xl p-7 hover:bg-sage-light hover:border-sage hover:-translate-y-1 hover:shadow-lg transition-all duration-500">
               <h3 className="font-display text-lg text-charcoal mb-2">{c.name}</h3>
               <p className="text-sm text-warm-gray leading-relaxed">{c.description}</p>
             </div>

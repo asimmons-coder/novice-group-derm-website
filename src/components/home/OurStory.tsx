@@ -55,7 +55,7 @@ export function OurStory() {
         <Reveal className="lg:col-span-6 order-1 lg:order-2">
           <SectionLabel>Our Story</SectionLabel>
           <SignatureHeadline
-            primary="Three generations."
+            primary="Multiple generations."
             accent="One standard of care."
             size="lg"
             className="mb-8"

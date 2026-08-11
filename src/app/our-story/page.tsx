@@ -11,7 +11,7 @@ import { images } from '@/lib/images';
 export const metadata: Metadata = {
   title: 'Our Story & Providers',
   description:
-    'Three generations of board-certified dermatologists in Bloomfield Hills. Meet Dr. Fred, Dr. Karlee, and Dr. Taylor Novice — all trained at Henry Ford Hospital.',
+    'Multiple generations of board-certified dermatologists in Bloomfield Hills. Meet Dr. Fred, Dr. Karlee, and Dr. Taylor Novice — all trained at Henry Ford Hospital.',
 };
 
 const providerImages: Record<string, string> = {
@@ -27,7 +27,7 @@ export default function OurStoryPage() {
       <PageHero
         label="Our Story"
         primary="A family practice,"
-        accent="three generations deep."
+        accent="multiple generations deep."
         description="Twenty-five years ago, Dr. Fred Novice opened Novice Group Dermatology with a simple commitment: deliver the kind of care a family doctor used to deliver — personal, continuous, and uncompromising. His daughters Dr. Karlee and Dr. Taylor have since joined him. All three trained at Henry Ford Hospital. All three are board-certified."
       />
 

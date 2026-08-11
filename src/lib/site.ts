@@ -2,7 +2,7 @@ export const site = {
   name: 'Novice Group Dermatology',
   legal: 'Novice Aesthetics and Dermatology PLLC',
   tagline: 'Skin health, elevated.',
-  supportingLine: 'Three generations. One standard of care.',
+  supportingLine: 'Multiple generations. One standard of care.',
   address: {
     street: '4120 West Maple Road, Suite 206',
     city: 'Bloomfield Hills',
@@ -86,7 +86,7 @@ export const providers = [
   {
     slug: 'fred-novice',
     name: 'Dr. Fred M. Novice, MD',
-    role: 'Founder · Board-Certified Dermatologist & Dermatopathologist',
+    role: 'Board-Certified Dermatologist & Dermatopathologist',
     yearsExperience: '42+',
     headline: 'The patriarch. Trusted authority. Decades of cosmetic mastery.',
     bio: 'Dr. Fred Novice founded the practice after completing his dermatology residency at Henry Ford Hospital, where he served as Chief Resident, and a dermatopathology fellowship at the University of Oklahoma. With more than 30 years of Botox and filler experience, he is among the most experienced cosmetic injectors practicing today, and has trained colleagues around the world in advanced injection techniques.',
@@ -183,7 +183,7 @@ export const faqs = [
   },
   {
     q: 'Who are the doctors at Novice Group Dermatology?',
-    a: 'Our providers are Dr. Fred Novice, MD (founder, board-certified dermatologist and dermatopathologist), Dr. Karlee Novice, MD, Dr. Taylor Novice, MD, MBA, and Erin Koppelman, MSN, APRN, NP-C. Three generations of the Novice family practice together in Bloomfield Hills.',
+    a: 'Our providers are Dr. Fred Novice, MD (board-certified dermatologist and dermatopathologist), Dr. Karlee Novice, MD, Dr. Taylor Novice, MD, MBA, and Erin Koppelman, MSN, APRN, NP-C. Multiple generations of the Novice family practice together in Bloomfield Hills.',
   },
   {
     q: 'Are your dermatologists board-certified?',

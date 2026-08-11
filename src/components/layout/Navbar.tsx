@@ -2,15 +2,16 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
+import { ChevronDown, Menu, X } from 'lucide-react';
 import { Logo } from '@/components/ui/Logo';
 import { LinkButton } from '@/components/ui/Button';
-import { navLinks, booking } from '@/lib/site';
+import { navLinks, booking, services } from '@/lib/site';
 import { clsx } from '@/lib/clsx';
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 24);
@@ -46,16 +47,90 @@ export function Navbar() {
         <Logo />
 
         <ul className="hidden lg:flex items-center gap-9">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                className="text-[13px] font-medium text-charcoal/80 hover:text-charcoal transition-colors"
+          {navLinks.map((link) => {
+            if (link.href !== '/services') {
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-[13px] font-medium text-charcoal/80 hover:text-charcoal transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            }
+
+            return (
+              <li
+                key={link.href}
+                className="relative"
+                onMouseEnter={() => setServicesOpen(true)}
+                onMouseLeave={() => setServicesOpen(false)}
+                onFocus={() => setServicesOpen(true)}
+                onBlur={(event) => {
+                  if (!event.currentTarget.contains(event.relatedTarget)) {
+                    setServicesOpen(false);
+                  }
+                }}
+                onKeyDown={(event) => {
+                  if (event.key === 'Escape') {
+                    setServicesOpen(false);
+                    event.currentTarget.querySelector<HTMLAnchorElement>('a')?.focus();
+                  }
+                }}
               >
-                {link.label}
-              </Link>
-            </li>
-          ))}
+                <Link
+                  href={link.href}
+                  className="flex items-center gap-1.5 text-[13px] font-medium text-charcoal/80 hover:text-charcoal transition-colors"
+                  aria-expanded={servicesOpen}
+                  aria-haspopup="menu"
+                >
+                  {link.label}
+                  <ChevronDown
+                    size={14}
+                    aria-hidden
+                    className={clsx(
+                      'transition-transform duration-300',
+                      servicesOpen && 'rotate-180',
+                    )}
+                  />
+                </Link>
+
+                <div
+                  className={clsx(
+                    'absolute left-1/2 top-full w-64 -translate-x-1/2 pt-4 transition-all duration-300',
+                    servicesOpen
+                      ? 'visible translate-y-0 opacity-100'
+                      : 'invisible -translate-y-2 opacity-0',
+                  )}
+                >
+                  <div className="overflow-hidden rounded-2xl border border-sand bg-warm-white p-2 shadow-xl">
+                    <ul aria-label="Services">
+                      {services.map((service) => (
+                        <li key={service.slug}>
+                          <Link
+                            href={`/services/${service.slug}`}
+                            className="block rounded-xl px-4 py-3 text-[13px] font-medium text-charcoal/80 transition-colors duration-300 hover:bg-sage-light hover:text-charcoal focus-visible:bg-sage-light focus-visible:text-charcoal"
+                          >
+                            {service.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="mt-1 border-t border-sand pt-1">
+                      <Link
+                        href="/services"
+                        className="block rounded-xl px-4 py-3 text-[13px] font-medium text-sage transition-colors duration-300 hover:bg-sage-light hover:text-charcoal focus-visible:bg-sage-light focus-visible:text-charcoal"
+                      >
+                        All Services
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            );
+          })}
         </ul>
 
         <div className="hidden lg:block">
@@ -97,6 +172,21 @@ export function Navbar() {
                 >
                   {link.label}
                 </Link>
+                {link.href === '/services' && (
+                  <ul className="pb-4 pl-5 space-y-1">
+                    {services.map((service) => (
+                      <li key={service.slug}>
+                        <Link
+                          href={`/services/${service.slug}`}
+                          onClick={() => setOpen(false)}
+                          className="block py-2 text-sm font-medium text-warm-gray transition-colors hover:text-sage"
+                        >
+                          {service.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </li>
             ))}
           </ul>

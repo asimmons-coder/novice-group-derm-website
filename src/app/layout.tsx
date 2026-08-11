@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     template: '%s | Novice Group Dermatology',
   },
   description:
-    'Three generations of board-certified dermatologists in Bloomfield Hills, Michigan. Medical, cosmetic, surgical, and in-house dermatopathology under one roof.',
+    'Multiple generations of board-certified dermatologists in Bloomfield Hills, Michigan. Medical, cosmetic, surgical, and in-house dermatopathology under one roof.',
   keywords: [
     'dermatologist Bloomfield Hills',
     'Novice Group Dermatology',
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Novice Group Dermatology | Skin Health, Elevated',
     description:
-      'Three generations of board-certified dermatologists. Medical, cosmetic, surgical, and in-house dermatopathology in Bloomfield Hills, Michigan.',
+      'Multiple generations of board-certified dermatologists. Medical, cosmetic, surgical, and in-house dermatopathology in Bloomfield Hills, Michigan.',
     url: 'https://novicegroupderm.com',
     siteName: 'Novice Group Dermatology',
     locale: 'en_US',
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Novice Group Dermatology',
-    description: 'Skin health, elevated. Three generations. One standard of care.',
+    description: 'Skin health, elevated. Multiple generations. One standard of care.',
     images: ['/og-image.jpg'],
   },
   robots: {
@@ -84,6 +84,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={`${playfair.variable} ${cormorant.variable} ${dmSans.variable}`}
     >
       <body className="min-h-screen flex flex-col bg-cream text-charcoal">

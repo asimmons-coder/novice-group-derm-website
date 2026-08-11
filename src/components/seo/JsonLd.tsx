@@ -10,7 +10,7 @@ export function JsonLd() {
         name: site.name,
         legalName: site.legal,
         description:
-          'Three generations of board-certified dermatologists offering medical, cosmetic, surgical, and in-house dermatopathology services in Bloomfield Hills, Michigan.',
+          'Multiple generations of board-certified dermatologists offering medical, cosmetic, surgical, and in-house dermatopathology services in Bloomfield Hills, Michigan.',
         url: site.url,
         telephone: site.phone,
         email: site.email,

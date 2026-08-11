@@ -91,6 +91,10 @@ export default function CosmeticPage() {
         accent="Not reinvention."
         description="Cosmetic dermatology done right is invisible — symmetrical, not stretched. With more than 30 years of injection experience, Dr. Fred Novice has trained colleagues across the world in the techniques that make natural results possible."
         bg="gradient-cosmetic"
+        image={{
+          src: images.cosmetic.botox,
+          alt: 'Dermatologist performing a cosmetic injection',
+        }}
       />
 
       <Section bg="cream" padding="xl">

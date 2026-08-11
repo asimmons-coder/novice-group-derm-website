@@ -6,6 +6,7 @@ import { Reveal } from '@/components/ui/Reveal';
 import { Accordion } from '@/components/ui/Accordion';
 import { ConditionsGrid, ProcessSteps } from '@/components/services/ConditionsGrid';
 import { BookingCTA } from '@/components/home/BookingCTA';
+import { images } from '@/lib/images';
 
 export const metadata: Metadata = {
   title: 'Medical Dermatology',
@@ -64,6 +65,10 @@ export default function MedicalDermatologyPage() {
         primary="The clinical foundation"
         accent="of healthy skin."
         description="From a kid&rsquo;s first acne flare to an adult&rsquo;s annual skin cancer screening, the medical side of dermatology is the heart of the practice. Three board-certified dermatologists and a nurse practitioner — listening carefully, diagnosing precisely, treating thoughtfully."
+        image={{
+          src: images.hallway,
+          alt: 'The Novice Group Dermatology providers in the office hallway',
+        }}
       />
 
       <ConditionsGrid

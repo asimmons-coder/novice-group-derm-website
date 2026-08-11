@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import { PageHero } from '@/components/ui/PageHero';
 import { Section } from '@/components/ui/Container';
 import { SignatureHeadline, SectionLabel } from '@/components/ui/SignatureHeadline';
@@ -37,55 +36,40 @@ export default function DermatopathologyPage() {
         primary="Diagnosis,"
         accent="under the microscope."
         description="Dermatopathology is the medical specialty that diagnoses skin disease by examining tissue under the microscope. Two of our dermatologists are also fellowship-trained pathologists — meaning the doctor who examines your skin is also the one who reads your biopsy."
+        image={{
+          src: images.lab,
+          alt: 'The in-house dermatopathology lab at Novice Group Dermatology',
+        }}
       />
 
-      <Section bg="cream" padding="xl">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-          <Reveal className="lg:col-span-6 order-2 lg:order-1">
-            <div className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl max-w-md mx-auto">
-              <Image
-                src={images.services.pathology}
-                alt="Dermatopathology slides under microscope"
-                fill
-                sizes="(max-width: 1024px) 90vw, 480px"
-                className="object-cover"
-              />
-              <div className="absolute top-6 left-6 bg-warm-white/90 backdrop-blur-sm px-5 py-2 rounded-full">
-                <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-charcoal">
-                  In-House Lab
-                </span>
-              </div>
-            </div>
-          </Reveal>
-
-          <Reveal className="lg:col-span-6 order-1 lg:order-2">
-            <SectionLabel>Our Advantage</SectionLabel>
-            <SignatureHeadline
-              primary="The same doctor"
-              accent="from skin to slide."
-              size="lg"
-            />
-            <div className="mt-8 space-y-5 text-warm-gray text-lg leading-relaxed">
-              <p>
-                Most dermatology practices send biopsies to outside labs. The
-                dermatologist who saw the lesion never sees the slide; they get a
-                report from a pathologist who never saw the patient. It works most
-                of the time. Sometimes it doesn&rsquo;t.
-              </p>
-              <p>
-                When a single doctor sees both the patient AND the slide, the
-                diagnosis is grounded in everything that happened in the exam room.
-                That continuity — what dermatologists call clinicopathologic
-                correlation — is the highest standard of diagnostic accuracy. And
-                it&rsquo;s almost unheard of in private practice.
-              </p>
-              <p>
-                At Novice Group, both Dr. Fred and Dr. Taylor are fellowship-trained
-                dermatopathologists. Your biopsy doesn&rsquo;t leave the building.
-              </p>
-            </div>
-          </Reveal>
-        </div>
+      <Section bg="cream" padding="xl" size="narrow">
+        <Reveal>
+          <SectionLabel>Our Advantage</SectionLabel>
+          <SignatureHeadline
+            primary="The same doctor"
+            accent="from skin to slide."
+            size="lg"
+          />
+          <div className="mt-8 space-y-5 text-warm-gray text-lg leading-relaxed">
+            <p>
+              Most dermatology practices send biopsies to outside labs. The
+              dermatologist who saw the lesion never sees the slide; they get a
+              report from a pathologist who never saw the patient. It works most
+              of the time. Sometimes it doesn&rsquo;t.
+            </p>
+            <p>
+              When a single doctor sees both the patient AND the slide, the
+              diagnosis is grounded in everything that happened in the exam room.
+              That continuity — what dermatologists call clinicopathologic
+              correlation — is the highest standard of diagnostic accuracy. And
+              it&rsquo;s almost unheard of in private practice.
+            </p>
+            <p>
+              At Novice Group, both Dr. Fred and Dr. Taylor are fellowship-trained
+              dermatopathologists. Your biopsy doesn&rsquo;t leave the building.
+            </p>
+          </div>
+        </Reveal>
       </Section>
 
       <Section bg="warm-white" padding="xl">

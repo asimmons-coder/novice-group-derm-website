@@ -1,6 +1,6 @@
 /**
- * Unsplash placeholder images, grouped by purpose.
- * Centralized so they can be swapped for real photography in one place.
+ * Site imagery, grouped by purpose.
+ * Centralized so photography can be managed in one place.
  */
 
 export const images = {
@@ -20,23 +20,20 @@ export const images = {
   },
   lab: '/images/lab-microscope.jpg',
   hallway: '/images/providers-hallway.jpg',
+  providersTrio: '/images/providers-trio.jpg',
   services: {
-    medical:
-      'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=85&w=1200',
-    cosmetic:
-      'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&q=85&w=1200',
+    medical: '/images/treatment-room.jpg',
+    cosmetic: '/images/office-art-hallway.jpg',
     surgical: '/images/surgical-detail.jpg',
     pathology: '/images/lab-microscope.jpg',
   },
   cosmetic: {
     // Self-hosted CC0 photo (Wikimedia Commons, "Doctor performing Botox injection")
     botox: '/images/botox-injection.jpg',
-    fillers:
-      'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=85&w=1200',
+    fillers: '/images/cosmetic-injection.jpg',
     kybella:
       'https://images.unsplash.com/photo-1666214280557-f1b5022eb634?auto=format&fit=crop&q=85&w=1200',
-    laser:
-      'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=85&w=1200',
+    laser: '/images/ipl-treatment.jpg',
     peels:
       'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&q=85&w=1200',
     microneedling:

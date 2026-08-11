@@ -19,7 +19,7 @@ export function DifferentiatorStrip() {
                 <p className="mt-3 text-[13px] md:text-sm text-cream/90 font-medium">
                   {stat.label}
                 </p>
-                <p className="mt-1 font-accent italic text-xs md:text-sm text-taupe">
+                <p className="mt-1 font-accent text-xs md:text-sm text-taupe">
                   {stat.sublabel}
                 </p>
               </div>

@@ -34,7 +34,7 @@ export function Hero() {
             <h1 className="font-[family-name:var(--font-display)] text-5xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight text-charcoal mb-8">
               Love your skin,
               <br />
-              <span className="font-[family-name:var(--font-accent)] italic font-normal text-warm-gray">
+              <span className="font-[family-name:var(--font-accent)] font-normal text-warm-gray">
                 from generation
               </span>
               <br />

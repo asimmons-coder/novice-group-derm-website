@@ -26,7 +26,7 @@ export function Footer() {
           {/* Brand */}
           <div className="md:col-span-4">
             <Logo variant="light" />
-            <p className="mt-6 max-w-xs font-accent italic text-cream/70 text-lg">
+            <p className="mt-6 max-w-xs font-accent text-cream/70 text-lg">
               {site.tagline}
               <br />
               {site.supportingLine}

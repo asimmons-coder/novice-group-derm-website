@@ -52,7 +52,7 @@ export function Testimonials() {
               transition={{ duration: 0.5 }}
             >
               <p
-                className="font-accent italic text-2xl md:text-3xl text-charcoal leading-relaxed mb-10 max-w-3xl mx-auto"
+                className="font-accent text-2xl md:text-3xl text-charcoal leading-relaxed mb-10 max-w-3xl mx-auto"
                 dangerouslySetInnerHTML={{ __html: testimonials[index].quote }}
               />
               <div className="flex justify-center gap-1 mb-5">

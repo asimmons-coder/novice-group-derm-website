@@ -51,7 +51,7 @@ export default function OurStoryPage() {
             across the country, the Novice family has chosen, deliberately, to remain
             independent.
           </p>
-          <p className="font-accent italic text-2xl text-charcoal/80">
+          <p className="font-accent text-2xl text-charcoal/80">
             &ldquo;We didn&rsquo;t want our patients to be a metric. We wanted them to be
             our patients.&rdquo;
           </p>
@@ -102,7 +102,7 @@ export default function OurStoryPage() {
                   <h3 className="font-display text-4xl md:text-5xl text-charcoal mb-6 leading-tight">
                     {p.name}
                   </h3>
-                  <p className="font-accent italic text-2xl text-charcoal/80 mb-8 max-w-xl">
+                  <p className="font-accent text-2xl text-charcoal/80 mb-8 max-w-xl">
                     {p.headline}
                   </p>
                   <p className="text-lg text-warm-gray leading-relaxed mb-10 max-w-2xl">

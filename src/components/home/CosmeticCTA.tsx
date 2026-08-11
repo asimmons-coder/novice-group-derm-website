@@ -51,7 +51,7 @@ export function CosmeticCTA() {
             <p className="font-display text-5xl text-sand leading-none mb-6 select-none" aria-hidden>
               &ldquo;
             </p>
-            <p className="font-accent italic text-xl md:text-2xl text-charcoal/85 leading-relaxed mb-8">
+            <p className="font-accent text-xl md:text-2xl text-charcoal/85 leading-relaxed mb-8">
               The goal is never to change your face. It&rsquo;s to restore
               what time has shifted. Symmetry, volume, movement. When it&rsquo;s
               done well, people notice you, not the work.

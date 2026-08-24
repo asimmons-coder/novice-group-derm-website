@@ -12,7 +12,7 @@ export type Post = {
 
 export const posts: Post[] = [
   {
-    slug: 'in-house-dermatopathology-bloomfield-hills',
+    slug: 'who-reads-your-biopsy',
     title: 'Why it matters that your dermatologist reads the slides',
     description:
       'At Novice Group in Bloomfield Hills, a lab processes biopsy slides and Dr. Fred or Dr. Taylor Novice reads them. Why that clinicopathologic correlation matters.',

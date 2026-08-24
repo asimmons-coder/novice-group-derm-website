@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: 'Privacy Policy',
   description:
     'How Novice Group Dermatology handles information collected through this website, including contact form submissions and analytics.',
+  alternates: {
+    canonical: '/privacy',
+  },
 };
 
 export default function PrivacyPage() {

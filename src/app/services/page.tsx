@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   title: 'Services',
   description:
     'Medical, cosmetic, surgical, and dermatopathology services in Bloomfield Hills, Michigan. Complete skin care under one roof.',
+  alternates: {
+    canonical: '/services',
+  },
 };
 
 const serviceImages: Record<string, string> = {

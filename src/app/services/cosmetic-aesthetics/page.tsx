@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   title: 'Cosmetic & Aesthetics',
   description:
     'Botox, fillers, microneedling, lasers, and chemical peels in Bloomfield Hills. Three decades of injection artistry from Dr. Fred Novice.',
+  alternates: {
+    canonical: '/services/cosmetic-aesthetics',
+  },
 };
 
 const treatments = [

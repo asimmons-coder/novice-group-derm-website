@@ -39,6 +39,10 @@ const nextConfig: NextConfig = {
         destination: "/patient-resources",
         permanent: false,
       },
+      { source: "/services/medical", destination: "/services/medical-dermatology", permanent: true },
+      { source: "/services/cosmetic", destination: "/services/cosmetic-aesthetics", permanent: true },
+      { source: "/services/surgical", destination: "/services/surgical-dermatology", permanent: true },
+      { source: "/services/pathology", destination: "/services/dermatopathology", permanent: true },
     ];
   },
 };

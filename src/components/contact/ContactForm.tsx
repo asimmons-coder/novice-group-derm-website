@@ -147,6 +147,10 @@ export function ContactForm() {
         />
       </Field>
 
+      <p className="text-sm text-warm-gray">
+        Do not include medical details or photos. Call the office for clinical questions.
+      </p>
+
       {sendError && <p className="text-sm text-blush">{sendError}</p>}
 
       <div className="pt-2">

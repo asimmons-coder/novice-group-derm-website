@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   title: 'Our Story & Providers',
   description:
     'Multiple generations of board-certified dermatologists in Bloomfield Hills. Meet Dr. Fred, Dr. Karlee, and Dr. Taylor Novice — all trained at Henry Ford Hospital.',
+  alternates: {
+    canonical: '/our-story',
+  },
 };
 
 const providerImages: Record<string, string> = {

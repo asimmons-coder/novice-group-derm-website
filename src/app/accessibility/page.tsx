@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: 'Accessibility',
   description:
     'Accessibility statement for the Novice Group Dermatology website, including our standards, current measures, and how to report an issue.',
+  alternates: {
+    canonical: '/accessibility',
+  },
 };
 
 export default function AccessibilityPage() {

@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   title: 'Patient Resources',
   description:
     'New patient forms, accepted insurance, and what to expect at your first visit to Novice Group Dermatology in Bloomfield Hills, Michigan.',
+  alternates: {
+    canonical: '/patient-resources',
+  },
 };
 
 

@@ -18,12 +18,12 @@ export function Hero() {
         />
         <div
           aria-hidden
-          className="absolute inset-0 bg-gradient-to-r from-cream via-cream/70 to-transparent md:via-cream/40"
+          className="absolute inset-0 bg-gradient-to-r from-cream via-cream/85 to-transparent"
         />
       </div>
 
       <div className="max-w-7xl w-full mx-auto px-6 md:px-12 relative">
-        <StaggerGroup className="max-w-2xl">
+        <StaggerGroup className="max-w-xl">
           <StaggerItem>
             <span className="inline-block text-gold uppercase tracking-[0.4em] text-xs font-semibold mb-6">
               Est. 1999, Bloomfield Hills, MI

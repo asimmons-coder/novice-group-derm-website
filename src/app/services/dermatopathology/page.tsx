@@ -10,7 +10,7 @@ import { images } from '@/lib/images';
 export const metadata: Metadata = {
   title: 'Dermatopathology',
   description:
-    'In-house dermatopathology in Bloomfield Hills. The same dermatologist who examines your skin reads your biopsy under the microscope.',
+    'Dermatopathology in Bloomfield Hills. A lab processes the slides. Dr. Fred or Dr. Taylor Novice, fellowship-trained dermatopathologists, read them.',
   alternates: {
     canonical: '/services/dermatopathology',
   },
@@ -22,12 +22,12 @@ const steps = [
     body: 'Performed in our office during your visit, with care to minimize discomfort and scarring.',
   },
   {
-    title: 'In-House Analysis',
-    body: 'Slides are processed and read on-site by Dr. Fred or Dr. Taylor — both fellowship-trained dermatopathologists.',
+    title: 'Lab Processing',
+    body: 'Slides are processed by a laboratory. We do not run a pathology lab in the office.',
   },
   {
-    title: 'Same-Doctor Diagnosis',
-    body: 'The dermatologist who saw your skin sees your slides. The diagnosis is grounded in clinical context — and ready in days, not weeks.',
+    title: 'Your Doctor Reads Them',
+    body: 'Dr. Fred or Dr. Taylor reads the slides. The dermatologist who saw your skin is part of the diagnosis under the microscope.',
   },
 ];
 
@@ -41,7 +41,7 @@ export default function DermatopathologyPage() {
         description="Dermatopathology is the medical specialty that diagnoses skin disease by examining tissue under the microscope. Two of our dermatologists are also fellowship-trained pathologists — meaning the doctor who examines your skin is also the one who reads your biopsy."
         image={{
           src: images.lab,
-          alt: 'The in-house dermatopathology lab at Novice Group Dermatology',
+          alt: 'Microscope used for dermatopathology slide review at Novice Group Dermatology',
         }}
       />
 
@@ -55,21 +55,20 @@ export default function DermatopathologyPage() {
           />
           <div className="mt-8 space-y-5 text-warm-gray text-lg leading-relaxed">
             <p>
-              Most dermatology practices send biopsies to outside labs. The
-              dermatologist who saw the lesion never sees the slide; they get a
-              report from a pathologist who never saw the patient. It works most
-              of the time. Sometimes it doesn&rsquo;t.
+              Most dermatology practices send biopsies to a laboratory. The
+              dermatologist who saw the lesion never sees the slide. They get a
+              report from a pathologist who never saw the patient. That works
+              most of the time. Sometimes it doesn&rsquo;t.
             </p>
             <p>
-              When a single doctor sees both the patient AND the slide, the
-              diagnosis is grounded in everything that happened in the exam room.
-              That continuity — what dermatologists call clinicopathologic
-              correlation — is the highest standard of diagnostic accuracy. And
-              it&rsquo;s almost unheard of in private practice.
+              When a doctor sees both the patient and the slide, the diagnosis
+              is grounded in everything that happened in the exam room.
+              Dermatologists call that clinicopathologic correlation. It is
+              uncommon in a private office.
             </p>
             <p>
               At Novice Group, both Dr. Fred and Dr. Taylor are fellowship-trained
-              dermatopathologists. Your biopsy doesn&rsquo;t leave the building.
+              dermatopathologists. A lab processes the slides. They read them.
             </p>
           </div>
         </Reveal>

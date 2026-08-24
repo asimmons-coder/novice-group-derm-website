@@ -163,11 +163,11 @@ export default function OurStoryPage() {
               practices.
             </p>
             <p>
-              We do it differently. Medical, cosmetic, surgical, and pathology all
-              happen here, with the dermatologists you already know. The doctor who
-              examined the lesion is the same one who reads your biopsy and the same
-              one who follows up the next time you come in. It&rsquo;s the way medicine
-              is supposed to work.
+              We do it differently. Medical, cosmetic, and surgical care happen
+              here, with the dermatologists you already know. A lab processes
+              the slides. The doctor who examined the lesion is the one who
+              reads them and the one who follows up the next time you come in.
+              It&rsquo;s the way medicine is supposed to work.
             </p>
           </Reveal>
         </div>

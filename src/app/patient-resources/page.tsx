@@ -51,7 +51,7 @@ const faqs = [
   {
     question: 'How are biopsy results communicated?',
     answer:
-      'Because we read our own biopsies in-house, results are typically available in days. We will reach out by phone with results and next steps. We do not have a patient portal.',
+      'A lab processes the slides, then Dr. Fred or Dr. Taylor reads them. We will reach out by phone with results and next steps. We do not have a patient portal.',
   },
 ];
 

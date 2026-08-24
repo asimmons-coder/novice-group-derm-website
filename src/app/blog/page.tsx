@@ -1,14 +1,21 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { PageHero } from '@/components/ui/PageHero';
 import { Section } from '@/components/ui/Container';
-import { Reveal } from '@/components/ui/Reveal';
+import { Reveal, StaggerGroup, StaggerItem } from '@/components/ui/Reveal';
 import { BookingCTA } from '@/components/home/BookingCTA';
+import {
+  posts,
+  getPostAuthor,
+  getAuthorLastName,
+  formatPostDate,
+} from '@/lib/posts';
 
 export const metadata: Metadata = {
   title: 'Blog & Education',
   description:
-    'Skin health education from board-certified dermatologists. Articles on conditions, cosmetics, sun protection, and skincare products.',
-  robots: { index: false, follow: false },
+    'Skin health education from board-certified dermatologists. Articles on conditions, cosmetics, sun protection, and skincare.',
+  robots: { index: true, follow: true },
   alternates: {
     canonical: '/blog',
   },
@@ -25,25 +32,33 @@ export default function BlogPage() {
       />
 
       <Section bg="cream" padding="xl">
-        <Reveal>
-          <div className="text-center max-w-xl mx-auto py-16">
-            <p className="font-display text-3xl text-charcoal mb-4">Coming soon</p>
-            <p className="text-warm-gray leading-relaxed">
-              Our dermatologists are putting together articles on skin health,
-              cosmetic treatments, and product recommendations. Check back soon,
-              or follow us on{' '}
-              <a
-                href="https://www.instagram.com/novicegroupderm/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sage hover:text-charcoal transition-colors font-semibold"
-              >
-                Instagram
-              </a>{' '}
-              for updates.
-            </p>
-          </div>
-        </Reveal>
+        <StaggerGroup className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {posts.map((post) => {
+            const author = getPostAuthor(post);
+            return (
+              <StaggerItem key={post.slug}>
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="group flex h-full flex-col bg-warm-white rounded-3xl overflow-hidden border border-sand hover:-translate-y-1 hover:shadow-xl transition-all duration-500"
+                >
+                  <div className="p-7 flex flex-col flex-1">
+                    <p className="text-[11px] uppercase tracking-[0.18em] font-semibold text-sage mb-3">
+                      {formatPostDate(post.date)}
+                      <span className="text-warm-gray"> · {getAuthorLastName(author)}</span>
+                    </p>
+                    <h2 className="font-display text-2xl text-charcoal mb-3 group-hover:text-sage transition-colors">
+                      {post.title}
+                    </h2>
+                    <p className="text-sm text-warm-gray leading-relaxed mb-6 flex-1">
+                      {post.description}
+                    </p>
+                    <span className="text-sm font-semibold text-sage">Read the note</span>
+                  </div>
+                </Link>
+              </StaggerItem>
+            );
+          })}
+        </StaggerGroup>
       </Section>
 
       <BookingCTA />

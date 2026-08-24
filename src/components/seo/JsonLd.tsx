@@ -19,7 +19,7 @@ export function JsonLd() {
         alternateName: [site.alternateName, site.legal],
         legalName: site.legal,
         description:
-          'Two generations of board-certified dermatologists offering medical, cosmetic, surgical, and in-house dermatopathology services in Bloomfield Hills, Michigan.',
+          'Two generations of board-certified dermatologists offering medical, cosmetic, surgical, and dermatopathology services in Bloomfield Hills, Michigan. Slides are processed by a lab; Dr. Fred Novice and Dr. Taylor Novice read them.',
         url: site.url,
         telephone: site.phoneRaw,
         faxNumber: site.fax,

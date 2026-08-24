@@ -89,7 +89,7 @@ export default function MedicalDermatologyPage() {
           },
           {
             title: 'Diagnose',
-            body: 'A careful exam, dermoscopy when needed, and an in-house biopsy if it&rsquo;s warranted. The same doctor reads it under the microscope.',
+            body: 'A careful exam, dermoscopy when needed, and a biopsy in the office if it is warranted. A lab processes the slides. The same doctor reads them under the microscope.',
           },
           {
             title: 'Treat',

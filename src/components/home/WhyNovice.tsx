@@ -9,7 +9,7 @@ const features = [
     accent: 'bg-sage',
     title: 'Diagnosis meets pathology',
     body:
-      'Two of our dermatologists are also fellowship-trained dermatopathologists. The doctor who sees your skin reads your biopsy under the microscope. This clinicopathologic correlation is the highest standard of diagnostic accuracy — and almost no private practice offers it.',
+      'Two of our dermatologists are also fellowship-trained dermatopathologists. A lab processes the slides. Dr. Fred or Dr. Taylor reads them. The doctor who sees your skin is part of the diagnosis under the microscope. That clinicopathologic correlation is uncommon in a private office.',
   },
   {
     icon: Wand2,

@@ -3,25 +3,9 @@ import { SignatureHeadline, SectionLabel } from '@/components/ui/SignatureHeadli
 import { Reveal } from '@/components/ui/Reveal';
 import { faqs } from '@/lib/site';
 
-// FAQPage schema. AI answer engines disproportionately favor FAQ markup, and
-// native <details> keeps every answer in the DOM (crawlable even when collapsed).
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqs.map((f) => ({
-    '@type': 'Question',
-    name: f.q,
-    acceptedAnswer: { '@type': 'Answer', text: f.a },
-  })),
-};
-
 export function FAQ() {
   return (
     <Section bg="cream" padding="lg" size="narrow">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
       <Reveal className="text-center max-w-2xl mx-auto mb-14">
         <SectionLabel align="center">Common Questions</SectionLabel>
         <SignatureHeadline

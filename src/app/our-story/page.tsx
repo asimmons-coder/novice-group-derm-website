@@ -28,7 +28,7 @@ export default function OurStoryPage() {
         label="Our Story"
         primary="A family practice,"
         accent="multiple generations deep."
-        description="Twenty-five years ago, Dr. Fred Novice opened Novice Group Dermatology with a simple commitment: deliver the kind of care a family doctor used to deliver — personal, continuous, and uncompromising. His daughters Dr. Karlee and Dr. Taylor have since joined him. All three trained at Henry Ford Hospital. All three are board-certified."
+        description="Since 1999, Dr. Fred Novice has led Novice Group Dermatology with a simple commitment: deliver the kind of care a family doctor used to deliver — personal, continuous, and uncompromising. His daughters Dr. Karlee and Dr. Taylor have since joined him. All three trained at Henry Ford Hospital. All three are board-certified."
       />
 
       {/* Practice History Narrative */}
@@ -92,7 +92,7 @@ export default function OurStoryPage() {
                   <div className="mt-6 inline-flex items-center gap-3 bg-warm-white border border-sand rounded-full px-5 py-2.5 shadow-sm">
                     <span className="font-display text-gold text-xl">{p.yearsExperience}</span>
                     <span className="text-[10px] uppercase tracking-[0.15em] text-warm-gray font-semibold">
-                      Years of Experience
+                      {p.yearsLabel}
                     </span>
                   </div>
                 </div>

@@ -15,11 +15,6 @@ export const metadata: Metadata = {
     'New patient forms, accepted insurance, and what to expect at your first visit to Novice Group Dermatology in Bloomfield Hills, Michigan.',
 };
 
-const insurance = [
-  'Aetna', 'Humana', 'United Healthcare', 'Blue Cross Blue Shield',
-  'Cigna', 'Medicare', 'Medicaid', 'Priority Health',
-  'Meridian', 'Molina', 'HAP', 'McLaren Health Plan',
-];
 
 const firstVisitItems = [
   'Photo ID and insurance card',
@@ -53,7 +48,7 @@ const faqs = [
   {
     question: 'How are biopsy results communicated?',
     answer:
-      'Because we read our own biopsies in-house, results are typically available in days. We will reach out by phone or through the patient portal with results and next steps.',
+      'Because we read our own biopsies in-house, results are typically available in days. We will reach out by phone with results and next steps. We do not have a patient portal.',
   },
 ];
 
@@ -77,7 +72,7 @@ export default function PatientResourcesPage() {
             <div>
               <SectionLabel>Insurance</SectionLabel>
               <SignatureHeadline
-                primary="34+ plans accepted,"
+                primary="These plans accepted,"
                 accent="including Medicaid."
                 size="md"
               />
@@ -89,7 +84,7 @@ export default function PatientResourcesPage() {
             coverage for you before your visit.
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 max-w-4xl">
-            {insurance.map((plan) => (
+            {site.insurance.map((plan) => (
               <div
                 key={plan}
                 className="flex items-center gap-2 bg-warm-white border border-sand rounded-xl px-4 py-3"

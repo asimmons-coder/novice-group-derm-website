@@ -3,10 +3,14 @@ import { site } from '@/lib/site';
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: {
-      userAgent: '*',
-      allow: '/',
-    },
-    sitemap: `${site.url}/sitemap.xml`,
+    rules: [
+      { userAgent: '*', allow: '/' },
+      { userAgent: 'GPTBot', allow: '/' },
+      { userAgent: 'ChatGPT-User', allow: '/' },
+      { userAgent: 'PerplexityBot', allow: '/' },
+      { userAgent: 'ClaudeBot', allow: '/' },
+      { userAgent: 'Google-Extended', allow: '/' },
+    ],
+    sitemap: [`${site.url}/sitemap.xml`, `${site.url}/llms.txt`],
   };
 }

@@ -33,7 +33,7 @@ const faqs = [
   {
     question: 'How do I become a new patient?',
     answer:
-      'Call us at (248) 932-3376 or use our online booking form. We accept new patients of all ages, and most appointments can be scheduled within a few weeks.',
+      'Call us at (248) 826-2536 or use our online booking form. We accept new patients of all ages, and most appointments can be scheduled within a few weeks.',
   },
   {
     question: 'Will the same doctor see me each visit?',
@@ -127,7 +127,7 @@ export default function PatientResourcesPage() {
               Patient forms are provided at your first visit or can be requested by calling the office.
             </p>
             <p className="text-sm text-warm-gray mt-2">
-              Call <a href="tel:+12489323376" className="text-sage hover:text-charcoal transition-colors font-semibold">(248) 932-3376</a> or email{' '}
+              Call <a href="tel:+12488262536" className="text-sage hover:text-charcoal transition-colors font-semibold">(248) 826-2536</a> or email{' '}
               <a href="mailto:Skin@novicegroupderm.com" className="text-sage hover:text-charcoal transition-colors font-semibold">Skin@novicegroupderm.com</a> to request forms in advance.
             </p>
           </div>

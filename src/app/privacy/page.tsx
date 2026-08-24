@@ -41,8 +41,8 @@ export default function PrivacyPage() {
             <>
               <p>
                 If you use our contact form, we receive the name, email address, phone number,
-                and message you choose to send. We use it to respond to your inquiry and for no
-                other purpose.
+                and message you choose to send, delivered to our practice email. We use it to
+                respond to your inquiry and for no other purpose.
               </p>
               <p>
                 Like most websites, we may use analytics tools (such as Google Analytics) to

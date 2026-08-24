@@ -20,16 +20,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const blogRoutes = ['/blog', ...posts.map((post) => `/blog/${post.slug}`)];
 
-  return [
-    ...[...routes, ...legalRoutes].map((route) => ({
+  const staticEntries: MetadataRoute.Sitemap = [...routes, ...legalRoutes].map(
+    (route) => ({
       url: `${site.url}${route}`,
       changeFrequency: route === '' ? 'weekly' : 'monthly',
       priority: route === '' ? 1.0 : legalRoutes.includes(route) ? 0.3 : 0.8,
-    })),
-    ...blogRoutes.map((route) => ({
-      url: `${site.url}${route}`,
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    })),
-  ];
+    }),
+  );
+
+  const blogEntries: MetadataRoute.Sitemap = blogRoutes.map((route) => ({
+    url: `${site.url}${route}`,
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  }));
+
+  return [...staticEntries, ...blogEntries];
 }

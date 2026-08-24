@@ -32,7 +32,7 @@ export function ContactForm() {
     formState: { errors, isSubmitting },
     reset,
   } = useForm<FormData>({
-    defaultValues: { company: '' },
+    defaultValues: { company: '', reason: '' },
   });
 
   const onSubmit = async (data: FormData) => {
@@ -80,23 +80,25 @@ export function ContactForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
       <div className="hidden" aria-hidden="true">
-        <label>
+        <label htmlFor="company">
           Company
-          <input type="text" tabIndex={-1} autoComplete="off" {...register('company')} />
+          <input id="company" type="text" tabIndex={-1} autoComplete="off" {...register('company')} />
         </label>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-        <Field label="Name" error={errors.name?.message}>
+        <Field id="name" label="Name" error={errors.name?.message}>
           <input
+            id="name"
             type="text"
             {...register('name', { required: 'Required' })}
             className="form-input"
             placeholder="Jane Doe"
           />
         </Field>
-        <Field label="Email" error={errors.email?.message}>
+        <Field id="email" label="Email" error={errors.email?.message}>
           <input
+            id="email"
             type="email"
             {...register('email', {
               required: 'Required',
@@ -108,8 +110,9 @@ export function ContactForm() {
         </Field>
       </div>
 
-      <Field label="Phone">
+      <Field id="phone" label="Phone">
         <input
+          id="phone"
           type="tel"
           {...register('phone')}
           className="form-input"
@@ -117,11 +120,11 @@ export function ContactForm() {
         />
       </Field>
 
-      <Field label="Reason for visit" error={errors.reason?.message}>
+      <Field id="reason" label="Reason for visit" error={errors.reason?.message}>
         <select
+          id="reason"
           {...register('reason', { required: 'Required' })}
           className="form-input"
-          defaultValue=""
         >
           <option value="" disabled>
             Select an option
@@ -134,8 +137,9 @@ export function ContactForm() {
         </select>
       </Field>
 
-      <Field label="Message" error={errors.message?.message}>
+      <Field id="message" label="Message" error={errors.message?.message}>
         <textarea
+          id="message"
           rows={5}
           {...register('message', { required: 'Required' })}
           className="form-input resize-none"
@@ -161,7 +165,7 @@ export function ContactForm() {
           font-size: 15px;
           color: var(--color-charcoal);
           font-family: var(--font-sans);
-          transition: border-color 0.2s;
+          transition: border-color 0.2s, box-shadow 0.2s;
         }
         .form-input::placeholder {
           color: var(--color-taupe);
@@ -171,23 +175,31 @@ export function ContactForm() {
           border-color: var(--color-sage);
           background: var(--color-warm-white);
         }
+        .form-input:focus-visible {
+          outline: none;
+          border-color: var(--color-sage);
+          box-shadow: 0 0 0 3px rgba(143, 166, 143, 0.45);
+          background: var(--color-warm-white);
+        }
       `}</style>
     </form>
   );
 }
 
 function Field({
+  id,
   label,
   error,
   children,
 }: {
+  id: string;
   label: string;
   error?: string;
   children: React.ReactNode;
 }) {
   return (
     <div>
-      <label className="block text-[11px] uppercase tracking-[0.15em] font-semibold text-warm-gray mb-2">
+      <label htmlFor={id} className="block text-[11px] uppercase tracking-[0.15em] font-semibold text-warm-gray mb-2">
         {label}
       </label>
       {children}

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import { Logo } from '@/components/ui/Logo';
 import { LinkButton } from '@/components/ui/Button';
-import { navLinks, booking, services } from '@/lib/site';
+import { navLinks, booking, services, site } from '@/lib/site';
 import { clsx } from '@/lib/clsx';
 
 export function Navbar() {
@@ -195,7 +195,7 @@ export function Navbar() {
               {booking.cta}
             </LinkButton>
             <p className="mt-6 text-center text-sm text-warm-gray">
-              Or call <a href="tel:+12488262536" className="font-semibold text-charcoal">(248) 826-2536</a>
+              Or call <a href={site.phoneHref} className="font-semibold text-charcoal">{site.phone}</a>
             </p>
           </div>
         </div>

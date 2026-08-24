@@ -9,8 +9,7 @@ export const images = {
     // pre-cutover; legacy wp-content URLs die when the domain flips)
     main: '/images/hero-family.jpg',
     portrait: '/images/hero-family.jpg',
-    practice:
-      'https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?auto=format&fit=crop&q=85&w=1600',
+    practice: '/images/office-art-hallway.jpg',
   },
   providers: {
     fred: '/images/providers/fred.jpg',
@@ -22,7 +21,7 @@ export const images = {
   hallway: '/images/providers-hallway.jpg',
   providersTrio: '/images/providers-trio.jpg',
   services: {
-    medical: '/images/treatment-room.jpg',
+    medical: '/images/providers-hallway.jpg',
     cosmetic: '/images/office-art-hallway.jpg',
     surgical: '/images/surgical-detail.jpg',
     pathology: '/images/lab-microscope.jpg',
@@ -31,13 +30,10 @@ export const images = {
     // Self-hosted CC0 photo (Wikimedia Commons, "Doctor performing Botox injection")
     botox: '/images/botox-injection.jpg',
     fillers: '/images/cosmetic-injection.jpg',
-    kybella:
-      'https://images.unsplash.com/photo-1666214280557-f1b5022eb634?auto=format&fit=crop&q=85&w=1200',
+    kybella: '/images/cosmetic-injection.jpg',
     laser: '/images/ipl-treatment.jpg',
-    peels:
-      'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&q=85&w=1200',
-    microneedling:
-      'https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&q=85&w=1200',
+    peels: '/images/ipl-treatment.jpg',
+    microneedling: '/images/office-art-hallway.jpg',
   },
   shop: {
     cleanser:

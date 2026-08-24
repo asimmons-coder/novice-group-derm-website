@@ -29,7 +29,7 @@ const features = [
 
 export function WhyNovice() {
   return (
-    <Section bg="deep-brown" padding="xl">
+    <Section bg="deep-brown" padding="xl" className="overflow-hidden">
       <Reveal className="text-center mb-16">
         <SectionLabel align="center" tone="gold">
           Why Novice Group
@@ -55,7 +55,7 @@ export function WhyNovice() {
                 />
                 <div
                   aria-hidden
-                  className="absolute -bottom-20 -right-20 w-48 h-48 rounded-full bg-gold/5 group-hover:bg-gold/10 transition-colors"
+                  className="absolute -bottom-20 -right-20 hidden sm:block w-48 h-48 rounded-full bg-gold/5 group-hover:bg-gold/10 transition-colors"
                 />
                 <div className="relative">
                   <Icon size={28} className="text-gold mb-6" strokeWidth={1.5} />

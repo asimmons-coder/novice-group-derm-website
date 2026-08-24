@@ -16,8 +16,8 @@ export const site = {
   email: 'Skin@novicegroupderm.com',
   payOnline: 'https://novicegroupderm.ema.md/ema/pay/onlinepay',
   googleMaps: 'https://goo.gl/maps/CQcnFPqJiwpAJLcm9',
-  hours: 'Monday-Friday 9:00 AM - 6:00 PM',
-  hoursShort: 'Mon-Fri 9:00 - 6:00',
+  hours: 'Monday-Friday 8:30 AM - 5:00 PM',
+  hoursShort: 'Mon-Fri 8:30 - 5:00',
   social: {
     facebook: 'https://www.facebook.com/Novice-Group-Dermatology-105346554710060/',
     instagram: 'https://www.instagram.com/novicegroupderm/',
@@ -168,6 +168,7 @@ export const booking = {
   url: bookingUrlRaw || '/contact',
   isLive: Boolean(bookingUrlRaw),
   external: Boolean(bookingUrlRaw && /^https?:\/\//.test(bookingUrlRaw)),
+  cta: bookingUrlRaw ? 'Book Online' : 'Request an Appointment',
 };
 
 // FAQ surfaced on the homepage and emitted as FAQPage schema for AI answer
@@ -199,6 +200,6 @@ export const faqs = [
   },
   {
     q: 'Where are you located and what are your hours?',
-    a: 'We are at 4120 West Maple Road, Suite 206, Bloomfield Hills, MI 48301, open Monday through Friday from 9:00 AM to 6:00 PM.',
+    a: 'We are at 4120 West Maple Road, Suite 206, Bloomfield Hills, MI 48301, open Monday through Friday from 8:30 AM to 5:00 PM.',
   },
 ];

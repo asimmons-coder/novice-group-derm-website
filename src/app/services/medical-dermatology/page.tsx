@@ -43,7 +43,7 @@ const faqs = [
   {
     question: 'What insurance do you accept?',
     answer:
-      'We accept 34+ plans including Aetna, BCBS, Cigna, Humana, United Healthcare, Medicare, and Medicaid. Call us if you don\u2019t see yours and we\u2019ll verify.',
+      'We accept Aetna, Humana, United Healthcare, Blue Cross Blue Shield, Cigna, Medicare, Medicaid, Priority Health, Meridian, Molina, HAP, and McLaren Health Plan. Call us if you do not see yours and we will verify.',
   },
   {
     question: 'Will I see a doctor or a midlevel?',

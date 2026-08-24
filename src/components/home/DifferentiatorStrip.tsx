@@ -1,4 +1,3 @@
-import { Star } from 'lucide-react';
 import { stats } from '@/lib/site';
 import { Reveal } from '@/components/ui/Reveal';
 
@@ -12,9 +11,6 @@ export function DifferentiatorStrip() {
               <div className="flex flex-col items-start lg:items-center text-left lg:text-center">
                 <p className="font-display text-4xl md:text-5xl text-gold leading-none flex items-baseline gap-2">
                   {stat.value}
-                  {stat.label === 'Patient Rating' && (
-                    <Star size={18} className="fill-gold text-gold" />
-                  )}
                 </p>
                 <p className="mt-3 text-[13px] md:text-sm text-cream/90 font-medium">
                   {stat.label}

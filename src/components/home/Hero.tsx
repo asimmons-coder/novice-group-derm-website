@@ -46,7 +46,7 @@ export function Hero() {
             <p className="text-lg md:text-xl text-charcoal/70 mb-10 leading-relaxed max-w-lg">
               A private, family-owned practice led by a father-daughter trio of
               board-certified dermatologists. World-class medical, surgical,
-              and cosmetic care for over 25 years.
+              and cosmetic care since 1999.
             </p>
           </StaggerItem>
 

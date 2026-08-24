@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     'cosmetic dermatology Michigan',
     'Botox Bloomfield Hills',
     'dermatopathology',
-    'Mohs surgery Michigan',
+    'Mohs coordination Michigan',
     'skin cancer screening',
   ],
   authors: [{ name: 'Novice Group Dermatology' }],

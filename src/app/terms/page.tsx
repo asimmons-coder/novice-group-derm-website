@@ -77,8 +77,8 @@ export default function TermsPage() {
           heading: 'Third-party links',
           body: (
             <p>
-              This website links to third-party services, including our payment portal, patient
-              portal, and social media pages. We are not responsible for the content or
+              This website links to third-party services, including our payment page
+              and social media pages. We are not responsible for the content or
               practices of those services.
             </p>
           ),

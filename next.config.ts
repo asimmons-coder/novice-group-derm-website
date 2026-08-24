@@ -34,6 +34,7 @@ const nextConfig: NextConfig = {
       { source: "/my-cart", destination: "/skin-shop", permanent: true },
       { source: "/book", destination: "/contact", permanent: true },
       { source: "/schedule", destination: "/contact", permanent: true },
+      { source: "/blog/in-house-dermatopathology-bloomfield-hills", destination: "/blog/who-reads-your-biopsy", permanent: true },
       {
         source: "/wp-content/uploads/:path*",
         destination: "/patient-resources",

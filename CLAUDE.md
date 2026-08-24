@@ -10,7 +10,7 @@ dermatopathology. This repo is the public site only. No patient data, no auth, n
 
 - Next.js 16 (App Router) + React 19, TypeScript strict mode
 - Tailwind CSS v4 (via `@tailwindcss/postcss`), framer-motion, lucide-react
-- `react-hook-form` on the contact form; three.js types are present for hero visuals
+- `react-hook-form` on the contact form
 - Deployed on Vercel. `build` is the only CI guard (no lint or test scripts).
 
 ## Next.js 16 convention (read this before writing components)

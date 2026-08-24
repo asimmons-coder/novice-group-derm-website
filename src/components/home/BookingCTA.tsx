@@ -16,8 +16,8 @@ export function BookingCTA() {
           className="[&_*]:text-warm-white"
         />
         <p className="mt-6 text-cream/90 text-lg leading-relaxed max-w-xl mx-auto">
-          New patients welcome. Most major insurance accepted. Schedule online
-          or call to book a medical or cosmetic consultation.
+          New patients welcome. Most major insurance accepted. Call or send a
+          message to book a medical or cosmetic consultation.
         </p>
         <div className="mt-10 flex flex-wrap justify-center gap-4">
           <LinkButton
@@ -27,7 +27,7 @@ export function BookingCTA() {
             size="lg"
             withArrow
           >
-            Book Online
+            {booking.cta}
           </LinkButton>
           <LinkButton
             href={`tel:${site.phoneRaw}`}

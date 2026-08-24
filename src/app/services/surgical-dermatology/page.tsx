@@ -6,6 +6,7 @@ import { Reveal, StaggerGroup, StaggerItem } from '@/components/ui/Reveal';
 import { Accordion } from '@/components/ui/Accordion';
 import { LinkButton } from '@/components/ui/Button';
 import { BookingCTA } from '@/components/home/BookingCTA';
+import { images } from '@/lib/images';
 
 export const metadata: Metadata = {
   title: 'Surgical Dermatology',
@@ -80,6 +81,10 @@ export default function SurgicalPage() {
         primary="Precise hands."
         accent="Cosmetic outcomes."
         description="When something needs to come off, the goal isn&rsquo;t just removal — it&rsquo;s removal with the smallest possible mark left behind. Decades of surgical experience focused on the aesthetic detail that matters."
+        image={{
+          src: images.services.surgical,
+          alt: 'Dermatologic surgical detail at Novice Group',
+        }}
       />
 
       <Section bg="cream" padding="xl">

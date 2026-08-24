@@ -48,7 +48,7 @@ export function Navbar() {
       >
         <Logo />
 
-        <ul className="hidden lg:flex items-center gap-9">
+        <ul className="hidden xl:flex items-center gap-6">
           {navLinks.map((link) => {
             if (link.href !== '/services') {
               return (
@@ -135,7 +135,7 @@ export function Navbar() {
           })}
         </ul>
 
-        <div className="hidden lg:block">
+        <div className="hidden xl:block">
           <LinkButton href={booking.url} external={booking.external} variant="primary" size="md">
             {booking.cta}
           </LinkButton>
@@ -144,7 +144,7 @@ export function Navbar() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="lg:hidden p-2 -mr-2 text-charcoal"
+          className="xl:hidden p-2 -mr-2 text-charcoal"
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
         >
@@ -155,7 +155,7 @@ export function Navbar() {
       {/* Mobile overlay */}
       <div
         className={clsx(
-          'lg:hidden fixed inset-0 top-[68px] bg-cream isolation-isolate z-[60] transition-all duration-500',
+          'xl:hidden fixed inset-0 top-[68px] bg-cream isolation-isolate z-[60] transition-all duration-500',
           open ? 'visible pointer-events-auto' : 'invisible pointer-events-none',
         )}
         style={{ backgroundColor: 'var(--color-cream)' }}

@@ -93,11 +93,6 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
-              <li>
-                <Link href="/blog" className="hover:text-warm-white transition-colors">
-                  Blog & Education
-                </Link>
-              </li>
             </ul>
           </div>
 

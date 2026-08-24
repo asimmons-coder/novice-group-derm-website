@@ -9,7 +9,7 @@ const LAB_IMAGE = '/images/lab-microscope.jpg';
 
 export function LabStory() {
   return (
-    <Section bg="warm-white" padding="xl">
+    <Section bg="warm-white" padding="xl" className="overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
         <Reveal className="relative">
           <div className="relative z-10 rounded-[2.5rem] overflow-hidden aspect-square shadow-2xl bg-sand">
@@ -24,11 +24,11 @@ export function LabStory() {
 
           <div
             aria-hidden
-            className="absolute -top-10 -left-10 w-40 h-40 bg-sage/10 rounded-full blur-3xl opacity-60"
+            className="absolute -top-10 -left-10 hidden md:block w-40 h-40 bg-sage/10 rounded-full blur-3xl opacity-60"
           />
           <div
             aria-hidden
-            className="absolute -bottom-10 -right-10 w-60 h-60 bg-gold/10 rounded-full blur-3xl opacity-60"
+            className="absolute -bottom-10 -right-10 hidden md:block w-60 h-60 bg-gold/10 rounded-full blur-3xl opacity-60"
           />
 
           <Reveal

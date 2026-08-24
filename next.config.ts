@@ -23,6 +23,24 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      { source: "/about", destination: "/our-story", permanent: true },
+      { source: "/visit", destination: "/contact", permanent: true },
+      { source: "/shop", destination: "/skin-shop", permanent: true },
+      { source: "/shop/:path*", destination: "/skin-shop", permanent: true },
+      { source: "/product/:path*", destination: "/skin-shop", permanent: true },
+      { source: "/product-category/:path*", destination: "/skin-shop", permanent: true },
+      { source: "/my-cart", destination: "/skin-shop", permanent: true },
+      { source: "/book", destination: "/contact", permanent: true },
+      { source: "/schedule", destination: "/contact", permanent: true },
+      {
+        source: "/wp-content/uploads/:path*",
+        destination: "/patient-resources",
+        permanent: false,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

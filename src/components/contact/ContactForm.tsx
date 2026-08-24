@@ -1,4 +1,4 @@
-'use client';
+use client';
 
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -11,6 +11,7 @@ interface FormData {
   phone: string;
   reason: string;
   message: string;
+  company: string;
 }
 
 const reasons = [
@@ -24,21 +25,34 @@ const reasons = [
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [sendError, setSendError] = useState('');
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
-  } = useForm<FormData>();
+  } = useForm<FormData>({
+    defaultValues: { company: '' },
+  });
 
   const onSubmit = async (data: FormData) => {
-    const subject = encodeURIComponent(`Website Inquiry: ${data.reason}`);
-    const body = encodeURIComponent(
-      `Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone || 'Not provided'}\nReason: ${data.reason}\n\n${data.message}`
-    );
-    window.location.href = `mailto:Skin@novicegroupderm.com?subject=${subject}&body=${body}`;
-    setSubmitted(true);
-    reset();
+    setSendError('');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const json = (await res.json().catch(() => null)) as { ok?: boolean; error?: string } | null;
+      if (!res.ok || !json?.ok) {
+        setSendError(json?.error || 'Could not send your message. Please call the office.');
+        return;
+      }
+      setSubmitted(true);
+      reset();
+    } catch {
+      setSendError('Could not send your message. Please call the office.');
+    }
   };
 
   if (submitted) {
@@ -64,7 +78,14 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
+      <div className="hidden" aria-hidden="true">
+        <label>
+          Company
+          <input type="text" tabIndex={-1} autoComplete="off" {...register('company')} />
+        </label>
+      </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <Field label="Name" error={errors.name?.message}>
           <input
@@ -121,6 +142,8 @@ export function ContactForm() {
           placeholder="Tell us briefly what you would like to discuss."
         />
       </Field>
+
+      {sendError && <p className="text-sm text-blush">{sendError}</p>}
 
       <div className="pt-2">
         <Button type="submit" variant="primary" size="lg" withArrow disabled={isSubmitting}>

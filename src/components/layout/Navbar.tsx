@@ -135,7 +135,7 @@ export function Navbar() {
 
         <div className="hidden lg:block">
           <LinkButton href={booking.url} external={booking.external} variant="primary" size="md">
-            Book Online
+            {booking.cta}
           </LinkButton>
         </div>
 
@@ -192,10 +192,10 @@ export function Navbar() {
           </ul>
           <div className="mt-auto pt-12">
             <LinkButton href={booking.url} external={booking.external} variant="primary" size="lg" className="w-full">
-              Book Online
+              {booking.cta}
             </LinkButton>
             <p className="mt-6 text-center text-sm text-warm-gray">
-              Or call <a href="tel:+12489323376" className="font-semibold text-charcoal">(248) 932-3376</a>
+              Or call <a href="tel:+12488262536" className="font-semibold text-charcoal">(248) 826-2536</a>
             </p>
           </div>
         </div>

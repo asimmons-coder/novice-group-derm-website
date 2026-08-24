@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     template: '%s | Novice Group Dermatology',
   },
   description:
-    'Multiple generations of board-certified dermatologists in Bloomfield Hills, Michigan. Medical, cosmetic, surgical, and in-house dermatopathology under one roof.',
+    'Multiple generations of board-certified dermatologists in Bloomfield Hills, Michigan. Medical, cosmetic, surgical, and dermatopathology care. Slides are processed by a lab; Dr. Fred and Dr. Taylor read them.',
   keywords: [
     'dermatologist Bloomfield Hills',
     'Novice Group Dermatology',
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Novice Group Dermatology | Skin Health, Elevated',
     description:
-      'Multiple generations of board-certified dermatologists. Medical, cosmetic, surgical, and in-house dermatopathology in Bloomfield Hills, Michigan.',
+      'Multiple generations of board-certified dermatologists. Medical, cosmetic, surgical, and dermatopathology care in Bloomfield Hills, Michigan.',
     url: 'https://novicegroupderm.com',
     siteName: 'Novice Group Dermatology',
     locale: 'en_US',

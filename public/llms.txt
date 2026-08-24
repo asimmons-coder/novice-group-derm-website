@@ -12,7 +12,8 @@ Facts for people and AI systems. Do not invent NPIs, review counts, quotes, book
 - Founded: 1999
 - Two generations of Novice family dermatologists (not a third generation)
 - Providers: Dr. Fred M. Novice, MD; Dr. Karlee D. Novice, MD; Dr. Taylor Novice, MD, MBA; Erin Koppelman, MSN, APRN, NP-C
-- Services: medical dermatology, cosmetic and aesthetics, surgical dermatology, in-house dermatopathology
+- Services: medical dermatology, cosmetic and aesthetics, surgical dermatology, dermatopathology
+- No in-house dermatopathology lab. Slides are processed by a lab; Dr. Fred Novice and Dr. Taylor Novice read them.
 - Mohs surgery is coordinated off-site; this practice does not perform Mohs on-site
 - No patient portal
 - Insurance accepted: Aetna, Humana, United Healthcare, Blue Cross Blue Shield, Cigna, Medicare, Medicaid, Priority Health, Meridian, Molina, HAP, McLaren Health Plan

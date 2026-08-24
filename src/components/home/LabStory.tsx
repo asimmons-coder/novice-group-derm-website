@@ -15,7 +15,7 @@ export function LabStory() {
           <div className="relative z-10 rounded-[2.5rem] overflow-hidden aspect-square shadow-2xl bg-sand">
             <Image
               src={LAB_IMAGE}
-              alt="In-house dermatopathology laboratory at Novice Group"
+              alt="Microscope used when our dermatologists review pathology slides"
               fill
               sizes="(max-width: 1024px) 90vw, 560px"
               className="object-cover grayscale"
@@ -40,11 +40,11 @@ export function LabStory() {
                 <CheckCircle2 className="text-sage" size={16} />
               </div>
               <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-charcoal">
-                In-House Lab
+                Slide Review
               </span>
             </div>
             <p className="text-[11px] text-warm-gray leading-snug">
-              Direct clinical correlation for the highest diagnostic accuracy.
+              A lab processes the slides. Your dermatologist reads them.
             </p>
           </Reveal>
         </Reveal>
@@ -59,20 +59,20 @@ export function LabStory() {
           />
           <div className="space-y-6 text-lg text-warm-gray leading-relaxed mb-10 max-w-xl">
             <p>
-              At most practices, skin biopsies travel to remote laboratories
-              where the reading pathologist never meets the patient. At Novice
-              Group, the same dermatologist who examines your skin reads your
-              slides under the microscope.
+              At most practices, skin biopsies travel to a laboratory and a
+              pathologist who never meets the patient writes the report. At
+              Novice Group, a lab still processes the slides. We do not run a
+              pathology laboratory in the office.
             </p>
             <p>
               Dr. Fred Novice and Dr. Taylor Novice are both fellowship-trained
-              dermatopathologists. Direct clinical-to-pathologic correlation
-              means faster results and unmatched accuracy when diagnosing skin
-              cancers and complex inflammatory conditions.
+              dermatopathologists. After the slides come back, the same
+              dermatologist who examined your skin can read them. That
+              clinicopathologic correlation is the part we keep with your doctor.
             </p>
           </div>
           <ArrowLink href="/services/dermatopathology">
-            Learn about our lab
+            Learn about dermatopathology
           </ArrowLink>
         </Reveal>
       </div>

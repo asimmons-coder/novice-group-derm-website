@@ -3,8 +3,9 @@
 # Novice Group Dermatology — Site
 
 Marketing site for Novice Group Dermatology, a practice in Bloomfield Hills, Michigan
-with three board-certified dermatologists, a nurse practitioner, and in-house
-dermatopathology. This repo is the public site only. No patient data, no auth, no DB.
+with three board-certified dermatologists, a nurse practitioner, and
+dermatopathology slide review (slides are processed by a lab; Dr. Fred and
+Dr. Taylor read them). This repo is the public site only. No patient data, no auth, no DB.
 
 ## Stack
 

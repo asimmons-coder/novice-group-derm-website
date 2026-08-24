@@ -92,7 +92,7 @@ export const services = [
     short: 'Pathology',
     accent: 'gold' as const,
     blurb:
-      'Two of our dermatologists are fellowship-trained pathologists. The doctor who examines your skin reads your biopsy.',
+      'Two of our dermatologists are fellowship-trained pathologists. A lab processes the slides. The doctor who examines your skin reads them.',
   },
 ];
 
@@ -177,7 +177,7 @@ export const providers = [
 export const stats = [
   { value: '30+', label: 'Years Botox Experience', sublabel: 'Dr. Fred Novice' },
   { value: '3', label: 'Board-Certified Dermatologists', sublabel: 'One family' },
-  { value: 'In-House', label: 'Dermatopathology', sublabel: 'Same doctor, same diagnosis' },
+  { value: 'Slide Read', label: 'By Your Dermatologist', sublabel: 'Lab processed, we interpret' },
   { value: '1999', label: 'Practice founded', sublabel: 'Bloomfield Hills' },
 ];
 
@@ -210,11 +210,11 @@ export const faqs = [
   },
   {
     q: 'Are your dermatologists board-certified?',
-    a: 'Yes. All three of our dermatologists are board-certified, and Dr. Fred and Dr. Taylor are also trained in dermatopathology, so the same physicians who examine your skin can read your biopsy.',
+    a: 'Yes. All three of our dermatologists are board-certified, and Dr. Fred and Dr. Taylor are also trained in dermatopathology. After a lab processes the slides, the same physicians who examine your skin can read them.',
   },
   {
     q: 'What is dermatopathology, and why does it matter?',
-    a: 'Dermatopathology is the microscopic diagnosis of skin disease. Because we read biopsies in-house, the doctor who examines your skin is part of diagnosing it under the microscope. Almost no other local practice offers this continuity of care.',
+    a: 'Dermatopathology is the microscopic diagnosis of skin disease. Slides are processed by a lab. Dr. Fred or Dr. Taylor then reads them, so the doctor who examines your skin is part of diagnosing it under the microscope.',
   },
   {
     q: 'What insurance do you accept?',

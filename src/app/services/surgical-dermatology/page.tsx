@@ -31,7 +31,7 @@ const procedures = [
   {
     name: 'Mole Removal',
     description:
-      'Both medically necessary and cosmetic mole removal — shave or excisional, all sent for in-house pathology.',
+      'Both medically necessary and cosmetic mole removal. Shave or excisional. Specimens are processed by a lab, then read by Dr. Fred or Dr. Taylor.',
   },
   {
     name: 'Cyst & Lipoma Removal',
@@ -64,7 +64,7 @@ const faqs = [
   {
     question: 'When will I get my pathology results?',
     answer:
-      'Because we read our own slides in-house, results are typically available in days, not weeks. The doctor who performed your biopsy is the same one who reads it.',
+      'A lab processes the slides. Dr. Fred or Dr. Taylor reads them. We will call you with results and next steps. The doctor who performed your biopsy is often the one who reads it.',
   },
   {
     question: 'What is Mohs surgery and do you do it here?',

@@ -1,6 +1,7 @@
 export const site = {
   name: 'Novice Group Dermatology',
   legal: 'Novice Aesthetics and Dermatology PLLC',
+  alternateName: 'Novice Group Derm',
   tagline: 'Skin health, elevated.',
   supportingLine: 'Multiple generations. One standard of care.',
   address: {
@@ -12,12 +13,18 @@ export const site = {
   },
   phone: '(248) 826-2536',
   phoneRaw: '+12488262536',
+  phoneHref: 'tel:+12488262536',
+  smsHref: 'sms:+12488262536',
   fax: '(248) 932-1046',
+  faxRaw: '+12489321046',
   email: 'Skin@novicegroupderm.com',
   payOnline: 'https://novicegroupderm.ema.md/ema/pay/onlinepay',
   googleMaps: 'https://goo.gl/maps/CQcnFPqJiwpAJLcm9',
+  mapsEmbed:
+    'https://maps.google.com/maps?q=4120+West+Maple+Road+Suite+206+Bloomfield+Hills+MI+48301&output=embed',
   hours: 'Monday-Friday 8:30 AM - 5:00 PM',
   hoursShort: 'Mon-Fri 8:30 - 5:00',
+  founded: '1999',
   social: {
     facebook: 'https://www.facebook.com/Novice-Group-Dermatology-105346554710060/',
     instagram: 'https://www.instagram.com/novicegroupderm/',
@@ -35,9 +42,16 @@ export const site = {
     'Medicare',
     'Medicaid',
     'Priority Health',
+    'Meridian',
+    'Molina',
+    'HAP',
+    'McLaren Health Plan',
   ],
   url: 'https://novicegroupderm.com',
 };
+
+export const phoneHref = site.phoneHref;
+export const smsHref = site.smsHref;
 
 export const navLinks = [
   { label: 'Our Story', href: '/our-story' },
@@ -88,6 +102,7 @@ export const providers = [
     name: 'Dr. Fred M. Novice, MD',
     role: 'Board-Certified Dermatologist & Dermatopathologist',
     yearsExperience: '42+',
+    yearsLabel: 'Years of Experience',
     headline: 'The patriarch. Trusted authority. Decades of cosmetic mastery.',
     bio: 'Dr. Fred Novice founded the practice after completing his dermatology residency at Henry Ford Hospital, where he served as Chief Resident, and a dermatopathology fellowship at the University of Oklahoma. With more than 30 years of Botox and filler experience, he is among the most experienced cosmetic injectors practicing today, and has trained colleagues around the world in advanced injection techniques.',
     credentials: [
@@ -100,12 +115,14 @@ export const providers = [
       'Metro Detroit\u2019s Best Dermatologist, Styleline Magazine (10 consecutive years)',
     ],
     specialties: ['Botox & Dysport', 'Dermal Fillers', 'Dermatopathology', 'Skin Cancer'],
+    schemaType: 'Physician' as const,
   },
   {
     slug: 'karlee-novice',
     name: 'Dr. Karlee D. Novice, MD',
     role: 'Board-Certified Dermatologist',
     yearsExperience: '11+',
+    yearsLabel: 'Years of Experience',
     headline: 'The bridge between deep medical knowledge and patient-friendly education.',
     bio: 'Dr. Karlee Novice trained at Henry Ford Hospital, where she served as Chief Resident from 2015 to 2018. She brings an evidence-based, approachable style to every visit, with multiple peer-reviewed publications on topics ranging from drug-induced phototoxicity to chemical peels and skin cancer education.',
     credentials: [
@@ -117,14 +134,16 @@ export const providers = [
       'Multiple peer-reviewed publications',
     ],
     specialties: ['Medical Dermatology', 'Cosmetic', 'Pediatric Skin', 'Skin Cancer'],
+    schemaType: 'Physician' as const,
   },
   {
     slug: 'taylor-novice',
     name: 'Dr. Taylor Novice, MD, MBA',
     role: 'Board-Certified Dermatologist & Dermatopathologist',
-    yearsExperience: 'Newest generation',
+    yearsExperience: 'Board-certified',
+    yearsLabel: 'Dermatologist & dermatopathologist',
     headline: 'Clinical excellence meets business innovation. The next generation.',
-    bio: 'Dr. Taylor Novice represents the third generation of dermatologists in the Novice family. After earning a BA summa cum laude from Duke and an MD from the University of Michigan, she completed an MBA at Michigan Ross with a focus on healthcare innovation, and trained in both dermatology and dermatopathology. As Academic Chief Resident at Henry Ford, she received the Outstanding Resident Award across the entire health system.',
+    bio: 'Dr. Taylor Novice is a board-certified dermatologist and dermatopathologist in the Novice family. After earning a BA summa cum laude from Duke and an MD from the University of Michigan, she completed an MBA at Michigan Ross with a focus on healthcare innovation, and trained in both dermatology and dermatopathology. As Academic Chief Resident at Henry Ford, she received the Outstanding Resident Award across the entire health system.',
     credentials: [
       'BA summa cum laude, Duke University (Phi Beta Kappa)',
       'MD, University of Michigan Medical School (Alpha Omega Alpha)',
@@ -134,12 +153,14 @@ export const providers = [
       'Dermatopathology Fellowship, University of Michigan',
     ],
     specialties: ['Medical Dermatology', 'Dermatopathology', 'Cosmetic', 'Research'],
+    schemaType: 'Physician' as const,
   },
   {
     slug: 'erin-koppelman',
     name: 'Erin Koppelman, MSN, APRN, NP-C',
     role: 'Board-Certified Nurse Practitioner',
     yearsExperience: '13+ years',
+    yearsLabel: 'Clinical experience',
     headline: 'Hospital-trained clinician with a passion for dermatology.',
     bio: 'Erin is a board-certified Nurse Practitioner who earned her Bachelor of Science in Nursing at the University of Michigan and her Master of Science in Nursing in Adult Primary Care at Wayne State University. Before specializing in dermatology, she practiced hospital-based medicine in both cardiology and intensive care. She is a member of the American Academy of Nurse Practitioners, Michigan Council of Nurse Practitioners, and the National Academy of Dermatology Nurse Practitioners.',
     credentials: [
@@ -149,6 +170,7 @@ export const providers = [
       'AANP, MCNP, NADNP member',
     ],
     specialties: ['General Dermatology', 'Skin Screenings', 'Cosmetic Treatments', 'Patient Education'],
+    schemaType: 'Nurse' as const,
   },
 ];
 
@@ -156,7 +178,7 @@ export const stats = [
   { value: '30+', label: 'Years Botox Experience', sublabel: 'Dr. Fred Novice' },
   { value: '3', label: 'Board-Certified Dermatologists', sublabel: 'One family' },
   { value: 'In-House', label: 'Dermatopathology', sublabel: 'Same doctor, same diagnosis' },
-  { value: '4.8', label: 'Patient Rating', sublabel: '318 Google reviews' },
+  { value: '1999', label: 'Practice founded', sublabel: 'Bloomfield Hills' },
 ];
 
 // Online booking. To switch every "Book Online" button from the contact form to
@@ -184,7 +206,7 @@ export const faqs = [
   },
   {
     q: 'Who are the doctors at Novice Group Dermatology?',
-    a: 'Our providers are Dr. Fred Novice, MD (board-certified dermatologist and dermatopathologist), Dr. Karlee Novice, MD, Dr. Taylor Novice, MD, MBA, and Erin Koppelman, MSN, APRN, NP-C. Multiple generations of the Novice family practice together in Bloomfield Hills.',
+    a: 'Our providers are Dr. Fred Novice, MD (board-certified dermatologist and dermatopathologist), Dr. Karlee Novice, MD, Dr. Taylor Novice, MD, MBA, and Erin Koppelman, MSN, APRN, NP-C. Two generations of the Novice family practice together in Bloomfield Hills.',
   },
   {
     q: 'Are your dermatologists board-certified?',
@@ -196,10 +218,14 @@ export const faqs = [
   },
   {
     q: 'What insurance do you accept?',
-    a: 'We accept most major plans, including Aetna, Humana, United Healthcare, Blue Cross Blue Shield, Cigna, Medicare, Medicaid, and Priority Health. Contact our office to confirm coverage for your specific plan.',
+    a: 'We accept Aetna, Humana, United Healthcare, Blue Cross Blue Shield, Cigna, Medicare, Medicaid, Priority Health, Meridian, Molina, HAP, and McLaren Health Plan. Contact our office to confirm coverage for your specific plan.',
   },
   {
     q: 'Where are you located and what are your hours?',
     a: 'We are at 4120 West Maple Road, Suite 206, Bloomfield Hills, MI 48301, open Monday through Friday from 8:30 AM to 5:00 PM.',
+  },
+  {
+    q: 'Do you have a patient portal?',
+    a: 'We do not have an online patient portal. Please call or text (248) 826-2536, or email Skin@novicegroupderm.com, for appointments, questions, and results.',
   },
 ];

@@ -13,14 +13,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/skin-shop',
     '/patient-resources',
     '/contact',
-    '/blog',
   ];
 
   const legalRoutes = ['/privacy', '/terms', '/accessibility'];
 
   return [...routes, ...legalRoutes].map((route) => ({
     url: `${site.url}${route}`,
-    lastModified: new Date(),
     changeFrequency: route === '' ? 'weekly' : 'monthly',
     priority: route === '' ? 1.0 : legalRoutes.includes(route) ? 0.3 : 0.8,
   }));

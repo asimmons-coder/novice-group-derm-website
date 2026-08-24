@@ -33,7 +33,7 @@ const faqs = [
   {
     question: 'How do I become a new patient?',
     answer:
-      'Call us at (248) 826-2536 or use our online booking form. We accept new patients of all ages, and most appointments can be scheduled within a few weeks.',
+      'Call us at (248) 826-2536 or send a message from the contact page. We accept new patients of all ages, and most appointments can be scheduled within a few weeks.',
   },
   {
     question: 'Will the same doctor see me each visit?',

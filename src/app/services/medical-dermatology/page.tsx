@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   title: 'Medical Dermatology',
   description:
     'Acne, eczema, psoriasis, rosacea, skin cancer screening, and more. Comprehensive medical dermatology in Bloomfield Hills, Michigan.',
+  alternates: {
+    canonical: '/services/medical-dermatology',
+  },
 };
 
 const conditions = [

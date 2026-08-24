@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title: 'Contact & Visit Us',
   description:
     'Schedule an appointment at Novice Group Dermatology in Bloomfield Hills, Michigan. Call (248) 826-2536 or send a message.',
+  alternates: {
+    canonical: '/contact',
+  },
 };
 
 const contactItems = [

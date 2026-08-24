@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: 'Terms of Use',
   description:
     'Terms of use for the Novice Group Dermatology website, including medical disclaimer and conditions for using site content.',
+  alternates: {
+    canonical: '/terms',
+  },
 };
 
 export default function TermsPage() {

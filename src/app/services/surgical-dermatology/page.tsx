@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   title: 'Surgical Dermatology',
   description:
     'Skin cancer surgery, Mohs coordination, mole removal, and dermatologic surgery in Bloomfield Hills, Michigan.',
+  alternates: {
+    canonical: '/services/surgical-dermatology',
+  },
 };
 
 const procedures = [

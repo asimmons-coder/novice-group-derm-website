@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   description:
     'Skin health education from board-certified dermatologists. Articles on conditions, cosmetics, sun protection, and skincare products.',
   robots: { index: false, follow: false },
+  alternates: {
+    canonical: '/blog',
+  },
 };
 
 export default function BlogPage() {

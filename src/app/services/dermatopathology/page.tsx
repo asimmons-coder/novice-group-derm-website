@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   title: 'Dermatopathology',
   description:
     'In-house dermatopathology in Bloomfield Hills. The same dermatologist who examines your skin reads your biopsy under the microscope.',
+  alternates: {
+    canonical: '/services/dermatopathology',
+  },
 };
 
 const steps = [

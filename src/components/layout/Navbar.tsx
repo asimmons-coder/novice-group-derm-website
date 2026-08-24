@@ -35,9 +35,11 @@ export function Navbar() {
     <header
       className={clsx(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
-        scrolled
-          ? 'bg-cream/90 backdrop-blur-md shadow-[0_1px_0_rgba(45,41,38,0.06)]'
-          : 'bg-transparent',
+        open
+          ? 'bg-cream'
+          : scrolled
+            ? 'bg-cream/90 backdrop-blur-md shadow-[0_1px_0_rgba(45,41,38,0.06)]'
+            : 'bg-transparent',
       )}
     >
       <nav
@@ -153,9 +155,10 @@ export function Navbar() {
       {/* Mobile overlay */}
       <div
         className={clsx(
-          'lg:hidden fixed inset-0 top-[68px] bg-cream transition-all duration-500 z-40',
-          open ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none',
+          'lg:hidden fixed inset-0 top-[68px] bg-cream isolation-isolate z-[60] transition-all duration-500',
+          open ? 'visible pointer-events-auto' : 'invisible pointer-events-none',
         )}
+        style={{ backgroundColor: 'var(--color-cream)' }}
       >
         <div className="flex flex-col h-full px-6 pt-12 pb-12">
           <ul className="flex flex-col gap-1">

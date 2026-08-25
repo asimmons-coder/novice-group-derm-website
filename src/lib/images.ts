@@ -27,7 +27,6 @@ export const images = {
     pathology: '/images/lab-microscope.jpg',
   },
   cosmetic: {
-    // Self-hosted CC0 photo (Wikimedia Commons, "Doctor performing Botox injection")
     botox: '/images/cosmetic-injection.jpg',
     fillers: '/images/cosmetic-injection.jpg',
     kybella: '/images/cosmetic-injection.jpg',

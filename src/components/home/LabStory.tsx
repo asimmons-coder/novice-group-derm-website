@@ -15,7 +15,7 @@ export function LabStory() {
           <div className="relative z-10 rounded-[2.5rem] overflow-hidden aspect-square shadow-2xl bg-sand">
             <Image
               src={LAB_IMAGE}
-              alt="Microscope used when our dermatologists review pathology slides"
+              alt="Drs. Fred and Karlee Novice reviewing slides at a microscope"
               fill
               sizes="(max-width: 1024px) 90vw, 560px"
               className="object-cover grayscale"

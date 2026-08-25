@@ -40,8 +40,8 @@ export default function DermatopathologyPage() {
         accent="under the microscope."
         description="Dermatopathology is the medical specialty that diagnoses skin disease by examining tissue under the microscope. Two of our dermatologists are also fellowship-trained pathologists — meaning the doctor who examines your skin is also the one who reads your biopsy."
         image={{
-          src: images.lab,
-          alt: 'Microscope used for dermatopathology slide review at Novice Group Dermatology',
+          src: images.services.pathology,
+          alt: 'Dr. Taylor Novice at a microscope',
         }}
       />
 

@@ -19,7 +19,7 @@ const cards = [
     icon: Microscope,
     title: 'Dermatopathology',
     description:
-      'In-house biopsy diagnosis. The same dermatologist who examines your skin reads your slides under the microscope.',
+      'A lab processes the slides. The dermatologist who examines your skin reads them.',
     accent: 'bg-gold',
     iconBg: 'bg-gold-light text-gold',
   },

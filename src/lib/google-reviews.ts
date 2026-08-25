@@ -1,11 +1,13 @@
 import { site } from '@/lib/site';
 
-// Vercel: set GOOGLE_PLACES_API_KEY (Places API enabled, restrict to that API).
-// Optional GOOGLE_PLACE_ID skips Find Place from text.
+// Vercel: set GOOGLE_PLACES_API_KEY (enable Places API (New), restrict to that API).
+// Optional GOOGLE_PLACE_ID skips Text Search.
 
 const REVALIDATE_SECONDS = 21600;
 const FIND_QUERY =
   'Novice Group Dermatology 4120 West Maple Road Bloomfield Hills MI';
+const DETAILS_MASK =
+  'id,displayName,rating,userRatingCount,reviews,googleMapsUri';
 
 export type GoogleReview = {
   author: string;
@@ -37,8 +39,35 @@ function apiKey() {
   return process.env.GOOGLE_PLACES_API_KEY?.trim() ?? '';
 }
 
-async function fetchPlacesJson(url: string): Promise<Record<string, unknown> | null> {
-  const res = await fetch(url, { next: { revalidate: REVALIDATE_SECONDS } });
+function asNumber(value: unknown): number | null {
+  return typeof value === 'number' && Number.isFinite(value) ? value : null;
+}
+
+function asText(value: unknown): string {
+  if (typeof value === 'string') return value;
+  if (value && typeof value === 'object') {
+    const t = (value as { text?: unknown }).text;
+    if (typeof t === 'string') return t;
+  }
+  return '';
+}
+
+async function placesFetch(
+  url: string,
+  key: string,
+  fieldMask: string,
+  init?: RequestInit,
+): Promise<Record<string, unknown> | null> {
+  const res = await fetch(url, {
+    ...init,
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Goog-Api-Key': key,
+      'X-Goog-FieldMask': fieldMask,
+      ...(init?.headers ?? {}),
+    },
+    next: { revalidate: REVALIDATE_SECONDS },
+  });
   if (!res.ok) return null;
   const data = (await res.json()) as Record<string, unknown>;
   return data;
@@ -48,34 +77,34 @@ async function resolvePlaceId(key: string): Promise<string | null> {
   const fromEnv = process.env.GOOGLE_PLACE_ID?.trim();
   if (fromEnv) return fromEnv;
 
-  const params = new URLSearchParams({
-    input: FIND_QUERY,
-    inputtype: 'textquery',
-    fields: 'place_id',
+  const data = await placesFetch(
+    'https://places.googleapis.com/v1/places:searchText',
     key,
-  });
-  const data = await fetchPlacesJson(
-    `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?${params}`,
+    'places.id,places.displayName,places.formattedAddress',
+    {
+      method: 'POST',
+      body: JSON.stringify({ textQuery: FIND_QUERY }),
+    },
   );
-  if (!data || data.status !== 'OK') return null;
-  const candidates = Array.isArray(data.candidates) ? data.candidates : [];
-  const first = candidates[0] as { place_id?: unknown } | undefined;
-  return typeof first?.place_id === 'string' && first.place_id ? first.place_id : null;
-}
-
-function asNumber(value: unknown): number | null {
-  return typeof value === 'number' && Number.isFinite(value) ? value : null;
+  if (!data) return null;
+  const places = Array.isArray(data.places) ? data.places : [];
+  const first = places[0] as { id?: unknown } | undefined;
+  return typeof first?.id === 'string' && first.id ? first.id : null;
 }
 
 function normalizeReview(raw: unknown): GoogleReview {
   const r = raw && typeof raw === 'object' ? (raw as Record<string, unknown>) : {};
+  const author =
+    r.authorAttribution && typeof r.authorAttribution === 'object'
+      ? (r.authorAttribution as Record<string, unknown>)
+      : {};
   return {
-    author: String(r.author_name ?? '').trim() || 'Google user',
+    author: String(author.displayName ?? '').trim() || 'Google user',
     rating: asNumber(r.rating),
-    text: String(r.text ?? ''),
-    relativeTime: String(r.relative_time_description ?? ''),
-    authorPhoto: typeof r.profile_photo_url === 'string' ? r.profile_photo_url : null,
-    authorUrl: typeof r.author_url === 'string' ? r.author_url : null,
+    text: asText(r.text),
+    relativeTime: String(r.relativePublishTimeDescription ?? ''),
+    authorPhoto: typeof author.photoUri === 'string' ? author.photoUri : null,
+    authorUrl: typeof author.uri === 'string' ? author.uri : null,
   };
 }
 
@@ -87,33 +116,28 @@ export async function getGoogleReviews(): Promise<GoogleReviewsResult> {
     const placeId = await resolvePlaceId(key);
     if (!placeId) return { ok: false, reason: 'no-place' };
 
-    const params = new URLSearchParams({
-      place_id: placeId,
-      fields: 'name,rating,user_ratings_total,reviews,url,place_id',
+    const id = placeId.startsWith('places/') ? placeId.slice(7) : placeId;
+    const data = await placesFetch(
+      `https://places.googleapis.com/v1/places/${encodeURIComponent(id)}`,
       key,
-    });
-    const data = await fetchPlacesJson(
-      `https://maps.googleapis.com/maps/api/place/details/json?${params}`,
+      DETAILS_MASK,
     );
-    if (!data || data.status !== 'OK' || !data.result || typeof data.result !== 'object') {
-      return { ok: false, reason: 'api-error' };
-    }
+    if (!data) return { ok: false, reason: 'api-error' };
 
-    const result = data.result as Record<string, unknown>;
-    const reviews = Array.isArray(result.reviews)
-      ? result.reviews.map(normalizeReview).slice(0, 5)
+    const reviews = Array.isArray(data.reviews)
+      ? data.reviews.map(normalizeReview).slice(0, 5)
       : [];
 
     return {
       ok: true,
-      name: String(result.name ?? site.name),
-      rating: asNumber(result.rating),
-      userRatingsTotal: asNumber(result.user_ratings_total),
+      name: asText(data.displayName) || site.name,
+      rating: asNumber(data.rating),
+      userRatingsTotal: asNumber(data.userRatingCount),
       url:
-        typeof result.url === 'string' && result.url
-          ? result.url
+        typeof data.googleMapsUri === 'string' && data.googleMapsUri
+          ? data.googleMapsUri
           : site.googleReviews,
-      placeId: typeof result.place_id === 'string' && result.place_id ? result.place_id : placeId,
+      placeId: typeof data.id === 'string' && data.id ? data.id : id,
       reviews,
     };
   } catch {

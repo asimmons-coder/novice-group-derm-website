@@ -8,5 +8,6 @@ testimonials, booking URLs, or analytics IDs. Insurance is the 12 plans listed
 there. Mohs is coordinated off-site. There is no patient portal.
 
 Optional env: NEXT_PUBLIC_BOOKING_URL and NEXT_PUBLIC_GA_ID. Leave unset without a real value.
+GOOGLE_PLACES_API_KEY (Places API, server-only; restrict to that API) enables the live Google review feed; optional GOOGLE_PLACE_ID skips Find Place.
 
 Deployed on Vercel.

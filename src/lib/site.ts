@@ -20,6 +20,8 @@ export const site = {
   email: 'Skin@novicegroupderm.com',
   payOnline: 'https://novicegroupderm.ema.md/ema/pay/onlinepay',
   googleMaps: 'https://goo.gl/maps/CQcnFPqJiwpAJLcm9',
+  googleReviews:
+    'https://www.google.com/maps/place/Novice+Group+Dermatology/@42.5451485,-83.2897904,17z/data=!3m1!4b1!4m5!3m4!1s0x8824b85152236455:0xa7284cc56318d9d4',
   mapsEmbed:
     'https://maps.google.com/maps?q=4120+West+Maple+Road+Suite+206+Bloomfield+Hills+MI+48301&output=embed',
   hours: 'Monday-Friday 8:30 AM - 5:00 PM',

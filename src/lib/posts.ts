@@ -35,7 +35,7 @@ export const posts: Post[] = [
       'A practical walkthrough of a full-body skin exam in Bloomfield Hills: how to prepare, what we look at, and when a biopsy or off-site Mohs may be next.',
     date: '2026-08-24',
     authorSlug: 'karlee-novice',
-    image: '/images/office-art-hallway.jpg',
+    image: '/images/hallway-tablet.jpg',
     paragraphs: [
       'A full-body skin cancer screening is a careful look at your skin from scalp to toes. It is a routine medical visit, not a test you have to study for.',
       'You will undress to your underwear. A gown is available, and we examine one area at a time so you can stay as covered as you like. The visit is straightforward and private.',

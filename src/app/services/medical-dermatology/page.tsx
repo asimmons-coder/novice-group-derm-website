@@ -69,8 +69,8 @@ export default function MedicalDermatologyPage() {
         accent="of healthy skin."
         description="From a kid&rsquo;s first acne flare to an adult&rsquo;s annual skin cancer screening, the medical side of dermatology is the heart of the practice. Three board-certified dermatologists and a nurse practitioner — listening carefully, diagnosing precisely, treating thoughtfully."
         image={{
-          src: images.hallway,
-          alt: 'The Novice Group Dermatology office hallway',
+          src: images.services.medical,
+          alt: 'Drs. Fred and Karlee Novice reviewing a chart on a tablet',
         }}
       />
 

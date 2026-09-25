@@ -62,7 +62,7 @@ const focuses: Focus[] = [
       'When a mole, cyst, or skin cancer needs to come out, it is removed through every layer it reaches and closed with attention to how the scar will heal.',
     href: '/services/surgical-dermatology',
     layers: ['epidermis', 'dermis', 'subcutis'],
-    markers: [{ x: 330, y: 200 }],
+    markers: [{ x: 330, y: 230 }],
     color: 'var(--color-charcoal)',
     overlay: 'excision',
   },
@@ -80,15 +80,29 @@ const focuses: Focus[] = [
   },
 ];
 
-// Geometry for an 800 x 520 cross-section. Built once at module load.
+// Geometry for an 800 x 520 cross-section, built once at module load. A seeded
+// random source gives the tissue organic variation while keeping server and
+// client output identical.
 const WIDTH = 800;
+const HEIGHT = 520;
+const DERMIS_BOTTOM = 360;
 const surfaceY = (x: number) => 80 + 6 * Math.sin(x / 60);
 const junctionY = (x: number) => 175 + 12 * Math.sin(x / 26);
-const DERMIS_BOTTOM = 360;
+const round = (n: number) => Math.round(n * 10) / 10;
 
-function wavePath(fn: (x: number) => number) {
-  let d = `M0 ${fn(0).toFixed(1)}`;
-  for (let x = 10; x <= WIDTH; x += 10) d += ` L${x} ${fn(x).toFixed(1)}`;
+function seeded(seed: number) {
+  let state = seed;
+  return () => {
+    state = (state + 0x6d2b79f5) | 0;
+    let t = Math.imul(state ^ (state >>> 15), 1 | state);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function wavePath(fn: (x: number) => number, step = 10) {
+  let d = `M-10 ${round(fn(-10))}`;
+  for (let x = 0; x <= WIDTH + 10; x += step) d += ` L${x} ${round(fn(x))}`;
   return d;
 }
 
@@ -96,38 +110,89 @@ const surfacePath = wavePath(surfaceY);
 const junctionPath = wavePath(junctionY);
 const epidermisArea = (() => {
   let d = surfacePath;
-  for (let x = WIDTH; x >= 0; x -= 10) d += ` L${x} ${junctionY(x).toFixed(1)}`;
+  for (let x = WIDTH + 10; x >= -10; x -= 10) d += ` L${x} ${round(junctionY(x))}`;
   return `${d} Z`;
 })();
+const dermisArea = `${junctionPath} L${WIDTH + 10} ${DERMIS_BOTTOM} L-10 ${DERMIS_BOTTOM} Z`;
 
-const epidermisCells = (() => {
-  const cells: { cx: number; cy: number; rx: number; ry: number }[] = [];
-  for (let row = 0; row < 4; row++) {
-    for (let x = (row % 2) * 17; x < WIDTH + 20; x += 34) {
-      const top = surfaceY(x) + 14 + row * 21;
-      if (top > junctionY(x) - 8) continue;
-      cells.push({ cx: x, cy: top, rx: row === 0 ? 16 : 13, ry: row === 0 ? 5 : 8 });
+// Flattened outer layers just under the surface
+const corneumLines = [5, 9, 13].map((offset) => wavePath((x) => surfaceY(x) + offset + Math.sin(x / 17) * 0.8));
+
+// Spinous cells: irregular, gently rotated, each with a nucleus
+const spinousCells = (() => {
+  const rand = seeded(7);
+  const cells: { cx: number; cy: number; rx: number; ry: number; rotate: number }[] = [];
+  for (let row = 0; row < 5; row++) {
+    for (let x = (row % 2) * 12 - 6; x < WIDTH + 20; x += 24 + rand() * 4) {
+      const cy = surfaceY(x) + 24 + row * 15 + (rand() - 0.5) * 4;
+      if (cy > junctionY(x) - 18) continue;
+      cells.push({
+        cx: round(x + (rand() - 0.5) * 5),
+        cy: round(cy),
+        rx: round(9 + rand() * 4 - row * 0.4),
+        ry: round(6 + rand() * 2.5),
+        rotate: round((rand() - 0.5) * 30),
+      });
     }
   }
   return cells;
 })();
 
+// Basal layer: small, tightly packed cells tracing the dermal junction
+const basalCells = (() => {
+  const cells: { cx: number; cy: number }[] = [];
+  for (let x = -4; x < WIDTH + 10; x += 10) cells.push({ cx: x, cy: round(junctionY(x) - 6) });
+  return cells;
+})();
+
+const collagenBundles = (() => {
+  const rand = seeded(21);
+  return [218, 246, 272, 300, 326, 348].flatMap((base, bundle) => {
+    const phase = rand() * 6;
+    const amplitude = 6 + rand() * 6;
+    const period = 38 + rand() * 20;
+    return [0, 3.5, 7].map((offset, strand) => ({
+      d: wavePath((x) => base + offset + amplitude * Math.sin(x / period + phase + strand * 0.2), 8),
+      width: round(1 + rand() * 1.2),
+      opacity: round(0.25 + rand() * 0.25 - bundle * 0.01),
+    }));
+  });
+})();
+
+const fibroblasts = (() => {
+  const rand = seeded(33);
+  return Array.from({ length: 16 }, () => ({
+    cx: round(20 + rand() * 760),
+    cy: round(220 + rand() * 125),
+    rotate: round((rand() - 0.5) * 24),
+  }));
+})();
+
+const elastinFibers = [
+  'M40 232 c 14 -8, 22 8, 36 0 s 22 8, 36 0',
+  'M300 262 c 12 -7, 20 7, 32 0 s 20 7, 32 0 s 20 7, 32 0',
+  'M640 244 c 14 -8, 22 8, 36 0 s 22 8, 36 0',
+  'M420 336 c 12 -7, 20 7, 32 0 s 20 7, 32 0',
+];
+
+// Fat lobules: jittered hex packing with varied sizes, so it reads as tissue
 const fatLobules = (() => {
+  const rand = seeded(55);
   const lobules: { cx: number; cy: number; r: number }[] = [];
-  for (let row = 0; row < 4; row++) {
-    for (let x = (row % 2) * 30 + 10; x < WIDTH + 30; x += 60) {
-      lobules.push({ cx: x, cy: DERMIS_BOTTOM + 30 + row * 42, r: 24 + ((x + row * 7) % 5) });
+  for (let row = 0; row < 5; row++) {
+    for (let x = (row % 2) * 23 - 10; x < WIDTH + 30; x += 46) {
+      lobules.push({
+        cx: round(x + (rand() - 0.5) * 12),
+        cy: round(DERMIS_BOTTOM + 22 + row * 38 + (rand() - 0.5) * 10),
+        r: round(15 + rand() * 9),
+      });
     }
   }
   return lobules;
 })();
 
-const collagenFibers = [210, 245, 280, 320].map(
-  (base, idx) =>
-    `M-20 ${base} C 120 ${base - 18}, 220 ${base + 22}, 360 ${base} S 600 ${base - 20}, 820 ${base + 6 - idx * 4}`,
-);
-
 const vesselPath = 'M-20 300 C 140 250, 250 350, 400 300 S 650 255, 820 312';
+const deepVesselPath = 'M-20 440 C 180 420, 320 470, 520 438 S 720 430, 820 452';
 
 export function SkinLayers() {
   const [activeKey, setActiveKey] = useState(focuses[0].key);
@@ -213,89 +278,132 @@ export function SkinLayers() {
             >
               <defs>
                 <clipPath id="skin-clip">
-                  <rect width="800" height="520" />
+                  <rect width={WIDTH} height={HEIGHT} />
                 </clipPath>
                 <linearGradient id="skin-air" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="0" stopColor="var(--color-warm-white)" />
                   <stop offset="1" stopColor="var(--color-cream)" />
                 </linearGradient>
+                <linearGradient id="skin-epi" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stopColor="var(--color-blush-light)" stopOpacity="0.7" />
+                  <stop offset="0.6" stopColor="var(--color-blush-light)" />
+                  <stop offset="1" stopColor="var(--color-blush)" stopOpacity="0.55" />
+                </linearGradient>
+                <linearGradient id="skin-derm" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stopColor="var(--color-sand-light)" />
+                  <stop offset="1" stopColor="var(--color-sand)" />
+                </linearGradient>
+                <linearGradient id="skin-sub" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stopColor="var(--color-sand)" />
+                  <stop offset="1" stopColor="var(--color-gold-light)" />
+                </linearGradient>
+                <radialGradient id="skin-fat" cx="40%" cy="35%" r="70%">
+                  <stop offset="0" stopColor="var(--color-warm-white)" />
+                  <stop offset="0.7" stopColor="var(--color-cream)" />
+                  <stop offset="1" stopColor="var(--color-gold-light)" />
+                </radialGradient>
               </defs>
 
               <g clipPath="url(#skin-clip)">
-                <rect width="800" height="520" fill="url(#skin-air)" />
+                <rect width={WIDTH} height={HEIGHT} fill="url(#skin-air)" />
 
-                {/* Subcutis: soft fat lobules */}
+                {/* Subcutis: fat lobules separated by fine septa, one deep vessel */}
                 <motion.g animate={{ opacity: dim('subcutis') }} transition={{ duration: 0.5 }}>
-                  <rect y={DERMIS_BOTTOM} width="800" height={520 - DERMIS_BOTTOM} fill="var(--color-gold-light)" fillOpacity="0.7" />
+                  <rect y={DERMIS_BOTTOM} width={WIDTH} height={HEIGHT - DERMIS_BOTTOM} fill="url(#skin-sub)" />
                   {fatLobules.map((lobule) => (
                     <circle
                       key={`${lobule.cx}-${lobule.cy}`}
                       cx={lobule.cx}
                       cy={lobule.cy}
                       r={lobule.r}
-                      fill="var(--color-warm-white)"
-                      fillOpacity="0.7"
+                      fill="url(#skin-fat)"
                       stroke="var(--color-gold)"
-                      strokeOpacity="0.6"
+                      strokeOpacity="0.45"
+                      strokeWidth="1"
                     />
                   ))}
+                  <path d={deepVesselPath} fill="none" stroke="var(--color-blush)" strokeOpacity="0.6" strokeWidth="11" strokeLinecap="round" />
+                  <path d={deepVesselPath} fill="none" stroke="var(--color-blush-light)" strokeWidth="5" strokeLinecap="round" />
                 </motion.g>
 
-                {/* Dermis: collagen, a blood vessel, follicles */}
+                {/* Dermis: collagen bundles, elastin, fibroblasts, a vessel, follicles */}
                 <motion.g animate={{ opacity: dim('dermis') }} transition={{ duration: 0.5 }}>
-                  <path d={`${junctionPath} L800 ${DERMIS_BOTTOM} L0 ${DERMIS_BOTTOM} Z`} fill="var(--color-sand)" fillOpacity="0.7" />
-                  {collagenFibers.map((d, idx) => (
+                  <path d={dermisArea} fill="url(#skin-derm)" />
+                  {collagenBundles.map((strand) => (
                     <path
-                      key={d}
-                      d={d}
+                      key={strand.d}
+                      d={strand.d}
                       fill="none"
                       stroke="var(--color-taupe)"
-                      strokeOpacity="0.8"
-                      strokeWidth="1.4"
-                      strokeDasharray="14 10"
-                    >
-                      {!reduceMotion && (
-                        <animate
-                          attributeName="stroke-dashoffset"
-                          from="0"
-                          to={idx % 2 ? '96' : '-96'}
-                          dur={`${9 + idx * 2}s`}
-                          repeatCount="indefinite"
-                        />
-                      )}
-                    </path>
+                      strokeOpacity={strand.opacity}
+                      strokeWidth={strand.width}
+                      strokeLinecap="round"
+                    />
+                  ))}
+                  {elastinFibers.map((d) => (
+                    <path key={d} d={d} fill="none" stroke="var(--color-blush)" strokeOpacity="0.55" strokeWidth="1" />
+                  ))}
+                  {fibroblasts.map((cell) => (
+                    <ellipse
+                      key={`${cell.cx}-${cell.cy}`}
+                      cx={cell.cx}
+                      cy={cell.cy}
+                      rx="5"
+                      ry="1.6"
+                      transform={`rotate(${cell.rotate} ${cell.cx} ${cell.cy})`}
+                      fill="var(--color-warm-gray)"
+                      fillOpacity="0.45"
+                    />
                   ))}
 
-                  <path d={vesselPath} fill="none" stroke="var(--color-blush)" strokeOpacity="0.55" strokeWidth="9" strokeLinecap="round" />
-                  <path d={vesselPath} fill="none" stroke="var(--color-blush-light)" strokeWidth="3" strokeLinecap="round" />
+                  <path d={vesselPath} fill="none" stroke="var(--color-blush)" strokeOpacity="0.75" strokeWidth="10" strokeLinecap="round" />
+                  <path d={vesselPath} fill="none" stroke="var(--color-blush-light)" strokeWidth="5" strokeLinecap="round" />
                   {!reduceMotion &&
-                    [0, 1.6, 3.2, 4.8].map((begin) => (
-                      <circle key={begin} r="3" fill="var(--color-blush)">
-                        <animateMotion dur="6.4s" begin={`${begin}s`} repeatCount="indefinite" path={vesselPath} />
-                      </circle>
+                    [0, 1.3, 2.6, 3.9, 5.2].map((begin) => (
+                      <ellipse key={begin} rx="3" ry="2" fill="var(--color-blush)">
+                        <animateMotion dur="6.5s" begin={`${begin}s`} repeatCount="indefinite" rotate="auto" path={vesselPath} />
+                      </ellipse>
                     ))}
 
                   <Follicle x={560} depth={335} />
                   <Follicle x={150} depth={300} small />
                 </motion.g>
 
-                {/* Epidermis: stacked cells under a gently waving surface */}
+                {/* Epidermis: flattened outer layers, irregular cells, a defined basal row */}
                 <motion.g animate={{ opacity: dim('epidermis') }} transition={{ duration: 0.5 }}>
-                  <path d={epidermisArea} fill="var(--color-blush-light)" />
-                  {epidermisCells.map((cell) => (
-                    <ellipse
-                      key={`${cell.cx}-${cell.cy}`}
-                      cx={cell.cx}
-                      cy={cell.cy}
-                      rx={cell.rx}
-                      ry={cell.ry}
-                      fill="var(--color-warm-white)"
-                      fillOpacity="0.7"
-                      stroke="var(--color-blush)"
-                      strokeOpacity="0.75"
-                    />
+                  <path d={epidermisArea} fill="url(#skin-epi)" />
+                  {spinousCells.map((cell) => (
+                    <g key={`${cell.cx}-${cell.cy}`} transform={`rotate(${cell.rotate} ${cell.cx} ${cell.cy})`}>
+                      <ellipse
+                        cx={cell.cx}
+                        cy={cell.cy}
+                        rx={cell.rx}
+                        ry={cell.ry}
+                        fill="var(--color-warm-white)"
+                        fillOpacity="0.6"
+                        stroke="var(--color-blush)"
+                        strokeOpacity="0.6"
+                      />
+                      <circle cx={cell.cx} cy={cell.cy} r="1.8" fill="var(--color-warm-gray)" fillOpacity="0.55" />
+                    </g>
                   ))}
-                  <path d={surfacePath} fill="none" stroke="var(--color-blush)" strokeWidth="2" />
+                  {basalCells.map((cell) => (
+                    <g key={cell.cx}>
+                      <circle cx={cell.cx} cy={cell.cy} r="5" fill="var(--color-blush)" fillOpacity="0.45" />
+                      <circle cx={cell.cx} cy={cell.cy} r="1.8" fill="var(--color-charcoal)" fillOpacity="0.35" />
+                    </g>
+                  ))}
+                  <path d={junctionPath} fill="none" stroke="var(--color-blush)" strokeOpacity="0.7" strokeWidth="1.2" />
+                  {corneumLines.map((d) => (
+                    <path key={d} d={d} fill="none" stroke="var(--color-blush)" strokeOpacity="0.45" strokeWidth="1" />
+                  ))}
+                  <path d={surfacePath} fill="none" stroke="var(--color-blush)" strokeWidth="2.5" />
+                  <path
+                    d={wavePath((x) => surfaceY(x) - 2)}
+                    fill="none"
+                    stroke="var(--color-warm-white)"
+                    strokeWidth="1.5"
+                  />
                 </motion.g>
 
                 {/* Hair shafts sit above every layer */}
@@ -330,12 +438,13 @@ export function SkinLayers() {
                   {active.overlay === 'excision' && (
                     <motion.path
                       key="excision"
-                      d="M230 200 C 270 110, 390 110, 430 200 C 390 400, 270 400, 230 200 Z"
+                      d="M225 84 C 235 250, 280 392, 330 394 C 380 392, 425 250, 435 84"
                       fill="var(--color-charcoal)"
-                      fillOpacity="0.05"
+                      fillOpacity="0.06"
                       stroke="var(--color-charcoal)"
-                      strokeWidth="2"
-                      strokeDasharray="7 7"
+                      strokeOpacity="0.7"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
                       initial={{ pathLength: 0, opacity: 0 }}
                       animate={{ pathLength: 1, opacity: 1 }}
                       exit={{ opacity: 0 }}
@@ -411,17 +520,22 @@ function Follicle({ x, depth, small = false }: { x: number; depth: number; small
         strokeWidth={small ? 2 : 2.5}
         fill="none"
       />
-      {!small && (
-        <ellipse
-          cx={x + 32}
-          cy={top + 135}
-          rx="20"
-          ry="14"
-          fill="var(--color-gold-light)"
-          stroke="var(--color-gold)"
-          strokeOpacity="0.5"
-        />
-      )}
+      {!small &&
+        [
+          [30, 128, 11],
+          [42, 140, 10],
+          [28, 146, 9],
+        ].map(([dx, dy, r]) => (
+          <circle
+            key={`${dx}-${dy}`}
+            cx={x + dx}
+            cy={top + dy}
+            r={r}
+            fill="var(--color-gold-light)"
+            stroke="var(--color-gold)"
+            strokeOpacity="0.55"
+          />
+        ))}
     </g>
   );
 }

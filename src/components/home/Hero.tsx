@@ -2,7 +2,6 @@ import Image from 'next/image';
 import { LinkButton } from '@/components/ui/Button';
 import { StaggerGroup, StaggerItem } from '@/components/ui/Reveal';
 import { DrawnUnderline } from '@/components/motion/DrawnUnderline';
-import { HeroOrbit } from './HeroOrbit';
 
 const HERO_IMAGE = '/images/hero-family.jpg';
 
@@ -65,8 +64,6 @@ export function Hero() {
           </StaggerItem>
         </StaggerGroup>
       </div>
-
-      <HeroOrbit />
 
       <div
         aria-hidden

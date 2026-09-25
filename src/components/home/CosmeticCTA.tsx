@@ -24,11 +24,10 @@ export function CosmeticCTA() {
           </p>
 
           <ul className="mt-10 flex flex-wrap gap-3">
-            {tags.map((tag, idx) => (
+            {tags.map((tag) => (
               <li
                 key={tag}
-                style={{ animationDelay: `${idx * -0.9}s` }}
-                className="animate-float px-5 py-2.5 bg-warm-white/60 backdrop-blur-sm border border-warm-white rounded-full text-xs font-semibold text-charcoal/80 hover:bg-warm-white transition-colors cursor-default"
+                className="px-5 py-2.5 bg-warm-white/60 backdrop-blur-sm border border-warm-white rounded-full text-xs font-semibold text-charcoal/80 hover:bg-warm-white transition-colors cursor-default"
               >
                 {tag}
               </li>

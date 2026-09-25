@@ -70,7 +70,7 @@ export const services = [
     short: 'Surgical',
     accent: 'charcoal' as const,
     blurb:
-      'Mohs coordination, skin cancer surgery, mole and cyst removal — performed with precision and a focus on cosmetic outcomes.',
+      'Mohs coordination, skin cancer surgery, mole and cyst removal, performed with precision and a focus on cosmetic outcomes.',
   },
   {
     slug: 'dermatopathology',

@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import { LinkButton } from '@/components/ui/Button';
-import { Reveal, StaggerGroup, StaggerItem } from '@/components/ui/Reveal';
+import { StaggerGroup, StaggerItem } from '@/components/ui/Reveal';
+import { DrawnUnderline } from '@/components/motion/DrawnUnderline';
+import { HeroOrbit } from './HeroOrbit';
 
 const HERO_IMAGE = '/images/hero-family.jpg';
 
@@ -34,8 +36,9 @@ export function Hero() {
             <h1 className="font-[family-name:var(--font-display)] text-5xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight text-charcoal mb-8">
               Love your skin,
               <br />
-              <span className="font-[family-name:var(--font-accent)] font-normal text-warm-gray">
+              <span className="relative inline-block font-[family-name:var(--font-accent)] font-normal text-warm-gray">
                 from generation
+                <DrawnUnderline className="-bottom-1 md:-bottom-2 h-3 md:h-4" delay={1.1} />
               </span>
               <br />
               to generation.
@@ -63,20 +66,19 @@ export function Hero() {
         </StaggerGroup>
       </div>
 
-      <Reveal
-        delay={0.4}
+      <HeroOrbit />
+
+      <div
         aria-hidden
-        className="absolute right-[-10%] top-[18%] hidden lg:block w-96 h-96 rounded-full border border-gold/25 pointer-events-none"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-3"
       >
-        <span className="sr-only">decoration</span>
-      </Reveal>
-      <Reveal
-        delay={0.6}
-        aria-hidden
-        className="absolute right-[6%] bottom-[8%] hidden lg:block w-64 h-64 rounded-full border border-taupe/30 pointer-events-none"
-      >
-        <span className="sr-only">decoration</span>
-      </Reveal>
+        <span className="text-[10px] uppercase tracking-[0.4em] text-charcoal/50 font-semibold">
+          Scroll
+        </span>
+        <span className="relative block h-12 w-px bg-charcoal/10 overflow-hidden">
+          <span className="absolute inset-0 bg-charcoal/60 animate-scroll-cue" />
+        </span>
+      </div>
     </section>
   );
 }

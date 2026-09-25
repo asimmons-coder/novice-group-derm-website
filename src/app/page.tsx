@@ -1,4 +1,6 @@
 import { Hero } from '@/components/home/Hero';
+import { Marquee } from '@/components/home/Marquee';
+import { SkinLayers } from '@/components/home/SkinLayers';
 import { DifferentiatorStrip } from '@/components/home/DifferentiatorStrip';
 import { OurStory } from '@/components/home/OurStory';
 import { ServicesGrid } from '@/components/home/ServicesGrid';
@@ -15,8 +17,10 @@ export default function HomePage() {
     <>
       <Hero />
       <DifferentiatorStrip />
+      <Marquee />
       <OurStory />
       <ServicesGrid />
+      <SkinLayers />
       <WhyNovice />
       <LabStory />
       <Testimonials />

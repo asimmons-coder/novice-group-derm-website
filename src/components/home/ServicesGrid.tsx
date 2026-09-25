@@ -37,7 +37,7 @@ const cards = [
     icon: Scissors,
     title: 'Surgical Procedures',
     description:
-      'Skin cancer surgery, Mohs coordination, mole and cyst removal — performed with precision and a focus on cosmetic outcomes.',
+      'Skin cancer surgery, Mohs coordination, mole and cyst removal, performed with precision and a focus on cosmetic outcomes.',
     accent: 'bg-charcoal',
     iconBg: 'bg-sand text-charcoal',
   },

@@ -2,6 +2,7 @@ import { Microscope, Wand2, Heart } from 'lucide-react';
 import { Section } from '@/components/ui/Container';
 import { SignatureHeadline, SectionLabel } from '@/components/ui/SignatureHeadline';
 import { Reveal, StaggerGroup, StaggerItem } from '@/components/ui/Reveal';
+import { SpotlightCard } from '@/components/motion/SpotlightCard';
 
 const features = [
   {
@@ -9,7 +10,7 @@ const features = [
     accent: 'bg-sage',
     title: 'Diagnosis meets pathology',
     body:
-      'Two of our dermatologists are also fellowship-trained dermatopathologists. The doctor who sees your skin reads your biopsy under the microscope. This clinicopathologic correlation is the highest standard of diagnostic accuracy — and almost no private practice offers it.',
+      'Two of our dermatologists are also fellowship-trained dermatopathologists. The doctor who sees your skin reads your biopsy under the microscope. This clinicopathologic correlation is the highest standard of diagnostic accuracy, and almost no private practice offers it.',
   },
   {
     icon: Wand2,
@@ -48,7 +49,7 @@ export function WhyNovice() {
           const Icon = f.icon;
           return (
             <StaggerItem key={f.title}>
-              <div className="relative h-full bg-charcoal/40 border border-warm-white/10 rounded-3xl p-9 backdrop-blur-sm hover:bg-charcoal/60 transition-all duration-500 overflow-hidden group">
+              <SpotlightCard className="h-full bg-charcoal/40 border border-warm-white/10 rounded-3xl p-9 backdrop-blur-sm hover:bg-charcoal/60 hover:border-gold/30 transition-all duration-500 overflow-hidden">
                 <span
                   aria-hidden
                   className={`absolute top-0 left-0 right-0 h-[3px] ${f.accent}`}
@@ -58,13 +59,13 @@ export function WhyNovice() {
                   className="absolute -bottom-20 -right-20 w-48 h-48 rounded-full bg-gold/5 group-hover:bg-gold/10 transition-colors"
                 />
                 <div className="relative">
-                  <Icon size={28} className="text-gold mb-6" strokeWidth={1.5} />
+                  <Icon size={28} className="text-gold mb-6 transition-transform duration-500 group-hover:-translate-y-1 group-hover:scale-110" strokeWidth={1.5} />
                   <h3 className="font-display text-2xl text-warm-white mb-4">
                     {f.title}
                   </h3>
                   <p className="text-cream/70 leading-relaxed text-sm">{f.body}</p>
                 </div>
-              </div>
+              </SpotlightCard>
             </StaggerItem>
           );
         })}

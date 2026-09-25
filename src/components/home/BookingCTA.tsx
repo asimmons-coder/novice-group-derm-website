@@ -6,8 +6,17 @@ import { site, booking } from '@/lib/site';
 
 export function BookingCTA() {
   return (
-    <Section bg="sage" padding="lg">
-      <Reveal className="text-center max-w-3xl mx-auto">
+    <Section bg="sage" padding="lg" className="relative overflow-hidden">
+      <div aria-hidden className="pointer-events-none absolute inset-0 flex items-center justify-center">
+        {[0, 1.5, 3, 4.5].map((delay) => (
+          <span
+            key={delay}
+            style={{ animationDelay: `${delay}s` }}
+            className="absolute w-[36rem] h-[36rem] rounded-full border border-warm-white/40 animate-ripple"
+          />
+        ))}
+      </div>
+      <Reveal className="relative text-center max-w-3xl mx-auto">
         <SignatureHeadline
           primary="Ready to love"
           accent="your skin?"

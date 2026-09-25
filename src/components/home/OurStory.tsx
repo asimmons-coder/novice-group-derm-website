@@ -65,7 +65,7 @@ export function OurStory() {
               Dr. Fred Novice founded the practice in 1999 after building one of
               the most respected dermatology and dermatopathology careers in
               Michigan. Twenty-five years later, his daughters Dr. Karlee and
-              Dr. Taylor have joined him — all three trained at Henry Ford
+              Dr. Taylor have joined him. All three trained at Henry Ford
               Hospital, all three board-certified.
             </p>
             <p>

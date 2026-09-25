@@ -42,7 +42,7 @@ export function LabStory() {
           >
             <div className="flex items-center gap-3 mb-3">
               <div className="w-8 h-8 rounded-full bg-sage-light flex items-center justify-center">
-                <CheckCircle2 className="text-sage" size={16} />
+                <CheckCircle2 className="text-sage-deep" size={16} />
               </div>
               <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-charcoal">
                 In-House Lab

@@ -59,7 +59,7 @@ export function SectionLabel({
   className,
 }: SectionLabelProps) {
   const toneClass = {
-    sage: 'text-sage',
+    sage: 'text-sage-deep',
     gold: 'text-gold',
     cream: 'text-cream/80',
   }[tone];

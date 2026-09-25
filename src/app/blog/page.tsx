@@ -1,14 +1,17 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import { PageHero } from '@/components/ui/PageHero';
 import { Section } from '@/components/ui/Container';
 import { Reveal } from '@/components/ui/Reveal';
 import { BookingCTA } from '@/components/home/BookingCTA';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Blog & Education',
   description:
     'Skin health education from board-certified dermatologists. Articles on conditions, cosmetics, sun protection, and skincare products.',
-};
+  path: '/blog',
+  noindex: true,
+});
 
 export default function BlogPage() {
   return (
@@ -32,7 +35,7 @@ export default function BlogPage() {
                 href="https://www.instagram.com/novicegroupderm/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sage hover:text-charcoal transition-colors font-semibold"
+                className="text-sage-deep hover:text-charcoal transition-colors font-semibold"
               >
                 Instagram
               </a>{' '}

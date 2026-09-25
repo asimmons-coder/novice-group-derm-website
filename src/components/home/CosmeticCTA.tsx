@@ -12,13 +12,13 @@ export function CosmeticCTA() {
         <Reveal>
           <SectionLabel>The Cosmetic Practice</SectionLabel>
           <SignatureHeadline
-            primary="Subtle refinement."
-            accent="Not reinvention."
+            primary="Natural-looking results"
+            accent="from an experienced hand."
             size="lg"
           />
           <p className="mt-8 text-lg text-charcoal/75 leading-relaxed max-w-xl">
-            Cosmetic dermatology done right is invisible. You should look like
-            yourself, rested. Symmetrical, not stretched. With more than three
+            Good cosmetic work is hard to spot. You should look like yourself,
+            rested and balanced. With more than three
             decades of injection experience, Dr. Fred Novice approaches every
             face with the eye of an artist and the precision of a surgeon.
           </p>

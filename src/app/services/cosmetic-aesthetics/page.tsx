@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import Image from 'next/image';
 import { PageHero } from '@/components/ui/PageHero';
 import { Section } from '@/components/ui/Container';
@@ -9,11 +10,12 @@ import { LinkButton } from '@/components/ui/Button';
 import { BookingCTA } from '@/components/home/BookingCTA';
 import { images } from '@/lib/images';
 
-export const metadata: Metadata = {
-  title: 'Cosmetic & Aesthetics',
+export const metadata: Metadata = pageMetadata({
+  title: 'Botox, Fillers & Cosmetic Dermatology in Bloomfield Hills, MI',
   description:
-    'Botox, fillers, microneedling, lasers, and chemical peels in Bloomfield Hills. Three decades of injection artistry from Dr. Fred Novice.',
-};
+    'Botox, Dysport, dermal fillers, microneedling, lasers, and chemical peels with Dr. Fred Novice in Bloomfield Hills, serving Birmingham, Troy, and Metro Detroit.',
+  path: '/services/cosmetic-aesthetics',
+});
 
 const treatments = [
   {
@@ -31,7 +33,7 @@ const treatments = [
   {
     name: 'Kybella',
     description:
-      'Non-surgical reduction of submental fullness. A few sessions, lasting results — no surgery required.',
+      'Non-surgical reduction of fullness under the chin, usually over a few sessions, with lasting results.',
     image: images.cosmetic.kybella,
   },
   {
@@ -58,12 +60,12 @@ const faqs = [
   {
     question: 'Will I look natural?',
     answer:
-      'That is the entire philosophy of the practice. With more than 30 years of injection experience, Dr. Fred Novice approaches each face individually — symmetry, movement, and expression are preserved. Our goal is for friends to say you look rested, not "done."',
+      'That is the entire philosophy of the practice. With more than 30 years of injection experience, Dr. Fred Novice approaches each face individually and preserves symmetry, movement, and expression. The goal is for friends to say you look rested.',
   },
   {
     question: 'Is there downtime?',
     answer:
-      'Botox and most filler appointments have minimal downtime — many patients return to work the same day. Lasers, peels, and microneedling have varying recovery from a few days of redness to a week of peeling, depending on intensity.',
+      'Botox and most filler appointments have minimal downtime, and many patients return to work the same day. Lasers, peels, and microneedling have varying recovery from a few days of redness to a week of peeling, depending on intensity.',
   },
   {
     question: 'How much does Botox cost?',
@@ -73,7 +75,7 @@ const faqs = [
   {
     question: 'How long do fillers last?',
     answer:
-      'Filler longevity depends on the product and the area — typically 9 to 24 months. We will recommend the right product and discuss what to expect for your specific treatment.',
+      'Filler longevity depends on the product and the area, typically 9 to 24 months. We will recommend the right product and discuss what to expect for your specific treatment.',
   },
   {
     question: 'Do you offer consultations?',
@@ -87,9 +89,9 @@ export default function CosmeticPage() {
     <>
       <PageHero
         label="Cosmetic & Aesthetics"
-        primary="Subtle refinement."
-        accent="Not reinvention."
-        description="Cosmetic dermatology done right is invisible — symmetrical, not stretched. With more than 30 years of injection experience, Dr. Fred Novice has trained colleagues across the world in the techniques that make natural results possible."
+        primary="Botox, fillers,"
+        accent="and skin rejuvenation."
+        description="Natural-looking cosmetic care from Dr. Fred Novice, who has more than 30 years of injection experience and has taught his techniques to colleagues around the world."
         bg="gradient-cosmetic"
         image={{
           src: images.cosmetic.botox,
@@ -190,7 +192,11 @@ export default function CosmeticPage() {
         <Accordion items={faqs} />
       </Section>
 
-      <BookingCTA />
+      <BookingCTA
+        primary="Plan your cosmetic"
+        accent="consultation."
+        description="Start with a conversation about what you would like to refresh. Call or send a request to meet with Dr. Fred Novice."
+      />
     </>
   );
 }

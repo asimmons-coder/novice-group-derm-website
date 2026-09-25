@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import { LinkButton } from '@/components/ui/Button';
-import { StaggerGroup, StaggerItem } from '@/components/ui/Reveal';
 import { DrawnUnderline } from '@/components/motion/DrawnUnderline';
 
 const HERO_IMAGE = '/images/hero-family.jpg';
@@ -13,7 +12,7 @@ export function Hero() {
           src={HERO_IMAGE}
           alt="The Novice Group Dermatology team"
           fill
-          priority
+          preload
           sizes="100vw"
           className="object-cover object-right md:object-center"
         />
@@ -24,14 +23,14 @@ export function Hero() {
       </div>
 
       <div className="max-w-7xl w-full mx-auto px-6 md:px-12 relative">
-        <StaggerGroup className="max-w-2xl">
-          <StaggerItem>
-            <span className="inline-block text-gold uppercase tracking-[0.4em] text-xs font-semibold mb-6">
+        <div className="max-w-2xl">
+          <div className="hero-rise" style={{ animationDelay: '0ms' }}>
+            <span className="inline-block text-gold-deep uppercase tracking-[0.4em] text-xs font-semibold mb-6">
               Est. 1999, Bloomfield Hills, MI
             </span>
-          </StaggerItem>
+          </div>
 
-          <StaggerItem>
+          <div className="hero-rise-headline" style={{ animationDelay: '80ms' }}>
             <h1 className="font-[family-name:var(--font-display)] text-5xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight text-charcoal mb-8">
               Love your skin,
               <br />
@@ -42,17 +41,17 @@ export function Hero() {
               <br />
               to generation.
             </h1>
-          </StaggerItem>
+          </div>
 
-          <StaggerItem>
+          <div className="hero-rise" style={{ animationDelay: '200ms' }}>
             <p className="text-lg md:text-xl text-charcoal/70 mb-10 leading-relaxed max-w-lg">
               A private, family-owned practice led by a father-daughter trio of
               board-certified dermatologists. World-class medical, surgical,
               and cosmetic care for over 25 years.
             </p>
-          </StaggerItem>
+          </div>
 
-          <StaggerItem>
+          <div className="hero-rise" style={{ animationDelay: '300ms' }}>
             <div className="flex flex-col sm:flex-row gap-4">
               <LinkButton href="/contact" variant="dark" size="lg" withArrow>
                 Schedule a Visit
@@ -61,8 +60,8 @@ export function Hero() {
                 Explore Services
               </LinkButton>
             </div>
-          </StaggerItem>
-        </StaggerGroup>
+          </div>
+        </div>
       </div>
 
       <div

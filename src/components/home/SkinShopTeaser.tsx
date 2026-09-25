@@ -31,7 +31,7 @@ export function SkinShopTeaser() {
               href="/skin-shop"
               className="group block bg-warm-white border border-sand rounded-3xl p-8 text-center transition-all duration-500 hover:-translate-y-1 hover:shadow-xl"
             >
-              <h3 className="font-display text-lg text-charcoal mb-2 group-hover:text-sage transition-colors">
+              <h3 className="font-display text-lg text-charcoal mb-2 group-hover:text-sage-deep transition-colors">
                 {b.name}
               </h3>
               <p className="text-[10px] uppercase tracking-[0.2em] text-warm-gray font-semibold">

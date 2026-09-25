@@ -39,7 +39,7 @@ export function FAQ() {
               <span>{f.q}</span>
               <span
                 aria-hidden
-                className="mt-1 text-2xl leading-none text-sage transition-transform duration-300 group-open:rotate-45"
+                className="mt-1 text-2xl leading-none text-sage-deep transition-transform duration-300 group-open:rotate-45"
               >
                 +
               </span>

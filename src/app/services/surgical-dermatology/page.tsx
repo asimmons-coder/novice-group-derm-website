@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import { PageHero } from '@/components/ui/PageHero';
 import { Section } from '@/components/ui/Container';
 import { SignatureHeadline, SectionLabel } from '@/components/ui/SignatureHeadline';
@@ -7,17 +8,18 @@ import { Accordion } from '@/components/ui/Accordion';
 import { LinkButton } from '@/components/ui/Button';
 import { BookingCTA } from '@/components/home/BookingCTA';
 
-export const metadata: Metadata = {
-  title: 'Surgical Dermatology',
+export const metadata: Metadata = pageMetadata({
+  title: 'Skin Cancer Surgery & Mole Removal in Bloomfield Hills, MI',
   description:
-    'Skin cancer surgery, Mohs coordination, mole removal, and dermatologic surgery in Bloomfield Hills, Michigan.',
-};
+    'Skin cancer excision, Mohs coordination, and mole and cyst removal in Bloomfield Hills, Michigan, with every specimen read by our in-house dermatopathologists.',
+  path: '/services/surgical-dermatology',
+});
 
 const procedures = [
   {
     name: 'Skin Cancer Surgery',
     description:
-      'Excision of basal cell, squamous cell, and melanoma in situ — performed in office with attention to cosmetic result.',
+      'Excision of basal cell carcinoma, squamous cell carcinoma, and melanoma in situ, performed in the office with attention to the cosmetic result.',
   },
   {
     name: 'Mohs Surgery Coordination',
@@ -27,7 +29,7 @@ const procedures = [
   {
     name: 'Mole Removal',
     description:
-      'Both medically necessary and cosmetic mole removal — shave or excisional, all sent for in-house pathology.',
+      'Medically necessary and cosmetic mole removal, by shave or excision, with every specimen sent to our in-house lab.',
   },
   {
     name: 'Cyst & Lipoma Removal',
@@ -55,7 +57,7 @@ const faqs = [
   {
     question: 'Is the procedure done in your office?',
     answer:
-      'Yes — most surgical procedures are performed in our office under local anesthesia. You can usually drive home the same day.',
+      'Yes. Most surgical procedures are performed in our office under local anesthesia. You can usually drive home the same day.',
   },
   {
     question: 'When will I get my pathology results?',
@@ -76,7 +78,7 @@ export default function SurgicalPage() {
         label="Surgical Dermatology"
         primary="Precise hands."
         accent="Cosmetic outcomes."
-        description="When something needs to come off, the goal isn&rsquo;t just removal — it&rsquo;s removal with the smallest possible mark left behind. Decades of surgical experience focused on the aesthetic detail that matters."
+        description="When a mole, cyst, or skin cancer needs to come off, we remove it completely and close it to leave the smallest possible mark. Every specimen is read in our own lab."
       />
 
       <Section bg="cream" padding="xl">
@@ -140,7 +142,11 @@ export default function SurgicalPage() {
         <Accordion items={faqs} />
       </Section>
 
-      <BookingCTA />
+      <BookingCTA
+        primary="Have a spot"
+        accent="you want checked?"
+        description="Call or send a request, and let us know if a mole has changed. Every specimen we remove is read in our own lab."
+      />
     </>
   );
 }

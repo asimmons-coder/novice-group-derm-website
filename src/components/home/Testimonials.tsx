@@ -73,10 +73,15 @@ export function Testimonials() {
               type="button"
               onClick={() => setIndex(i)}
               aria-label={`Testimonial ${i + 1}`}
-              className={`h-2 rounded-full transition-all ${
-                index === i ? 'w-8 bg-sage' : 'w-2 bg-sand'
-              }`}
-            />
+              aria-current={index === i}
+              className="p-3 -m-1"
+            >
+              <span
+                className={`block h-2 rounded-full transition-all ${
+                  index === i ? 'w-8 bg-sage-deep' : 'w-2 bg-taupe'
+                }`}
+              />
+            </button>
           ))}
         </div>
 
@@ -85,11 +90,11 @@ export function Testimonials() {
             href="https://goo.gl/maps/CQcnFPqJiwpAJLcm9"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs uppercase tracking-widest text-sage hover:text-charcoal transition-colors font-semibold"
+            className="text-xs uppercase tracking-widest text-sage-deep hover:text-charcoal transition-colors font-semibold"
           >
             See all reviews on Google &rarr;
           </a>
-          <p className="text-[11px] text-warm-gray/60">
+          <p className="text-[11px] text-warm-gray">
             Reviews shared with permission
           </p>
         </div>

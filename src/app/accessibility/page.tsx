@@ -1,12 +1,14 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import { LegalPage } from '@/components/ui/LegalPage';
 import { site } from '@/lib/site';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Accessibility',
   description:
     'Accessibility statement for the Novice Group Dermatology website, including our standards, current measures, and how to report an issue.',
-};
+  path: '/accessibility',
+});
 
 export default function AccessibilityPage() {
   return (

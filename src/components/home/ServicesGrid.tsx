@@ -12,7 +12,7 @@ const cards = [
     description:
       'Acne, eczema, psoriasis, rosacea, skin cancer screening, mole monitoring. The clinical foundation of every healthy skin journey.',
     accent: 'bg-sage',
-    iconBg: 'bg-sage-light text-sage',
+    iconBg: 'bg-sage-light text-sage-deep',
   },
   {
     slug: 'dermatopathology',
@@ -21,7 +21,7 @@ const cards = [
     description:
       'In-house biopsy diagnosis. The same dermatologist who examines your skin reads your slides under the microscope.',
     accent: 'bg-gold',
-    iconBg: 'bg-gold-light text-gold',
+    iconBg: 'bg-gold-light text-gold-deep',
   },
   {
     slug: 'cosmetic-aesthetics',
@@ -83,7 +83,7 @@ export function ServicesGrid() {
                 <p className="text-sm text-warm-gray leading-relaxed mb-8">
                   {card.description}
                 </p>
-                <span className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-charcoal/80 group-hover:text-sage transition-colors">
+                <span className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-charcoal/80 group-hover:text-sage-deep transition-colors">
                   Learn More
                   <ArrowUpRight size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </span>

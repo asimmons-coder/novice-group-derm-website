@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import { Container } from '@/components/ui/Container';
 import { SignatureHeadline, SectionLabel } from '@/components/ui/SignatureHeadline';
-import { Reveal } from '@/components/ui/Reveal';
 import { clsx } from '@/lib/clsx';
 
 interface PageHeroProps {
@@ -57,26 +56,28 @@ export function PageHero({
       <Container size="wide">
         {image ? (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            <Reveal className={clsx('lg:col-span-7', align === 'center' && 'text-center')}>
+            {/* CSS entrance, not JS: the hero text or image is the page's largest
+                paint, and a JS fade would hold LCP until hydration. */}
+            <div className={clsx('hero-rise-headline lg:col-span-7', align === 'center' && 'text-center')}>
               {content}
-            </Reveal>
-            <Reveal className="lg:col-span-5">
+            </div>
+            <div className="hero-rise-headline lg:col-span-5" style={{ animationDelay: '120ms' }}>
               <div className="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-xl">
                 <Image
                   src={image.src}
                   alt={image.alt}
                   fill
-                  priority
+                  preload
                   sizes="(max-width: 1024px) 90vw, 40vw"
                   className="object-cover"
                 />
               </div>
-            </Reveal>
+            </div>
           </div>
         ) : (
-          <Reveal className={clsx(align === 'center' && 'text-center', 'max-w-3xl', align === 'center' && 'mx-auto')}>
+          <div className={clsx('hero-rise-headline max-w-3xl', align === 'center' && 'text-center mx-auto')}>
             {content}
-          </Reveal>
+          </div>
         )}
       </Container>
     </section>

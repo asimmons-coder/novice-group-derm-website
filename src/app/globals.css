@@ -16,7 +16,8 @@
   /* Secondary palette */
   --color-sand: #E8DFD3;
   --color-sand-light: #F2EDE6;
-  --color-warm-gray: #8A7D72;
+  /* Darkened from #8A7D72 so body copy passes WCAG AA (5.4:1 on cream) */
+  --color-warm-gray: #6F6359;
   --color-taupe: #B8A99A;
 
   /* Accent palette */
@@ -26,6 +27,12 @@
   --color-gold-light: #E8D5B0;
   --color-sage-light: #E8EFE8;
   --color-sage-muted: #A8BCA8;
+
+  /* Accessible text and fill variants: sage and gold themselves are too light
+     for text on cream. Use these for text, icons, and filled buttons on light
+     backgrounds; keep the originals for dark sections and decoration. */
+  --color-sage-deep: #557055;
+  --color-gold-deep: #8A6A2E;
 }
 
 @layer base {
@@ -50,7 +57,7 @@
     font-weight: 600;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--color-sage);
+    color: var(--color-sage-deep);
   }
 
   .headline-display {
@@ -83,6 +90,22 @@
   .animate-morph { animation: morph 16s ease-in-out infinite; }
   .animate-scroll-cue { animation: scroll-cue 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite; }
   .pause-on-hover:hover .animate-marquee { animation-play-state: paused; }
+
+  /* Hero entrance runs in CSS, not JS, so it starts before hydration. The
+     headline only rises (never starts transparent) because it is the page's
+     largest paint, and hiding it would delay LCP until JavaScript loads. */
+  .hero-rise { animation: hero-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
+  .hero-rise-headline { animation: hero-rise-headline 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
+}
+
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hero-rise-headline {
+  from { transform: translateY(14px); }
+  to { transform: translateY(0); }
 }
 
 @keyframes marquee {

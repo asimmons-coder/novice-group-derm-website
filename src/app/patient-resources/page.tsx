@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import { CheckCircle2, FileDown, ListChecks, Shield } from 'lucide-react';
 import { PageHero } from '@/components/ui/PageHero';
 import { Section } from '@/components/ui/Container';
@@ -9,11 +10,12 @@ import { LinkButton } from '@/components/ui/Button';
 import { BookingCTA } from '@/components/home/BookingCTA';
 import { site } from '@/lib/site';
 
-export const metadata: Metadata = {
-  title: 'Patient Resources',
+export const metadata: Metadata = pageMetadata({
+  title: 'New Patient Information & Insurance',
   description:
-    'New patient forms, accepted insurance, and what to expect at your first visit to Novice Group Dermatology in Bloomfield Hills, Michigan.',
-};
+    'New patient information, accepted insurance, and what to expect at your first visit to Novice Group Dermatology in Bloomfield Hills, Michigan.',
+  path: '/patient-resources',
+});
 
 const insurance = [
   'Aetna', 'Humana', 'United Healthcare', 'Blue Cross Blue Shield',
@@ -64,20 +66,20 @@ export default function PatientResourcesPage() {
         label="Patient Resources"
         primary="Everything you need"
         accent="before your first visit."
-        description="Forms, insurance, FAQs, and what to expect. If you can&rsquo;t find what you&rsquo;re looking for, give us a call — we&rsquo;re happy to help."
+        description="Forms, insurance, FAQs, and what to expect. If you can&rsquo;t find what you&rsquo;re looking for, give us a call and we&rsquo;ll help."
       />
 
       {/* Insurance */}
       <Section bg="cream" padding="lg" id="insurance">
         <Reveal>
           <div className="flex items-start gap-4 mb-8">
-            <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-sage-light text-sage shrink-0">
+            <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-sage-light text-sage-deep shrink-0">
               <Shield size={20} />
             </div>
             <div>
               <SectionLabel>Insurance</SectionLabel>
               <SignatureHeadline
-                primary="34+ plans accepted,"
+                primary="Most major plans accepted,"
                 accent="including Medicaid."
                 size="md"
               />
@@ -94,7 +96,7 @@ export default function PatientResourcesPage() {
                 key={plan}
                 className="flex items-center gap-2 bg-warm-white border border-sand rounded-xl px-4 py-3"
               >
-                <CheckCircle2 size={14} className="text-sage shrink-0" />
+                <CheckCircle2 size={14} className="text-sage-deep shrink-0" />
                 <span className="text-sm text-charcoal">{plan}</span>
               </div>
             ))}
@@ -106,7 +108,7 @@ export default function PatientResourcesPage() {
       <Section bg="warm-white" padding="lg" id="forms">
         <Reveal>
           <div className="flex items-start gap-4 mb-8">
-            <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gold-light text-gold shrink-0">
+            <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gold-light text-gold-deep shrink-0">
               <FileDown size={20} />
             </div>
             <div>
@@ -119,16 +121,16 @@ export default function PatientResourcesPage() {
             </div>
           </div>
           <p className="text-warm-gray text-lg max-w-3xl mb-10">
-            Download and complete these forms before your visit, or arrive 15
-            minutes early to fill them out in the office.
+            New patients can request forms ahead of time, or arrive 15 minutes
+            early to complete them in the office.
           </p>
           <div className="bg-cream border border-sand rounded-2xl px-6 py-5 max-w-3xl">
             <p className="font-display text-base text-charcoal">
               Patient forms are provided at your first visit or can be requested by calling the office.
             </p>
             <p className="text-sm text-warm-gray mt-2">
-              Call <a href="tel:+12489323376" className="text-sage hover:text-charcoal transition-colors font-semibold">(248) 932-3376</a> or email{' '}
-              <a href="mailto:Skin@novicegroupderm.com" className="text-sage hover:text-charcoal transition-colors font-semibold">Skin@novicegroupderm.com</a> to request forms in advance.
+              Call <a href="tel:+12489323376" className="text-sage-deep hover:text-charcoal transition-colors font-semibold">(248) 932-3376</a> or email{' '}
+              <a href="mailto:Skin@novicegroupderm.com" className="text-sage-deep hover:text-charcoal transition-colors font-semibold">Skin@novicegroupderm.com</a> to request forms in advance.
             </p>
           </div>
         </Reveal>
@@ -153,7 +155,7 @@ export default function PatientResourcesPage() {
           <ul className="space-y-4 max-w-2xl">
             {firstVisitItems.map((item) => (
               <li key={item} className="flex items-start gap-3 text-charcoal/80">
-                <CheckCircle2 size={18} className="text-sage shrink-0 mt-0.5" />
+                <CheckCircle2 size={18} className="text-sage-deep shrink-0 mt-0.5" />
                 <span>{item}</span>
               </li>
             ))}
@@ -187,7 +189,11 @@ export default function PatientResourcesPage() {
         </div>
       </Section>
 
-      <BookingCTA />
+      <BookingCTA
+        primary="Ready for"
+        accent="your first visit?"
+        description="Call the office with any question about forms, insurance, or what to bring. We are glad to help."
+      />
     </>
   );
 }

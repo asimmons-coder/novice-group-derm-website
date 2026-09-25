@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import { PageHero } from '@/components/ui/PageHero';
 import { Section } from '@/components/ui/Container';
 import { SignatureHeadline, SectionLabel } from '@/components/ui/SignatureHeadline';
@@ -8,14 +9,15 @@ import { ConditionsGrid, ProcessSteps } from '@/components/services/ConditionsGr
 import { BookingCTA } from '@/components/home/BookingCTA';
 import { images } from '@/lib/images';
 
-export const metadata: Metadata = {
-  title: 'Medical Dermatology',
+export const metadata: Metadata = pageMetadata({
+  title: 'Medical Dermatology in Bloomfield Hills, MI',
   description:
-    'Acne, eczema, psoriasis, rosacea, skin cancer screening, and more. Comprehensive medical dermatology in Bloomfield Hills, Michigan.',
-};
+    'Acne, eczema, psoriasis, rosacea, and skin cancer screenings with dermatologists in Bloomfield Hills, Michigan, serving Birmingham, Troy, and Metro Detroit.',
+  path: '/services/medical-dermatology',
+});
 
 const conditions = [
-  { name: 'Acne', description: 'Personalized treatment for teens and adults — topical, oral, and procedural options.' },
+  { name: 'Acne', description: 'Personalized treatment for teens and adults, with topical, oral, and procedural options.' },
   { name: 'Eczema & Atopic Dermatitis', description: 'From mild flares to severe disease, including the latest biologics.' },
   { name: 'Psoriasis', description: 'Topical, light therapy, oral, and biologic management for plaque, guttate, and inverse forms.' },
   { name: 'Rosacea', description: 'Calming flares, addressing visible vessels, and protecting sensitive skin long-term.' },
@@ -43,12 +45,12 @@ const faqs = [
   {
     question: 'What insurance do you accept?',
     answer:
-      'We accept 34+ plans including Aetna, BCBS, Cigna, Humana, United Healthcare, Medicare, and Medicaid. Call us if you don\u2019t see yours and we\u2019ll verify.',
+      'We accept most major plans, including Aetna, BCBS, Cigna, Humana, United Healthcare, Medicare, and Medicaid. Call us if you don\u2019t see yours and we\u2019ll verify.',
   },
   {
     question: 'Will I see a doctor or a midlevel?',
     answer:
-      'You will be seen by one of our board-certified dermatologists or our experienced nurse practitioner — your choice. We do not rotate patients through providers visit-to-visit.',
+      'You will be seen by one of our board-certified dermatologists or our experienced nurse practitioner, whichever you prefer. We do not rotate patients through providers visit-to-visit.',
   },
   {
     question: 'How quickly can I be seen for a suspicious mole?',
@@ -64,7 +66,7 @@ export default function MedicalDermatologyPage() {
         label="Medical Dermatology"
         primary="The clinical foundation"
         accent="of healthy skin."
-        description="From a kid&rsquo;s first acne flare to an adult&rsquo;s annual skin cancer screening, the medical side of dermatology is the heart of the practice. Three board-certified dermatologists and a nurse practitioner — listening carefully, diagnosing precisely, treating thoughtfully."
+        description="From a kid&rsquo;s first acne flare to an adult&rsquo;s annual skin cancer screening, the medical side of dermatology is the heart of the practice. Three dermatologists and a nurse practitioner take the time to listen, examine carefully, and explain the plan."
         image={{
           src: images.providersTrio,
           alt: 'Drs. Fred, Karlee, and Taylor Novice in the office',
@@ -86,7 +88,7 @@ export default function MedicalDermatologyPage() {
           },
           {
             title: 'Diagnose',
-            body: 'A careful exam, dermoscopy when needed, and an in-house biopsy if it&rsquo;s warranted. The same doctor reads it under the microscope.',
+            body: 'A careful exam, dermoscopy when needed, and an in-house biopsy if it\u2019s warranted. The same doctor reads it under the microscope.',
           },
           {
             title: 'Treat',
@@ -108,7 +110,11 @@ export default function MedicalDermatologyPage() {
         <Accordion items={faqs} />
       </Section>
 
-      <BookingCTA />
+      <BookingCTA
+        primary="Book a skin check"
+        accent="with a dermatologist."
+        description="New patients welcome, and most major insurance is accepted. Call or send a request for a medical visit or full-body skin exam."
+      />
     </>
   );
 }

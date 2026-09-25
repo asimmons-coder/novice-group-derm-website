@@ -258,7 +258,7 @@ export function SkinLayers() {
                 <p className="text-warm-gray leading-relaxed mb-6 max-w-md">{active.body}</p>
                 <Link
                   href={active.href}
-                  className="group inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-charcoal hover:text-sage transition-colors"
+                  className="group inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-charcoal hover:text-sage-deep transition-colors"
                 >
                   Explore {active.tab.toLowerCase()} care
                   <ArrowUpRight size={14} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />

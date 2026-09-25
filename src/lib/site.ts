@@ -88,7 +88,7 @@ export const providers = [
     name: 'Dr. Fred M. Novice, MD',
     role: 'Board-Certified Dermatologist & Dermatopathologist',
     yearsExperience: '42+',
-    headline: 'The patriarch. Trusted authority. Decades of cosmetic mastery.',
+    headline: 'Dermatologist and dermatopathologist with more than 30 years of cosmetic injection experience.',
     bio: 'Dr. Fred Novice founded the practice after completing his dermatology residency at Henry Ford Hospital, where he served as Chief Resident, and a dermatopathology fellowship at the University of Oklahoma. With more than 30 years of Botox and filler experience, he is among the most experienced cosmetic injectors practicing today, and has trained colleagues around the world in advanced injection techniques.',
     credentials: [
       'MD, University of Toronto (1983)',
@@ -106,13 +106,13 @@ export const providers = [
     name: 'Dr. Karlee D. Novice, MD',
     role: 'Board-Certified Dermatologist',
     yearsExperience: '11+',
-    headline: 'The bridge between deep medical knowledge and patient-friendly education.',
+    headline: 'Evidence-based medical and cosmetic dermatology, explained in plain language.',
     bio: 'Dr. Karlee Novice trained at Henry Ford Hospital, where she served as Chief Resident from 2015 to 2018. She brings an evidence-based, approachable style to every visit, with multiple peer-reviewed publications on topics ranging from drug-induced phototoxicity to chemical peels and skin cancer education.',
     credentials: [
       'BA magna cum laude, Lehigh University',
       'MD cum laude, Loyola Stritch School of Medicine (Distinction in Research)',
       'Preliminary Internal Medicine, Loyola',
-      'Dermatology Residency, Henry Ford Hospital (Chief Resident, 2015–2018)',
+      'Dermatology Residency, Henry Ford Hospital (Chief Resident)',
       'Board-Certified, Fellow of the American Academy of Dermatology',
       'Multiple peer-reviewed publications',
     ],
@@ -123,7 +123,7 @@ export const providers = [
     name: 'Dr. Taylor Novice, MD, MBA',
     role: 'Board-Certified Dermatologist & Dermatopathologist',
     yearsExperience: 'Newest generation',
-    headline: 'Clinical excellence meets business innovation. The next generation.',
+    headline: 'Dermatologist trained in dermatopathology, with a focus on healthcare innovation.',
     bio: 'Dr. Taylor Novice represents the third generation of dermatologists in the Novice family. After earning a BA summa cum laude from Duke and an MD from the University of Michigan, she completed an MBA at Michigan Ross with a focus on healthcare innovation, and trained in both dermatology and dermatopathology. As Academic Chief Resident at Henry Ford, she received the Outstanding Resident Award across the entire health system.',
     credentials: [
       'BA summa cum laude, Duke University (Phi Beta Kappa)',
@@ -139,8 +139,8 @@ export const providers = [
     slug: 'erin-koppelman',
     name: 'Erin Koppelman, MSN, APRN, NP-C',
     role: 'Board-Certified Nurse Practitioner',
-    yearsExperience: '13+ years',
-    headline: 'Hospital-trained clinician with a passion for dermatology.',
+    yearsExperience: '13+',
+    headline: 'Hospital-trained nurse practitioner focused on skin screenings and patient education.',
     bio: 'Erin is a board-certified Nurse Practitioner who earned her Bachelor of Science in Nursing at the University of Michigan and her Master of Science in Nursing in Adult Primary Care at Wayne State University. Before specializing in dermatology, she practiced hospital-based medicine in both cardiology and intensive care. She is a member of the American Academy of Nurse Practitioners, Michigan Council of Nurse Practitioners, and the National Academy of Dermatology Nurse Practitioners.',
     credentials: [
       'BSN, University of Michigan School of Nursing (2005)',
@@ -162,10 +162,12 @@ export const stats = [
 // Online booking. To switch every "Book Online" button from the contact form to
 // real online scheduling, set NEXT_PUBLIC_BOOKING_URL to the ModMed EMA
 // self-scheduling URL (in Vercel project env, or a local .env.local). Until that
-// URL exists, Book Online routes to the contact page rather than a dead end.
+// URL exists, the buttons honestly say "Request an Appointment" and route to the
+// contact page, since that form cannot confirm a time.
 const bookingUrlRaw = process.env.NEXT_PUBLIC_BOOKING_URL?.trim();
 export const booking = {
   url: bookingUrlRaw || '/contact',
+  label: bookingUrlRaw ? 'Book Online' : 'Request an Appointment',
   isLive: Boolean(bookingUrlRaw),
   external: Boolean(bookingUrlRaw && /^https?:\/\//.test(bookingUrlRaw)),
 };

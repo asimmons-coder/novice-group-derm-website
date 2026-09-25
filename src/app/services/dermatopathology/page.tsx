@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import { PageHero } from '@/components/ui/PageHero';
 import { Section } from '@/components/ui/Container';
 import { SignatureHeadline, SectionLabel } from '@/components/ui/SignatureHeadline';
@@ -7,11 +8,12 @@ import { LinkButton } from '@/components/ui/Button';
 import { BookingCTA } from '@/components/home/BookingCTA';
 import { images } from '@/lib/images';
 
-export const metadata: Metadata = {
-  title: 'Dermatopathology',
+export const metadata: Metadata = pageMetadata({
+  title: 'In-House Dermatopathology in Bloomfield Hills, MI',
   description:
-    'In-house dermatopathology in Bloomfield Hills. The same dermatologist who examines your skin reads your biopsy under the microscope.',
-};
+    'At Novice Group Dermatology, the dermatologist who examines your skin also reads your biopsy under the microscope, in our own lab in Bloomfield Hills, Michigan.',
+  path: '/services/dermatopathology',
+});
 
 const steps = [
   {
@@ -20,11 +22,11 @@ const steps = [
   },
   {
     title: 'In-House Analysis',
-    body: 'Slides are processed and read on-site by Dr. Fred or Dr. Taylor — both fellowship-trained dermatopathologists.',
+    body: 'Slides are processed and read on-site by Dr. Fred or Dr. Taylor, both fellowship-trained dermatopathologists.',
   },
   {
     title: 'Same-Doctor Diagnosis',
-    body: 'The dermatologist who saw your skin sees your slides. The diagnosis is grounded in clinical context — and ready in days, not weeks.',
+    body: 'The dermatologist who saw your skin sees your slides. The diagnosis is grounded in clinical context and is usually ready within days.',
   },
 ];
 
@@ -35,7 +37,7 @@ export default function DermatopathologyPage() {
         label="Dermatopathology"
         primary="Diagnosis,"
         accent="under the microscope."
-        description="Dermatopathology is the medical specialty that diagnoses skin disease by examining tissue under the microscope. Two of our dermatologists are also fellowship-trained pathologists — meaning the doctor who examines your skin is also the one who reads your biopsy."
+        description="Dermatopathology is the medical specialty that diagnoses skin disease by examining tissue under the microscope. Two of our dermatologists are also fellowship-trained dermatopathologists, so the doctor who examines your skin can also read your biopsy."
         image={{
           src: images.lab,
           alt: 'The in-house dermatopathology lab at Novice Group Dermatology',
@@ -58,11 +60,11 @@ export default function DermatopathologyPage() {
               of the time. Sometimes it doesn&rsquo;t.
             </p>
             <p>
-              When a single doctor sees both the patient AND the slide, the
+              When a single doctor sees both the patient and the slide, the
               diagnosis is grounded in everything that happened in the exam room.
-              That continuity — what dermatologists call clinicopathologic
-              correlation — is the highest standard of diagnostic accuracy. And
-              it&rsquo;s almost unheard of in private practice.
+              Dermatologists call this clinicopathologic correlation: the
+              clinical exam and the microscope read by the same trained eye. It
+              is uncommon in private practice.
             </p>
             <p>
               At Novice Group, both Dr. Fred and Dr. Taylor are fellowship-trained
@@ -87,7 +89,7 @@ export default function DermatopathologyPage() {
           {steps.map((step, i) => (
             <StaggerItem key={i}>
               <div className="text-center md:text-left bg-cream rounded-3xl p-10 h-full border border-sand">
-                <div className="font-display text-6xl text-gold leading-none mb-6 select-none">
+                <div className="font-display text-6xl text-gold-deep leading-none mb-6 select-none">
                   {String(i + 1).padStart(2, '0')}
                 </div>
                 <h3 className="font-display text-2xl text-charcoal mb-4">{step.title}</h3>
@@ -123,7 +125,11 @@ export default function DermatopathologyPage() {
         </Reveal>
       </Section>
 
-      <BookingCTA />
+      <BookingCTA
+        primary="See the doctor"
+        accent="who reads the slide."
+        description="New patients welcome. Call or send a request to schedule an exam with one of our dermatologists."
+      />
     </>
   );
 }

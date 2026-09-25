@@ -2,10 +2,10 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { ChevronDown, Menu, X } from 'lucide-react';
+import { ChevronDown, Menu, Phone, X } from 'lucide-react';
 import { Logo } from '@/components/ui/Logo';
 import { LinkButton } from '@/components/ui/Button';
-import { navLinks, booking, services } from '@/lib/site';
+import { navLinks, booking, services, site } from '@/lib/site';
 import { clsx } from '@/lib/clsx';
 
 export function Navbar() {
@@ -32,16 +32,20 @@ export function Navbar() {
   }, [open]);
 
   return (
-    <header
-      className={clsx(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
-        scrolled
-          ? 'bg-cream/90 backdrop-blur-md shadow-[0_1px_0_rgba(45,41,38,0.06)]'
-          : 'bg-transparent',
-      )}
-    >
+    <header className="fixed top-0 left-0 right-0 z-50">
+      {/* The blur lives on its own layer: backdrop-filter on <header> would make
+          it the containing block for the fixed mobile menu and clip it. */}
+      <div
+        aria-hidden
+        className={clsx(
+          'absolute inset-0 -z-10 transition-all duration-500',
+          scrolled || open
+            ? 'bg-cream/90 backdrop-blur-md shadow-[0_1px_0_rgba(45,41,38,0.06)]'
+            : 'bg-transparent',
+        )}
+      />
       <nav
-        className="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-16 flex items-center justify-between py-4 md:py-5"
+        className="relative mx-auto max-w-[1440px] px-6 md:px-10 lg:px-16 flex items-center justify-between py-4 md:py-5"
         aria-label="Primary"
       >
         <Logo />
@@ -121,7 +125,7 @@ export function Navbar() {
                     <div className="mt-1 border-t border-sand pt-1">
                       <Link
                         href="/services"
-                        className="block rounded-xl px-4 py-3 text-[13px] font-medium text-sage transition-colors duration-300 hover:bg-sage-light hover:text-charcoal focus-visible:bg-sage-light focus-visible:text-charcoal"
+                        className="block rounded-xl px-4 py-3 text-[13px] font-medium text-sage-deep transition-colors duration-300 hover:bg-sage-light hover:text-charcoal focus-visible:bg-sage-light focus-visible:text-charcoal"
                       >
                         All Services
                       </Link>
@@ -135,25 +139,34 @@ export function Navbar() {
 
         <div className="hidden lg:block">
           <LinkButton href={booking.url} external={booking.external} variant="primary" size="md">
-            Book Online
+            {booking.label}
           </LinkButton>
         </div>
 
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          className="lg:hidden p-2 -mr-2 text-charcoal"
-          aria-label={open ? 'Close menu' : 'Open menu'}
-          aria-expanded={open}
-        >
-          {open ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="lg:hidden flex items-center gap-1 -mr-2">
+          <a
+            href={`tel:${site.phoneRaw}`}
+            aria-label={`Call ${site.phone}`}
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full text-charcoal hover:bg-sand-light transition-colors"
+          >
+            <Phone size={20} />
+          </a>
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            className="inline-flex h-11 w-11 items-center justify-center text-charcoal"
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-expanded={open}
+          >
+            {open ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile overlay */}
       <div
         className={clsx(
-          'lg:hidden fixed inset-0 top-[68px] bg-cream transition-all duration-500 z-40',
+          'lg:hidden fixed inset-0 top-[68px] overflow-y-auto bg-cream transition-all duration-500 z-40',
           open ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none',
         )}
       >
@@ -168,7 +181,7 @@ export function Navbar() {
                 <Link
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="block py-5 font-display text-3xl text-charcoal hover:text-sage transition-colors"
+                  className="block py-5 font-display text-3xl text-charcoal hover:text-sage-deep transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -179,7 +192,7 @@ export function Navbar() {
                         <Link
                           href={`/services/${service.slug}`}
                           onClick={() => setOpen(false)}
-                          className="block py-2 text-sm font-medium text-warm-gray transition-colors hover:text-sage"
+                          className="block py-2 text-sm font-medium text-warm-gray transition-colors hover:text-sage-deep"
                         >
                           {service.name}
                         </Link>
@@ -192,10 +205,10 @@ export function Navbar() {
           </ul>
           <div className="mt-auto pt-12">
             <LinkButton href={booking.url} external={booking.external} variant="primary" size="lg" className="w-full">
-              Book Online
+              {booking.label}
             </LinkButton>
             <p className="mt-6 text-center text-sm text-warm-gray">
-              Or call <a href="tel:+12489323376" className="font-semibold text-charcoal">(248) 932-3376</a>
+              Or call <a href={`tel:${site.phoneRaw}`} className="font-semibold text-charcoal">{site.phone}</a>
             </p>
           </div>
         </div>

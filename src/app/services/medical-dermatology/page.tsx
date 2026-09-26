@@ -17,12 +17,12 @@ export const metadata: Metadata = pageMetadata({
 });
 
 const conditions = [
-  { name: 'Acne', description: 'Personalized treatment for teens and adults, with topical, oral, and procedural options.' },
-  { name: 'Eczema & Atopic Dermatitis', description: 'From mild flares to severe disease, including the latest biologics.' },
-  { name: 'Psoriasis', description: 'Topical, light therapy, oral, and biologic management for plaque, guttate, and inverse forms.' },
-  { name: 'Rosacea', description: 'Calming flares, addressing visible vessels, and protecting sensitive skin long-term.' },
-  { name: 'Skin Cancer Screening', description: 'Full-body exams with dermoscopy and same-day biopsies when needed.' },
-  { name: 'Mole Evaluation', description: 'Photographic monitoring of atypical nevi and routine surveillance.' },
+  { name: 'Acne', href: '/conditions/acne', description: 'Personalized treatment for teens and adults, with topical, oral, and procedural options.' },
+  { name: 'Eczema & Atopic Dermatitis', href: '/conditions/eczema', description: 'From mild flares to severe disease, including the latest biologics.' },
+  { name: 'Psoriasis', href: '/conditions/psoriasis', description: 'Topical, light therapy, oral, and biologic management for plaque, guttate, and inverse forms.' },
+  { name: 'Rosacea', href: '/conditions/rosacea', description: 'Calming flares, addressing visible vessels, and protecting sensitive skin long-term.' },
+  { name: 'Skin Cancer Screening', href: '/conditions/skin-cancer-screening', description: 'Full-body exams with dermoscopy and same-day biopsies when needed.' },
+  { name: 'Mole Evaluation', href: '/conditions/moles', description: 'Photographic monitoring of atypical nevi and routine surveillance.' },
   { name: 'Hair Loss & Alopecia', description: 'Workup and treatment for androgenetic, alopecia areata, and scarring forms.' },
   { name: 'Nail Conditions', description: 'Fungal infections, psoriasis, ingrown nails, and trauma-related changes.' },
   { name: 'Hyperhidrosis', description: 'Topicals, oral medications, and Botox injections for excessive sweating.' },

@@ -8,6 +8,7 @@ import { site, services } from '@/lib/site';
 const practiceLinks = [
   { label: 'Our Story', href: '/our-story' },
   { label: 'Patient Resources', href: '/patient-resources' },
+  { label: 'Skin Guides', href: '/conditions' },
   { label: 'Insurance', href: '/patient-resources#insurance' },
   { label: 'Forms', href: '/patient-resources#forms' },
   { label: 'Pay Online', href: 'https://novicegroupderm.ema.md/ema/pay/onlinepay' },

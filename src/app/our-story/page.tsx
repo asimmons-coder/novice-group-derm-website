@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
 import { pageMetadata } from '@/lib/seo';
 import Image from 'next/image';
+import Link from 'next/link';
 import { PageHero } from '@/components/ui/PageHero';
 import { Section } from '@/components/ui/Container';
 import { SignatureHeadline, SectionLabel } from '@/components/ui/SignatureHeadline';
 import { Reveal } from '@/components/ui/Reveal';
 import { BookingCTA } from '@/components/home/BookingCTA';
+import { ArrowLink } from '@/components/ui/Button';
 import { providers } from '@/lib/site';
 import { images } from '@/lib/images';
 
@@ -110,7 +112,9 @@ export default function OurStoryPage() {
                 <div className="lg:col-span-7">
                   <SectionLabel>{p.role}</SectionLabel>
                   <h3 className="font-display text-4xl md:text-5xl text-charcoal mb-6 leading-tight">
-                    {p.name}
+                    <Link href={`/providers/${p.slug}`} className="hover:text-sage-deep transition-colors">
+                      {p.name}
+                    </Link>
                   </h3>
                   <p className="font-accent text-2xl text-charcoal/80 mb-8 max-w-xl">
                     {p.headline}
@@ -141,6 +145,9 @@ export default function OurStoryPage() {
                       </span>
                     ))}
                   </div>
+                  <ArrowLink href={`/providers/${p.slug}`} className="mt-10">
+                    Full profile
+                  </ArrowLink>
                 </div>
               </div>
             </Reveal>

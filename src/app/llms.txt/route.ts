@@ -1,4 +1,5 @@
 import { site, providers, services, faqs, booking } from '@/lib/site';
+import { guides, guidePath } from '@/lib/guides';
 
 export const dynamic = 'force-static';
 
@@ -24,11 +25,15 @@ export function GET() {
     '',
     '## Providers',
     '',
-    ...providers.map((p) => `- ${p.name}: ${p.role}. ${p.bio}`),
+    ...providers.map((p) => `- [${p.name}](${url(`/providers/${p.slug}`)}): ${p.role}. ${p.bio}`),
     '',
     '## Services',
     '',
     ...services.map((s) => `- [${s.name}](${url(`/services/${s.slug}`)}): ${s.blurb}`),
+    '',
+    '## Skin guides',
+    '',
+    ...guides.map((g) => `- [${g.name}](${url(guidePath(g))}): ${g.answer}`),
     '',
     '## Common questions',
     '',
@@ -36,6 +41,7 @@ export function GET() {
     '## Key pages',
     '',
     `- [Our dermatologists](${url('/our-story')})`,
+    `- [Skin guides to conditions and treatments](${url('/conditions')})`,
     `- [New patient information and insurance](${url('/patient-resources')})`,
     `- [Skin shop](${url('/skin-shop')})`,
     `- [Contact and directions](${url('/contact')})`,

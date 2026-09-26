@@ -1,10 +1,14 @@
+import Link from 'next/link';
 import { Section } from '@/components/ui/Container';
 import { SignatureHeadline, SectionLabel } from '@/components/ui/SignatureHeadline';
 import { Reveal, StaggerGroup, StaggerItem } from '@/components/ui/Reveal';
+import { ArrowLabel } from '@/components/ui/Button';
 
 interface Condition {
   name: string;
   description: string;
+  // Links the card to a patient guide when one exists.
+  href?: string;
 }
 
 export function ConditionsGrid({
@@ -26,14 +30,28 @@ export function ConditionsGrid({
       </Reveal>
 
       <StaggerGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {conditions.map((c) => (
-          <StaggerItem key={c.name}>
-            <div className="h-full bg-warm-white border border-sand rounded-2xl p-7 hover:bg-sage-light hover:border-sage-deep hover:-translate-y-1 hover:shadow-lg transition-all duration-500">
+        {conditions.map((c) => {
+          const cardClass =
+            'h-full bg-warm-white border border-sand rounded-2xl p-7 hover:bg-sage-light hover:border-sage-deep hover:-translate-y-1 hover:shadow-lg transition-all duration-500';
+          const content = (
+            <>
               <h3 className="font-display text-lg text-charcoal mb-2">{c.name}</h3>
               <p className="text-sm text-warm-gray leading-relaxed">{c.description}</p>
-            </div>
-          </StaggerItem>
-        ))}
+            </>
+          );
+          return (
+            <StaggerItem key={c.name}>
+              {c.href ? (
+                <Link href={c.href} className={`group flex flex-col ${cardClass}`}>
+                  {content}
+                  <ArrowLabel className="mt-5">Read the guide</ArrowLabel>
+                </Link>
+              ) : (
+                <div className={cardClass}>{content}</div>
+              )}
+            </StaggerItem>
+          );
+        })}
       </StaggerGroup>
     </Section>
   );

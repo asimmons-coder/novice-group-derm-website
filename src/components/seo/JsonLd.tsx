@@ -18,14 +18,14 @@ export function JsonLd() {
     const firstName = p.slug.split('-')[0];
     return {
       '@type': 'Person',
-      '@id': `${site.url}/our-story#${p.slug}`,
+      '@id': `${site.url}/providers/${p.slug}`,
       name: p.name.replace(/^Dr\.\s+/, '').split(',')[0],
       honorificPrefix: isPhysician ? 'Dr.' : undefined,
       honorificSuffix: p.name.split(',').slice(1).join(',').trim() || undefined,
       jobTitle: p.role,
       description: p.bio,
       image: `${site.url}/images/providers/${firstName}.jpg`,
-      url: `${site.url}/our-story#${p.slug}`,
+      url: `${site.url}/providers/${p.slug}`,
       worksFor: { '@id': businessId },
       knowsAbout: p.specialties,
       hasCredential: p.credentials.map((credential) => ({

@@ -7,6 +7,7 @@ import { Reveal, StaggerGroup, StaggerItem } from '@/components/ui/Reveal';
 import { Accordion } from '@/components/ui/Accordion';
 import { LinkButton } from '@/components/ui/Button';
 import { BookingCTA } from '@/components/home/BookingCTA';
+import { ExcisionArt } from '@/components/art/ExcisionArt';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Skin Cancer Surgery & Mole Removal in Bloomfield Hills, MI',
@@ -79,6 +80,7 @@ export default function SurgicalPage() {
         primary="Precise hands."
         accent="Cosmetic outcomes."
         description="When a mole, cyst, or skin cancer needs to come off, we remove it completely and close it to leave the smallest possible mark. Every specimen is read in our own lab."
+        art={<ExcisionArt />}
       />
 
       <Section bg="cream" padding="xl">

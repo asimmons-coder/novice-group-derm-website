@@ -167,3 +167,90 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+/* Service hero illustrations (src/components/art). They animate in CSS so the
+   server-rendered frame is complete before hydration. Each element's resting
+   style is the frame shown under prefers-reduced-motion, where the rule above
+   cuts every animation short. */
+@layer utilities {
+  .art-box-center { transform-box: fill-box; transform-origin: center; }
+  .art-box-top { transform-box: fill-box; transform-origin: 50% 0%; }
+  .art-draw { stroke-dasharray: 1; stroke-dashoffset: 0; }
+
+  /* Surgical: mark, excise, close, suture, and settle into a fine scar (16s) */
+  .ex-mark { opacity: 0; animation: ex-mark 16s ease-in-out infinite; }
+  .ex-lesion { opacity: 0; animation: ex-lesion 16s ease-in-out infinite; }
+  .ex-cut { opacity: 0; animation: ex-cut 16s cubic-bezier(0.65, 0, 0.35, 1) infinite; }
+  .ex-wound { opacity: 0; animation: ex-wound 16s ease-in-out infinite; }
+  .ex-lens { transform: scaleY(0.03); animation: ex-lens 16s cubic-bezier(0.65, 0, 0.35, 1) infinite; }
+  .ex-seam { animation: ex-seam 16s ease-in-out infinite; }
+  .ex-suture { animation: ex-suture 16s cubic-bezier(0.45, 0, 0.55, 1) infinite; }
+  .ex-scar { opacity: 0; animation: ex-scar 16s ease-in-out infinite; }
+
+  /* Cosmetic: collagen fills in beneath the surface and fine lines soften (11s) */
+  .co-crease { transform: scaleY(0.35); animation: co-crease 11s ease-in-out infinite; }
+  .co-plump { transform: scaleY(1.3); animation: co-plump 11s ease-in-out infinite; }
+  .co-droplet { transform: scale(1); animation: co-droplet 11s ease-in-out infinite; }
+}
+
+@keyframes ex-mark {
+  0% { opacity: 0; }
+  5%, 30% { opacity: 1; }
+  40%, 100% { opacity: 0; }
+}
+
+@keyframes ex-lesion {
+  0% { opacity: 0; }
+  5%, 22% { opacity: 1; }
+  30%, 100% { opacity: 0; }
+}
+
+@keyframes ex-cut {
+  0%, 9% { stroke-dashoffset: 1; opacity: 1; }
+  22%, 52% { stroke-dashoffset: 0; opacity: 1; }
+  58%, 100% { stroke-dashoffset: 0; opacity: 0; }
+}
+
+@keyframes ex-wound {
+  0%, 20% { opacity: 0; }
+  30%, 44% { opacity: 1; }
+  56%, 100% { opacity: 0; }
+}
+
+@keyframes ex-lens {
+  0%, 34% { transform: scaleY(1); }
+  58%, 100% { transform: scaleY(0.03); }
+}
+
+@keyframes ex-seam {
+  0%, 50% { opacity: 0; }
+  58%, 80% { opacity: 1; }
+  90%, 100% { opacity: 0; }
+}
+
+@keyframes ex-suture {
+  0%, 38% { stroke-dashoffset: 1; opacity: 1; }
+  60%, 78% { stroke-dashoffset: 0; opacity: 1; }
+  88%, 100% { stroke-dashoffset: 0; opacity: 0; }
+}
+
+@keyframes ex-scar {
+  0%, 80% { opacity: 0; }
+  90%, 95% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes co-crease {
+  0%, 8%, 100% { transform: scaleY(1); }
+  46%, 62% { transform: scaleY(0.35); }
+}
+
+@keyframes co-plump {
+  0%, 8%, 100% { transform: scaleY(1); }
+  46%, 62% { transform: scaleY(1.3); }
+}
+
+@keyframes co-droplet {
+  0%, 8%, 100% { transform: scale(0.55); }
+  46%, 62% { transform: scale(1); }
+}

@@ -11,6 +11,8 @@ interface PageHeroProps {
   bg?: 'cream' | 'sand-light' | 'gradient-cosmetic';
   align?: 'left' | 'center';
   image?: { src: string; alt: string };
+  /** Illustration shown in the image slot instead of a photo. */
+  art?: React.ReactNode;
   children?: React.ReactNode;
 }
 
@@ -29,6 +31,7 @@ export function PageHero({
   bg = 'cream',
   align = 'left',
   image,
+  art,
   children,
 }: PageHeroProps) {
   const content = (
@@ -54,7 +57,7 @@ export function PageHero({
       />
 
       <Container size="wide">
-        {image ? (
+        {image || art ? (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* CSS entrance, not JS: the hero text or image is the page's largest
                 paint, and a JS fade would hold LCP until hydration. */}
@@ -63,14 +66,18 @@ export function PageHero({
             </div>
             <div className="hero-rise-headline lg:col-span-5" style={{ animationDelay: '120ms' }}>
               <div className="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-xl">
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  preload
-                  sizes="(max-width: 1024px) 90vw, 40vw"
-                  className="object-cover"
-                />
+                {image ? (
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    preload
+                    sizes="(max-width: 1024px) 90vw, 40vw"
+                    className="object-cover"
+                  />
+                ) : (
+                  art
+                )}
               </div>
             </div>
           </div>

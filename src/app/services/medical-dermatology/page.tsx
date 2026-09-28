@@ -7,6 +7,7 @@ import { Reveal } from '@/components/ui/Reveal';
 import { Accordion } from '@/components/ui/Accordion';
 import { ConditionsGrid, ProcessSteps } from '@/components/services/ConditionsGrid';
 import { BookingCTA } from '@/components/home/BookingCTA';
+import { MoleGuide } from '@/components/services/MoleGuide';
 import { images } from '@/lib/images';
 
 export const metadata: Metadata = pageMetadata({
@@ -72,6 +73,8 @@ export default function MedicalDermatologyPage() {
           alt: 'Drs. Fred, Karlee, and Taylor Novice in the office',
         }}
       />
+
+      <MoleGuide />
 
       <ConditionsGrid
         label="Conditions We Treat"

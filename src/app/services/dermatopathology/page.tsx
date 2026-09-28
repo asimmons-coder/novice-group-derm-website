@@ -3,10 +3,11 @@ import { pageMetadata } from '@/lib/seo';
 import { PageHero } from '@/components/ui/PageHero';
 import { Section } from '@/components/ui/Container';
 import { SignatureHeadline, SectionLabel } from '@/components/ui/SignatureHeadline';
-import { Reveal, StaggerGroup, StaggerItem } from '@/components/ui/Reveal';
+import { Reveal } from '@/components/ui/Reveal';
 import { LinkButton } from '@/components/ui/Button';
 import { BookingCTA } from '@/components/home/BookingCTA';
 import { images } from '@/lib/images';
+import { BiopsyJourney } from '@/components/services/BiopsyJourney';
 
 export const metadata: Metadata = pageMetadata({
   title: 'In-House Dermatopathology in Bloomfield Hills, MI',
@@ -14,21 +15,6 @@ export const metadata: Metadata = pageMetadata({
     'At Novice Group Dermatology, the dermatologist who examines your skin also reads your biopsy under the microscope, in our own lab in Bloomfield Hills, Michigan.',
   path: '/services/dermatopathology',
 });
-
-const steps = [
-  {
-    title: 'Biopsy',
-    body: 'Performed in our office during your visit, with care to minimize discomfort and scarring.',
-  },
-  {
-    title: 'In-House Analysis',
-    body: 'Slides are processed and read on-site by Dr. Fred or Dr. Taylor, both fellowship-trained dermatopathologists.',
-  },
-  {
-    title: 'Same-Doctor Diagnosis',
-    body: 'The dermatologist who saw your skin sees your slides. The diagnosis is grounded in clinical context and is usually ready within days.',
-  },
-];
 
 export default function DermatopathologyPage() {
   return (
@@ -74,31 +60,7 @@ export default function DermatopathologyPage() {
         </Reveal>
       </Section>
 
-      <Section bg="warm-white" padding="xl">
-        <Reveal className="text-center mb-16">
-          <SectionLabel align="center">The Process</SectionLabel>
-          <SignatureHeadline
-            primary="From biopsy"
-            accent="to answer."
-            align="center"
-            size="lg"
-          />
-        </Reveal>
-
-        <StaggerGroup className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {steps.map((step, i) => (
-            <StaggerItem key={i}>
-              <div className="text-center md:text-left bg-cream rounded-3xl p-10 h-full border border-sand">
-                <div className="font-display text-6xl text-gold-deep leading-none mb-6 select-none">
-                  {String(i + 1).padStart(2, '0')}
-                </div>
-                <h3 className="font-display text-2xl text-charcoal mb-4">{step.title}</h3>
-                <p className="text-warm-gray leading-relaxed">{step.body}</p>
-              </div>
-            </StaggerItem>
-          ))}
-        </StaggerGroup>
-      </Section>
+      <BiopsyJourney />
 
       <Section bg="deep-brown" padding="lg" size="narrow">
         <Reveal className="text-center">

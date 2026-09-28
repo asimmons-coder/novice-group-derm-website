@@ -6,6 +6,7 @@ import { Section } from '@/components/ui/Container';
 import { SignatureHeadline, SectionLabel } from '@/components/ui/SignatureHeadline';
 import { Reveal } from '@/components/ui/Reveal';
 import { BookingCTA } from '@/components/home/BookingCTA';
+import { FamilyLineage } from '@/components/story/FamilyLineage';
 import { providers } from '@/lib/site';
 import { images } from '@/lib/images';
 
@@ -59,6 +60,8 @@ export default function OurStoryPage() {
           </p>
         </Reveal>
       </Section>
+
+      <FamilyLineage />
 
       {/* Providers */}
       <Section bg="cream" padding="xl" id="providers">

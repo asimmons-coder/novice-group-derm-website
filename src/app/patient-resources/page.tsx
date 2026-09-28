@@ -17,11 +17,6 @@ export const metadata: Metadata = pageMetadata({
   path: '/patient-resources',
 });
 
-const insurance = [
-  'Aetna', 'Humana', 'United Healthcare', 'Blue Cross Blue Shield',
-  'Cigna', 'Medicare', 'Medicaid', 'Priority Health',
-  'Meridian', 'Molina', 'HAP', 'McLaren Health Plan',
-];
 
 const firstVisitItems = [
   'Photo ID and insurance card',
@@ -35,7 +30,7 @@ const faqs = [
   {
     question: 'How do I become a new patient?',
     answer:
-      'Call us at (248) 932-3376 or use our online booking form. We accept new patients of all ages, and most appointments can be scheduled within a few weeks.',
+      'Call us at (248) 826-2536 or send a message from the contact page. We accept new patients of all ages, and most appointments can be scheduled within a few weeks.',
   },
   {
     question: 'Will the same doctor see me each visit?',
@@ -55,7 +50,7 @@ const faqs = [
   {
     question: 'How are biopsy results communicated?',
     answer:
-      'Because we read our own biopsies in-house, results are typically available in days. We will reach out by phone or through the patient portal with results and next steps.',
+      'A lab processes the slides, then Dr. Fred or Dr. Taylor reads them. We will reach out by phone with results and next steps. We do not have a patient portal.',
   },
 ];
 
@@ -79,7 +74,7 @@ export default function PatientResourcesPage() {
             <div>
               <SectionLabel>Insurance</SectionLabel>
               <SignatureHeadline
-                primary="Most major plans accepted,"
+                primary="These plans accepted,"
                 accent="including Medicaid."
                 size="md"
               />
@@ -91,7 +86,7 @@ export default function PatientResourcesPage() {
             coverage for you before your visit.
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 max-w-4xl">
-            {insurance.map((plan) => (
+            {site.insurance.map((plan) => (
               <div
                 key={plan}
                 className="flex items-center gap-2 bg-warm-white border border-sand rounded-xl px-4 py-3"
@@ -129,7 +124,7 @@ export default function PatientResourcesPage() {
               Patient forms are provided at your first visit or can be requested by calling the office.
             </p>
             <p className="text-sm text-warm-gray mt-2">
-              Call <a href="tel:+12489323376" className="text-sage-deep hover:text-charcoal transition-colors font-semibold">(248) 932-3376</a> or email{' '}
+              Call <a href="tel:+12488262536" className="text-sage-deep hover:text-charcoal transition-colors font-semibold">(248) 826-2536</a> or email{' '}
               <a href="mailto:Skin@novicegroupderm.com" className="text-sage-deep hover:text-charcoal transition-colors font-semibold">Skin@novicegroupderm.com</a> to request forms in advance.
             </p>
           </div>

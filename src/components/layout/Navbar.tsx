@@ -32,25 +32,23 @@ export function Navbar() {
   }, [open]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50">
-      {/* The blur lives on its own layer: backdrop-filter on <header> would make
-          it the containing block for the fixed mobile menu and clip it. */}
-      <div
-        aria-hidden
-        className={clsx(
-          'absolute inset-0 -z-10 transition-all duration-500',
-          scrolled || open
+    <header
+      className={clsx(
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
+        open
+          ? 'bg-cream'
+          : scrolled
             ? 'bg-cream/90 backdrop-blur-md shadow-[0_1px_0_rgba(45,41,38,0.06)]'
             : 'bg-transparent',
-        )}
-      />
+      )}
+    >
       <nav
-        className="relative mx-auto max-w-[1440px] px-6 md:px-10 lg:px-16 flex items-center justify-between py-4 md:py-5"
+        className="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-16 flex items-center justify-between py-4 md:py-5"
         aria-label="Primary"
       >
         <Logo />
 
-        <ul className="hidden lg:flex items-center gap-9">
+        <ul className="hidden xl:flex items-center gap-6">
           {navLinks.map((link) => {
             if (link.href !== '/services') {
               return (
@@ -137,15 +135,15 @@ export function Navbar() {
           })}
         </ul>
 
-        <div className="hidden lg:block">
+        <div className="hidden xl:block">
           <LinkButton href={booking.url} external={booking.external} variant="primary" size="md">
-            {booking.label}
+            {booking.cta}
           </LinkButton>
         </div>
 
-        <div className="lg:hidden flex items-center gap-1 -mr-2">
+        <div className="xl:hidden flex items-center gap-1 -mr-2">
           <a
-            href={`tel:${site.phoneRaw}`}
+            href={site.phoneHref}
             aria-label={`Call ${site.phone}`}
             className="inline-flex h-11 w-11 items-center justify-center rounded-full text-charcoal hover:bg-sand-light transition-colors"
           >
@@ -166,9 +164,10 @@ export function Navbar() {
       {/* Mobile overlay */}
       <div
         className={clsx(
-          'lg:hidden fixed inset-0 top-[68px] overflow-y-auto bg-cream transition-all duration-500 z-40',
-          open ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none',
+          'xl:hidden fixed inset-0 top-[68px] overflow-y-auto bg-cream isolation-isolate z-[60] transition-all duration-500',
+          open ? 'visible pointer-events-auto' : 'invisible pointer-events-none',
         )}
+        style={{ backgroundColor: 'var(--color-cream)' }}
       >
         <div className="flex flex-col h-full px-6 pt-12 pb-12">
           <ul className="flex flex-col gap-1">
@@ -205,10 +204,10 @@ export function Navbar() {
           </ul>
           <div className="mt-auto pt-12">
             <LinkButton href={booking.url} external={booking.external} variant="primary" size="lg" className="w-full">
-              {booking.label}
+              {booking.cta}
             </LinkButton>
             <p className="mt-6 text-center text-sm text-warm-gray">
-              Or call <a href={`tel:${site.phoneRaw}`} className="font-semibold text-charcoal">{site.phone}</a>
+              Or call <a href={site.phoneHref} className="font-semibold text-charcoal">{site.phone}</a>
             </p>
           </div>
         </div>

@@ -13,7 +13,7 @@ import { images } from '@/lib/images';
 export const metadata: Metadata = pageMetadata({
   title: 'Dermatology Services in Bloomfield Hills, MI',
   description:
-    'Medical, cosmetic, surgical, and in-house dermatopathology care in Bloomfield Hills, Michigan, serving Birmingham, Troy, West Bloomfield, and Metro Detroit.',
+    'Medical, cosmetic, surgical, and dermatopathology care in Bloomfield Hills, Michigan, serving Birmingham, Troy, West Bloomfield, and Metro Detroit.',
   path: '/services',
 });
 

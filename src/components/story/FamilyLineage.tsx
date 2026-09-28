@@ -155,7 +155,7 @@ function Medallion({ src, alt, size = 'md', tone = 'sage' }: MedallionProps) {
       viewport={{ once: true, amount: 0.6 }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
     >
-      <div className={`absolute -inset-1.5 rounded-full border ${tone === 'gold' ? 'border-gold' : 'border-sage'}`} />
+      <div className={`absolute -inset-1.5 rounded-full border ${tone === 'gold' ? 'border-gold' : 'border-sage-deep'}`} />
       <div className="relative h-full w-full overflow-hidden rounded-full bg-sand-light shadow-md">
         <Image src={src} alt={alt} fill sizes="144px" className="object-cover object-top" />
       </div>

@@ -2,16 +2,17 @@ import Link from 'next/link';
 import { MapPin, Phone, Mail } from 'lucide-react';
 import { Logo } from '@/components/ui/Logo';
 import { Container } from '@/components/ui/Container';
-import { InstagramIcon, FacebookIcon, LinkedinIcon } from '@/components/ui/SocialIcons';
+import { InstagramIcon, FacebookIcon } from '@/components/ui/SocialIcons';
 import { site, services } from '@/lib/site';
 
 const practiceLinks = [
   { label: 'Our Story', href: '/our-story' },
+  { label: 'Blog', href: '/blog' },
   { label: 'Patient Resources', href: '/patient-resources' },
   { label: 'Skin Guides', href: '/conditions' },
   { label: 'Insurance', href: '/patient-resources#insurance' },
   { label: 'Forms', href: '/patient-resources#forms' },
-  { label: 'Pay Online', href: 'https://novicegroupderm.ema.md/ema/pay/onlinepay' },
+  { label: 'Pay Online', href: site.payOnline },
 ];
 
 const connectLinks = [
@@ -120,7 +121,7 @@ export function Footer() {
               })}
               <li>
                 <a
-                  href="https://goo.gl/maps/CQcnFPqJiwpAJLcm9"
+                  href={site.googleMaps}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-warm-white transition-colors"

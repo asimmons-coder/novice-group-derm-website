@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { site, providers } from '@/lib/site';
 import { guides, guidePath } from '@/lib/guides';
+import { posts } from '@/lib/posts';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
@@ -21,9 +22,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const legalRoutes = ['/privacy', '/terms', '/accessibility'];
 
-  return [...routes, ...legalRoutes].map((route) => ({
+  const blogRoutes = ['/blog', ...posts.map((post) => `/blog/${post.slug}`)];
+
+  const staticEntries: MetadataRoute.Sitemap = [...routes, ...legalRoutes].map(
+    (route) => ({
+      url: `${site.url}${route}`,
+      changeFrequency: route === '' ? 'weekly' : 'monthly',
+      priority: route === '' ? 1.0 : legalRoutes.includes(route) ? 0.3 : 0.8,
+    }),
+  );
+
+  const blogEntries: MetadataRoute.Sitemap = blogRoutes.map((route) => ({
     url: `${site.url}${route}`,
-    changeFrequency: route === '' ? 'weekly' : 'monthly',
-    priority: route === '' ? 1.0 : legalRoutes.includes(route) ? 0.3 : 0.8,
+    changeFrequency: 'monthly',
+    priority: 0.7,
   }));
+
+  return [...staticEntries, ...blogEntries];
 }

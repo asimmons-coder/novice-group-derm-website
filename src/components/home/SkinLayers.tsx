@@ -71,7 +71,7 @@ const focuses: Focus[] = [
     tab: 'Pathology',
     title: 'Read by the doctor who saw you',
     body:
-      'A biopsy captures a small core of skin through its layers. Dr. Fred and Dr. Taylor read those slides themselves in our in-house lab, with your exam fresh in mind.',
+      'A biopsy captures a small core of skin through its layers. A lab prepares the slides, and Dr. Fred or Dr. Taylor reads them with your exam fresh in mind.',
     href: '/services/dermatopathology',
     layers: ['epidermis', 'dermis', 'subcutis'],
     markers: [{ x: 520, y: 70 }],

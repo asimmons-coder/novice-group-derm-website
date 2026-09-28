@@ -23,6 +23,29 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      { source: "/about", destination: "/our-story", permanent: true },
+      { source: "/visit", destination: "/contact", permanent: true },
+      { source: "/shop", destination: "/skin-shop", permanent: true },
+      { source: "/shop/:path*", destination: "/skin-shop", permanent: true },
+      { source: "/product/:path*", destination: "/skin-shop", permanent: true },
+      { source: "/product-category/:path*", destination: "/skin-shop", permanent: true },
+      { source: "/my-cart", destination: "/skin-shop", permanent: true },
+      { source: "/book", destination: "/contact", permanent: true },
+      { source: "/schedule", destination: "/contact", permanent: true },
+      { source: "/blog/in-house-dermatopathology-bloomfield-hills", destination: "/blog/who-reads-your-biopsy", permanent: true },
+      {
+        source: "/wp-content/uploads/:path*",
+        destination: "/patient-resources",
+        permanent: false,
+      },
+      { source: "/services/medical", destination: "/services/medical-dermatology", permanent: true },
+      { source: "/services/cosmetic", destination: "/services/cosmetic-aesthetics", permanent: true },
+      { source: "/services/surgical", destination: "/services/surgical-dermatology", permanent: true },
+      { source: "/services/pathology", destination: "/services/dermatopathology", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;

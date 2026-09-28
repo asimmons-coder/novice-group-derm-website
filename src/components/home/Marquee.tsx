@@ -7,7 +7,7 @@ const items = [
   'Botox & Dysport',
   'Dermal Fillers',
   'Mole Removal',
-  'In-House Dermatopathology',
+  'Dermatopathology',
   'Chemical Peels',
   'Microneedling',
   'Laser & Light',

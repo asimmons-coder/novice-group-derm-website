@@ -59,7 +59,7 @@ export const guides: Guide[] = [
     summary:
       'What happens at a full-body skin check, who benefits from one, and how to watch your own skin between visits.',
     answer:
-      'A skin cancer screening is a head-to-toe exam of your skin by a trained provider, looking for spots that could be skin cancer or could turn into one. At Novice Group Dermatology in Bloomfield Hills, a board-certified dermatologist or our nurse practitioner does the exam, and biopsies can be read in-house by our dermatopathologists.',
+      'A skin cancer screening is a head-to-toe exam of your skin by a trained provider, looking for spots that could be skin cancer or could turn into one. At Novice Group Dermatology in Bloomfield Hills, a board-certified dermatologist or our nurse practitioner does the exam, and our dermatopathologists read the biopsy slides.',
     sections: [
       {
         heading: 'What happens at a skin check?',
@@ -134,7 +134,7 @@ export const guides: Guide[] = [
     summary:
       'The ABCDE warning signs of melanoma, which moles deserve a closer look, and how a mole is checked or removed.',
     answer:
-      'A mole is a common growth made of pigment cells called melanocytes. Most moles are harmless, but a new or changing mole can be an early sign of melanoma, a serious skin cancer. At Novice Group Dermatology in Bloomfield Hills, our dermatologists examine and remove moles, and our dermatopathologists read biopsies in-house.',
+      'A mole is a common growth made of pigment cells called melanocytes. Most moles are harmless, but a new or changing mole can be an early sign of melanoma, a serious skin cancer. At Novice Group Dermatology in Bloomfield Hills, our dermatologists examine and remove moles, and our dermatopathologists read the biopsy slides.',
     sections: [
       {
         heading: 'What are the ABCDE warning signs of melanoma?',

@@ -15,12 +15,12 @@ const stations = [
   },
   {
     title: 'Under the microscope',
-    line: 'The slide is prepared and read in our own lab by Dr. Fred or Dr. Taylor, both fellowship-trained dermatopathologists.',
+    line: 'A lab prepares the slide. Dr. Fred or Dr. Taylor, both fellowship-trained dermatopathologists, reads it.',
     Art: SlideArt,
   },
   {
     title: 'Your diagnosis',
-    line: 'The dermatologist who saw your skin explains the result, usually within days.',
+    line: 'We call you with the result and walk you through the next steps.',
     Art: ReportArt,
   },
 ];

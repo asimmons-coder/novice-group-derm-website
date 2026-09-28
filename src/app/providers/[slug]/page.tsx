@@ -34,7 +34,7 @@ const summaries: Record<string, string> = {
   'karlee-novice':
     'Dr. Karlee D. Novice, MD, is a board-certified dermatologist at Novice Group Dermatology in Bloomfield Hills, Michigan, and a Fellow of the American Academy of Dermatology. She trained at Henry Ford Hospital, where she was Chief Resident, and sees patients for medical dermatology, cosmetic care, pediatric skin concerns, and skin cancer.',
   'taylor-novice':
-    'Dr. Taylor Novice, MD, MBA, is a board-certified dermatologist and dermatopathologist at Novice Group Dermatology in Bloomfield Hills, Michigan, and the third generation of dermatologists in the Novice family. She trained in dermatology at Henry Ford Hospital, where she was Academic Chief Resident, and in dermatopathology at the University of Michigan. She practices medical and cosmetic dermatology and dermatopathology.',
+    'Dr. Taylor Novice, MD, MBA, is a board-certified dermatologist and dermatopathologist at Novice Group Dermatology in Bloomfield Hills, Michigan, and the second generation of dermatologists in the Novice family. She trained in dermatology at Henry Ford Hospital, where she was Academic Chief Resident, and in dermatopathology at the University of Michigan. She practices medical and cosmetic dermatology and dermatopathology.',
   'erin-koppelman':
     'Erin Koppelman, MSN, APRN, NP-C, is a board-certified nurse practitioner at Novice Group Dermatology in Bloomfield Hills, Michigan. She earned her nursing degrees at the University of Michigan and Wayne State University and practiced hospital medicine in cardiology and intensive care before specializing in dermatology. She provides general dermatology, skin screenings, and cosmetic treatments.',
 };
@@ -132,7 +132,7 @@ export default async function ProviderPage({ params }: Props) {
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <LinkButton href={booking.url} external={booking.external} withArrow>
-                  {booking.label}
+                  {booking.cta}
                 </LinkButton>
                 <LinkButton href={`tel:${site.phoneRaw}`} variant="outline">
                   Call {site.phone}

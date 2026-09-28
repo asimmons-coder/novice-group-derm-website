@@ -7,12 +7,13 @@ interface Props {
   value: string;
 }
 
-// Animates the numeric part of a stat ("30+", "4.8"); non-numeric values
-// ("In-House") pass through. The server always renders the real value so
+// Animates the numeric part of a stat ("30+", "4.8"); other values pass
+// through unchanged. The server always renders the real value so
 // crawlers and no-JS readers never see a zero. The client only resets to zero
 // when the stat mounts off-screen, where the reset cannot be seen.
 export function CountUp({ value }: Props) {
-  const match = value.match(/^(\d+(?:\.\d+)?)(.*)$/);
+  // Up to three digits: small counts animate, a year like "1999" never does.
+  const match = value.match(/^(\d{1,3}(?:\.\d+)?)(.*)$/);
   const target = match ? parseFloat(match[1]) : 0;
   const decimals = match?.[1].split('.')[1]?.length ?? 0;
   const final = target.toFixed(decimals);

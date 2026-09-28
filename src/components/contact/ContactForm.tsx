@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { site } from '@/lib/site';
 import { useForm } from 'react-hook-form';
 import { CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
@@ -11,6 +12,7 @@ interface FormData {
   phone: string;
   reason: string;
   message: string;
+  company: string;
 }
 
 const reasons = [
@@ -24,21 +26,34 @@ const reasons = [
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [sendError, setSendError] = useState('');
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
-  } = useForm<FormData>();
+  } = useForm<FormData>({
+    defaultValues: { company: '', reason: '' },
+  });
 
   const onSubmit = async (data: FormData) => {
-    const subject = encodeURIComponent(`Website Inquiry: ${data.reason}`);
-    const body = encodeURIComponent(
-      `Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone || 'Not provided'}\nReason: ${data.reason}\n\n${data.message}`
-    );
-    window.location.href = `mailto:Skin@novicegroupderm.com?subject=${subject}&body=${body}`;
-    setSubmitted(true);
-    reset();
+    setSendError('');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const json = (await res.json().catch(() => null)) as { ok?: boolean; error?: string } | null;
+      if (!res.ok || !json?.ok) {
+        setSendError(json?.error || 'Could not send your message. Please call the office.');
+        return;
+      }
+      setSubmitted(true);
+      reset();
+    } catch {
+      setSendError('Could not send your message. Please call the office.');
+    }
   };
 
   if (submitted) {
@@ -47,11 +62,10 @@ export function ContactForm() {
         <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-sage-light text-sage-deep mb-6">
           <CheckCircle2 size={28} />
         </div>
-        <h3 className="font-display text-2xl text-charcoal mb-2">One more step</h3>
+        <h3 className="font-display text-2xl text-charcoal mb-2">Message sent</h3>
         <p className="text-warm-gray max-w-sm mx-auto">
-          Your email app should now be open with your message ready. Press send
-          and our team will reply within one business day. If nothing opened,
-          call us at (248) 932-3376 or email Skin@novicegroupderm.com.
+          Thank you for reaching out. Our office will be in touch. If your
+          question is urgent, call us at {site.phone}.
         </p>
         <button
           type="button"
@@ -65,18 +79,27 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
+      <div className="hidden" aria-hidden="true">
+        <label htmlFor="company">
+          Company
+          <input id="company" type="text" tabIndex={-1} autoComplete="off" {...register('company')} />
+        </label>
+      </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-        <Field label="Name" error={errors.name?.message}>
+        <Field id="name" label="Name" error={errors.name?.message}>
           <input
+            id="name"
             type="text"
             {...register('name', { required: 'Required' })}
             className="form-input"
             placeholder="Jane Doe"
           />
         </Field>
-        <Field label="Email" error={errors.email?.message}>
+        <Field id="email" label="Email" error={errors.email?.message}>
           <input
+            id="email"
             type="email"
             {...register('email', {
               required: 'Required',
@@ -88,8 +111,9 @@ export function ContactForm() {
         </Field>
       </div>
 
-      <Field label="Phone">
+      <Field id="phone" label="Phone">
         <input
+          id="phone"
           type="tel"
           {...register('phone')}
           className="form-input"
@@ -97,11 +121,11 @@ export function ContactForm() {
         />
       </Field>
 
-      <Field label="Reason for visit" error={errors.reason?.message}>
+      <Field id="reason" label="Reason for visit" error={errors.reason?.message}>
         <select
+          id="reason"
           {...register('reason', { required: 'Required' })}
           className="form-input"
-          defaultValue=""
         >
           <option value="" disabled>
             Select an option
@@ -114,14 +138,21 @@ export function ContactForm() {
         </select>
       </Field>
 
-      <Field label="Message" error={errors.message?.message}>
+      <Field id="message" label="Message" error={errors.message?.message}>
         <textarea
+          id="message"
           rows={5}
           {...register('message', { required: 'Required' })}
           className="form-input resize-none"
           placeholder="Tell us briefly what you would like to schedule. Please leave out medical details; we will cover those by phone or at your visit."
         />
       </Field>
+
+      <p className="text-sm text-warm-gray">
+        Do not include medical details or photos. Call the office for clinical questions.
+      </p>
+
+      {sendError && <p className="text-sm text-blush">{sendError}</p>}
 
       <div className="pt-2">
         <Button type="submit" variant="primary" size="lg" withArrow disabled={isSubmitting}>
@@ -139,7 +170,7 @@ export function ContactForm() {
           font-size: 15px;
           color: var(--color-charcoal);
           font-family: var(--font-sans);
-          transition: border-color 0.2s;
+          transition: border-color 0.2s, box-shadow 0.2s;
         }
         .form-input::placeholder {
           color: var(--color-taupe);
@@ -149,23 +180,31 @@ export function ContactForm() {
           border-color: var(--color-sage);
           background: var(--color-warm-white);
         }
+        .form-input:focus-visible {
+          outline: none;
+          border-color: var(--color-sage);
+          box-shadow: 0 0 0 3px rgba(143, 166, 143, 0.45);
+          background: var(--color-warm-white);
+        }
       `}</style>
     </form>
   );
 }
 
 function Field({
+  id,
   label,
   error,
   children,
 }: {
+  id: string;
   label: string;
   error?: string;
   children: React.ReactNode;
 }) {
   return (
     <div>
-      <label className="block text-[11px] uppercase tracking-[0.15em] font-semibold text-warm-gray mb-2">
+      <label htmlFor={id} className="block text-[11px] uppercase tracking-[0.15em] font-semibold text-warm-gray mb-2">
         {label}
       </label>
       {children}

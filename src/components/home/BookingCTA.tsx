@@ -13,7 +13,7 @@ interface Props {
 export function BookingCTA({
   primary = 'Ready to love',
   accent = 'your skin?',
-  description = 'New patients welcome. Most major insurance accepted. Call or send a request to book a medical or cosmetic consultation.',
+  description = 'New patients welcome. Most major insurance accepted. Call or send a message to book a medical or cosmetic consultation.',
 }: Props) {
   return (
     <Section bg="sage" padding="lg" className="relative overflow-hidden">
@@ -45,7 +45,7 @@ export function BookingCTA({
             size="lg"
             withArrow
           >
-            {booking.label}
+            {booking.cta}
           </LinkButton>
           <LinkButton
             href={`tel:${site.phoneRaw}`}

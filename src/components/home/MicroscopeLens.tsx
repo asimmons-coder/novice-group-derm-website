@@ -29,7 +29,7 @@ export function MicroscopeLens({ className }: Props) {
         </defs>
         <text className="fill-charcoal" style={{ fontSize: 11, fontWeight: 600 }}>
           <textPath href="#lens-ring" textLength="648" lengthAdjust="spacing">
-            IN-HOUSE DERMATOPATHOLOGY · READ BY YOUR DOCTOR ·
+            DERMATOPATHOLOGY · SLIDES READ BY YOUR DOCTOR ·
           </textPath>
         </text>
       </svg>

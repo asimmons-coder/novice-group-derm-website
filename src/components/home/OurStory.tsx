@@ -99,10 +99,10 @@ export function OurStory() {
         <div className="flex gap-10 md:gap-12 shrink-0">
           <div className="text-left md:text-center">
             <p className="font-display text-4xl md:text-5xl text-gold leading-none">
-              25<span className="text-gold">+</span>
+              1999
             </p>
             <p className="mt-3 text-[10px] uppercase tracking-[0.3em] font-semibold text-taupe">
-              Years in Bloomfield
+              Founded in Bloomfield
             </p>
           </div>
           <div className="w-px bg-cream/10" />

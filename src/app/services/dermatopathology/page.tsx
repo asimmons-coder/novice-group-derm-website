@@ -10,9 +10,9 @@ import { images } from '@/lib/images';
 import { BiopsyJourney } from '@/components/services/BiopsyJourney';
 
 export const metadata: Metadata = pageMetadata({
-  title: 'In-House Dermatopathology in Bloomfield Hills, MI',
+  title: 'Dermatopathology in Bloomfield Hills, MI',
   description:
-    'At Novice Group Dermatology, the dermatologist who examines your skin also reads your biopsy under the microscope, in our own lab in Bloomfield Hills, Michigan.',
+    'Dermatopathology in Bloomfield Hills, MI. A lab processes biopsy slides, and Dr. Fred or Dr. Taylor Novice, fellowship-trained dermatopathologists, read them.',
   path: '/services/dermatopathology',
 });
 
@@ -25,8 +25,8 @@ export default function DermatopathologyPage() {
         accent="under the microscope."
         description="Dermatopathology is the medical specialty that diagnoses skin disease by examining tissue under the microscope. Two of our dermatologists are also fellowship-trained dermatopathologists, so the doctor who examines your skin can also read your biopsy."
         image={{
-          src: images.lab,
-          alt: 'The in-house dermatopathology lab at Novice Group Dermatology',
+          src: images.services.pathology,
+          alt: 'Dr. Taylor Novice at a microscope',
         }}
       />
 
@@ -40,21 +40,20 @@ export default function DermatopathologyPage() {
           />
           <div className="mt-8 space-y-5 text-warm-gray text-lg leading-relaxed">
             <p>
-              Most dermatology practices send biopsies to outside labs. The
-              dermatologist who saw the lesion never sees the slide; they get a
-              report from a pathologist who never saw the patient. It works most
-              of the time. Sometimes it doesn&rsquo;t.
+              Most dermatology practices send biopsies to a laboratory. The
+              dermatologist who saw the lesion never sees the slide. They get a
+              report from a pathologist who never saw the patient. That works
+              most of the time. Sometimes it doesn&rsquo;t.
             </p>
             <p>
-              When a single doctor sees both the patient and the slide, the
-              diagnosis is grounded in everything that happened in the exam room.
-              Dermatologists call this clinicopathologic correlation: the
-              clinical exam and the microscope read by the same trained eye. It
-              is uncommon in private practice.
+              When a doctor sees both the patient and the slide, the diagnosis
+              is grounded in everything that happened in the exam room.
+              Dermatologists call that clinicopathologic correlation. It is
+              uncommon in a private office.
             </p>
             <p>
               At Novice Group, both Dr. Fred and Dr. Taylor are fellowship-trained
-              dermatopathologists. Your biopsy doesn&rsquo;t leave the building.
+              dermatopathologists. A lab processes the slides. They read them.
             </p>
           </div>
         </Reveal>

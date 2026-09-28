@@ -46,7 +46,7 @@ const faqs = [
   {
     question: 'What insurance do you accept?',
     answer:
-      'We accept most major plans, including Aetna, BCBS, Cigna, Humana, United Healthcare, Medicare, and Medicaid. Call us if you don\u2019t see yours and we\u2019ll verify.',
+      'We accept Aetna, Humana, United Healthcare, Blue Cross Blue Shield, Cigna, Medicare, Medicaid, Priority Health, Meridian, Molina, HAP, and McLaren Health Plan. Call us if you do not see yours and we will verify.',
   },
   {
     question: 'Will I see a doctor or a midlevel?',
@@ -69,8 +69,8 @@ export default function MedicalDermatologyPage() {
         accent="of healthy skin."
         description="From a kid&rsquo;s first acne flare to an adult&rsquo;s annual skin cancer screening, the medical side of dermatology is the heart of the practice. Three dermatologists and a nurse practitioner take the time to listen, examine carefully, and explain the plan."
         image={{
-          src: images.providersTrio,
-          alt: 'Drs. Fred, Karlee, and Taylor Novice in the office',
+          src: images.services.medical,
+          alt: 'Drs. Fred and Karlee Novice reviewing a chart on a tablet',
         }}
       />
 
@@ -91,7 +91,7 @@ export default function MedicalDermatologyPage() {
           },
           {
             title: 'Diagnose',
-            body: 'A careful exam, dermoscopy when needed, and an in-house biopsy if it\u2019s warranted. The same doctor reads it under the microscope.',
+            body: 'A careful exam, dermoscopy when needed, and a biopsy in the office if it is warranted. A lab processes the slides. The same doctor reads them under the microscope.',
           },
           {
             title: 'Treat',

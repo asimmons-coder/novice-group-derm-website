@@ -7,12 +7,12 @@ import { Reveal, StaggerGroup, StaggerItem } from '@/components/ui/Reveal';
 import { Accordion } from '@/components/ui/Accordion';
 import { LinkButton } from '@/components/ui/Button';
 import { BookingCTA } from '@/components/home/BookingCTA';
-import { ExcisionArt } from '@/components/art/ExcisionArt';
+import { images } from '@/lib/images';
 
 export const metadata: Metadata = pageMetadata({
   title: 'Skin Cancer Surgery & Mole Removal in Bloomfield Hills, MI',
   description:
-    'Skin cancer excision, Mohs coordination, and mole and cyst removal in Bloomfield Hills, Michigan, with every specimen read by our in-house dermatopathologists.',
+    'Skin cancer excision, Mohs coordination, and mole and cyst removal in Bloomfield Hills, Michigan, with biopsy slides read by Dr. Fred or Dr. Taylor Novice.',
   path: '/services/surgical-dermatology',
 });
 
@@ -30,7 +30,7 @@ const procedures = [
   {
     name: 'Mole Removal',
     description:
-      'Medically necessary and cosmetic mole removal, by shave or excision, with every specimen sent to our in-house lab.',
+      'Medically necessary and cosmetic mole removal, by shave or excision. A lab processes each specimen, and Dr. Fred or Dr. Taylor reads it.',
   },
   {
     name: 'Cyst & Lipoma Removal',
@@ -63,7 +63,7 @@ const faqs = [
   {
     question: 'When will I get my pathology results?',
     answer:
-      'Because we read our own slides in-house, results are typically available in days, not weeks. The doctor who performed your biopsy is the same one who reads it.',
+      'A lab processes the slides. Dr. Fred or Dr. Taylor reads them. We will call you with results and next steps. The doctor who performed your biopsy is often the one who reads it.',
   },
   {
     question: 'What is Mohs surgery and do you do it here?',
@@ -79,8 +79,11 @@ export default function SurgicalPage() {
         label="Surgical Dermatology"
         primary="Precise hands."
         accent="Cosmetic outcomes."
-        description="When a mole, cyst, or skin cancer needs to come off, we remove it completely and close it to leave the smallest possible mark. Every specimen is read in our own lab."
-        art={<ExcisionArt />}
+        description="When a mole, cyst, or skin cancer needs to come off, we remove it completely and close it to leave the smallest possible mark. A lab processes each specimen, and Dr. Fred or Dr. Taylor reads it."
+        image={{
+          src: images.services.surgical,
+          alt: 'Dermatologic surgical detail at Novice Group',
+        }}
       />
 
       <Section bg="cream" padding="xl">
@@ -147,7 +150,7 @@ export default function SurgicalPage() {
       <BookingCTA
         primary="Have a spot"
         accent="you want checked?"
-        description="Call or send a request, and let us know if a mole has changed. Every specimen we remove is read in our own lab."
+        description="Call or send a request, and let us know if a mole has changed. Dr. Fred or Dr. Taylor reads every biopsy slide."
       />
     </>
   );

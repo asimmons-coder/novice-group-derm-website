@@ -16,7 +16,7 @@ function HeroCopy() {
       </div>
 
       <div className="hero-rise-headline" style={{ animationDelay: '80ms' }}>
-        <h1 className="font-[family-name:var(--font-display)] text-5xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight text-charcoal mb-8">
+        <h1 className="font-[family-name:var(--font-display)] text-5xl md:text-6xl xl:text-7xl leading-[1.05] tracking-tight text-charcoal mb-6 md:mb-8">
           Love your skin,
           <br />
           <span className="relative inline-block font-[family-name:var(--font-accent)] font-normal text-warm-gray">
@@ -29,7 +29,7 @@ function HeroCopy() {
       </div>
 
       <div className="hero-rise" style={{ animationDelay: '200ms' }}>
-        <p className="text-lg md:text-xl text-charcoal/70 mb-10 leading-relaxed max-w-lg">
+        <p className="text-lg md:text-xl text-charcoal/70 mb-8 md:mb-10 leading-relaxed max-w-lg">
           A private, family-owned practice led by a father-daughter trio of
           board-certified dermatologists. World-class medical, surgical,
           and cosmetic care since 1999.
@@ -37,7 +37,7 @@ function HeroCopy() {
       </div>
 
       <div className="hero-rise" style={{ animationDelay: '300ms' }}>
-        <div className="flex flex-col sm:flex-row gap-4">
+        <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4">
           <LinkButton href="/contact" variant="dark" size="lg" withArrow>
             Schedule a Visit
           </LinkButton>
@@ -51,42 +51,25 @@ function HeroCopy() {
 }
 
 export function Hero() {
+  // Text and photo sit in separate columns: the family photo is 2:1 with all
+  // three doctors spread across it, so any overlay puts the headline on a face.
+  // Container matches the Navbar so the logo and headline share a left edge.
   return (
-    <section className="relative overflow-hidden">
-      {/* Mobile: portrait band, then copy. Avoids min-h-screen + cream overlay hiding faces. */}
-      <div className="flex flex-col md:min-h-screen md:flex-row md:items-center">
-        <div className="relative aspect-[3/2] w-full md:aspect-auto md:absolute md:inset-0 md:h-auto md:min-h-0">
-          <Image
-            src={HERO_IMAGE}
-            alt="The Novice Group Dermatology team"
-            fill
-            preload
-            sizes="100vw"
-            className="object-cover object-[62%_25%] md:object-[70%_center]"
-          />
-          <div
-            aria-hidden
-            className="absolute inset-0 hidden bg-gradient-to-r from-cream from-30% via-cream/70 via-45% to-transparent to-62% md:block"
-          />
-        </div>
-
-        <div className="relative w-full bg-cream px-6 py-12 md:bg-transparent md:px-12 md:py-0 md:pt-32">
-          <div className="mx-auto w-full max-w-7xl">
-            <HeroCopy />
+    <section className="relative overflow-hidden bg-cream">
+      <div className="mx-auto max-w-[1440px] px-6 md:px-10 lg:px-16 pt-24 pb-14 md:pt-28 md:pb-20 xl:pt-32 xl:pb-24">
+        <div className="grid items-center gap-10 md:gap-12 xl:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] xl:gap-20">
+          <div className="relative order-first aspect-[3/2] overflow-hidden rounded-[2rem] md:aspect-[5/2] xl:order-last xl:aspect-[5/4]">
+            <Image
+              src={HERO_IMAGE}
+              alt="Dr. Fred Novice with his daughters, Dr. Karlee Novice and Dr. Taylor Novice"
+              fill
+              preload
+              sizes="(min-width: 1280px) 55vw, 100vw"
+              className="object-cover object-[64%_30%] md:object-[70%_40%] xl:object-[72%_35%]"
+            />
           </div>
+          <HeroCopy />
         </div>
-      </div>
-
-      <div
-        aria-hidden
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-3"
-      >
-        <span className="text-[10px] uppercase tracking-[0.4em] text-charcoal/50 font-semibold">
-          Scroll
-        </span>
-        <span className="relative block h-12 w-px bg-charcoal/10 overflow-hidden">
-          <span className="absolute inset-0 bg-charcoal/60 animate-scroll-cue" />
-        </span>
       </div>
     </section>
   );

@@ -79,7 +79,7 @@ export function OurStory() {
         </Reveal>
       </div>
 
-      <Reveal className="rounded-[2.5rem] bg-deep-brown text-warm-white p-10 md:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
+      <Reveal className="rounded-[2.5rem] bg-deep-brown text-warm-white p-10 md:p-14 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10">
         <div className="max-w-xl">
           <SignatureHeadline
             as="h3"
@@ -96,7 +96,7 @@ export function OurStory() {
           </p>
         </div>
         <div className="flex gap-10 md:gap-12 shrink-0">
-          <div className="text-left md:text-center">
+          <div className="text-left lg:text-center">
             <p className="font-display text-4xl md:text-5xl text-gold leading-none">
               1999
             </p>
@@ -105,7 +105,7 @@ export function OurStory() {
             </p>
           </div>
           <div className="w-px bg-cream/10" />
-          <div className="text-left md:text-center">
+          <div className="text-left lg:text-center">
             <p className="font-display text-4xl md:text-5xl text-gold leading-none">
               3
             </p>

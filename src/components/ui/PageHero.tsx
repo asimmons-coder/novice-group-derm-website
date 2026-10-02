@@ -6,7 +6,7 @@ import { clsx } from '@/lib/clsx';
 interface PageHeroProps {
   label: string;
   primary: string;
-  accent: string;
+  accent?: string;
   description?: string;
   bg?: 'cream' | 'sand-light' | 'gradient-cosmetic';
   align?: 'left' | 'center';

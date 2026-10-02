@@ -69,9 +69,8 @@ export function OurStory() {
               Hospital, all three board-certified.
             </p>
             <p>
-              Continuity of care isn&rsquo;t a marketing line here. It&rsquo;s how the
-              practice operates: the same family of doctors who saw you for
-              your first acne visit can still be there for your child&rsquo;s.
+              The same family of doctors who saw you for your first acne visit
+              can still be there for your child&rsquo;s.
             </p>
           </div>
           <div className="mt-10">
@@ -84,16 +83,16 @@ export function OurStory() {
         <div className="max-w-xl">
           <SignatureHeadline
             as="h3"
-            primary="Independent. Family-Owned."
-            accent="Patient-First."
+            primary="Independent and"
+            accent="family-owned."
             size="md"
             className="mb-6 text-warm-white [&_.headline-accent]:text-gold"
           />
           <p className="text-cream/70 leading-relaxed">
             In an era of rapid private equity consolidation in dermatology,
-            Novice Group remains fully independent. Our clinical decisions are
-            driven by excellence and patient outcomes, not corporate bottom
-            lines.
+            Novice Group remains fully independent. The doctors who treat you
+            are the people who own the practice and make its clinical
+            decisions.
           </p>
         </div>
         <div className="flex gap-10 md:gap-12 shrink-0">

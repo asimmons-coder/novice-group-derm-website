@@ -2,7 +2,7 @@ export const site = {
   name: 'Novice Group Dermatology',
   legal: 'Novice Aesthetics and Dermatology PLLC',
   alternateName: 'Novice Group Derm',
-  tagline: 'Skin health, elevated.',
+  tagline: 'Family dermatology in Bloomfield Hills since 1999.',
   supportingLine: 'Multiple generations. One standard of care.',
   address: {
     street: '4120 West Maple Road, Suite 206',

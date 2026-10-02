@@ -55,18 +55,18 @@ export function Hero() {
     <section className="relative overflow-hidden">
       {/* Mobile: portrait band, then copy. Avoids min-h-screen + cream overlay hiding faces. */}
       <div className="flex flex-col md:min-h-screen md:flex-row md:items-center">
-        <div className="relative h-[62vh] min-h-[340px] w-full md:absolute md:inset-0 md:h-auto md:min-h-0">
+        <div className="relative aspect-[3/2] w-full md:aspect-auto md:absolute md:inset-0 md:h-auto md:min-h-0">
           <Image
             src={HERO_IMAGE}
             alt="The Novice Group Dermatology team"
             fill
             preload
             sizes="100vw"
-            className="object-cover object-[center_20%] md:object-center"
+            className="object-cover object-[62%_25%] md:object-[70%_center]"
           />
           <div
             aria-hidden
-            className="absolute inset-0 hidden bg-gradient-to-r from-cream via-cream/85 to-transparent md:block"
+            className="absolute inset-0 hidden bg-gradient-to-r from-cream from-30% via-cream/70 via-45% to-transparent to-62% md:block"
           />
         </div>
 

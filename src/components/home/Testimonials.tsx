@@ -134,16 +134,14 @@ function ReviewsJsonLd({ data }: { data: GoogleReviewsOk }) {
   );
 }
 
+// Without a Places key there is nothing to quote, so this stays a slim link
+// rather than a full section that draws attention to the gap.
 function FallbackCta() {
   return (
-    <Section bg="warm-white" padding="xl" size="narrow">
-      <div className="text-center">
-        <p className="font-display text-3xl md:text-4xl text-charcoal leading-tight mb-6">
-          Patients share their experiences on Google.
-        </p>
-        <p className="text-warm-gray leading-relaxed max-w-xl mx-auto mb-10">
-          We do not publish invented quotes or review counts on this site.
-          Read current patient reviews on our Google Business profile.
+    <Section bg="warm-white" padding="md" size="narrow">
+      <div className="flex flex-col items-center gap-3 text-center sm:flex-row sm:justify-center sm:gap-6">
+        <p className="font-display text-xl md:text-2xl text-charcoal">
+          Read what our patients say.
         </p>
         <a
           href={site.googleReviews}
@@ -151,7 +149,7 @@ function FallbackCta() {
           rel="noopener noreferrer"
           className="inline-flex items-center text-xs uppercase tracking-widest text-sage-deep hover:text-charcoal transition-colors font-semibold"
         >
-          See reviews on Google &rarr;
+          Reviews on Google &rarr;
         </a>
       </div>
     </Section>

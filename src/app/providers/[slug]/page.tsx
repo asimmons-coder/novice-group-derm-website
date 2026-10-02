@@ -13,12 +13,11 @@ import { booking, providers, site } from '@/lib/site';
 import { guides, guidePath } from '@/lib/guides';
 import {
   getProvider,
-  providerFirstName,
   providerFullName,
+  providerFirstName,
   providerImage,
   providerPath,
   providerShortName,
-  providerSuffix,
   type Provider,
 } from '@/lib/providers';
 
@@ -92,8 +91,8 @@ export default async function ProviderPage({ params }: Props) {
     <>
       <PageHero
         label={provider.role}
+        // Credentials open the bio below; on their own headline line they read as an orphan.
         primary={providerFullName(provider)}
-        accent={providerSuffix(provider)}
         description={summaryFor(provider)}
         image={{ src: providerImage(provider), alt: `Portrait of ${providerShortName(provider)}` }}
       />

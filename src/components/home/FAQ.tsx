@@ -23,8 +23,8 @@ export function FAQ() {
         <SectionLabel align="center">Common Questions</SectionLabel>
         <SignatureHeadline
           as="h2"
-          primary="Answers, before"
-          accent="you call."
+          primary="Common questions"
+          accent="about your visit."
           align="center"
           size="lg"
         />

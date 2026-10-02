@@ -13,7 +13,7 @@ interface Props {
 // when the stat mounts off-screen, where the reset cannot be seen.
 export function CountUp({ value }: Props) {
   // Up to three digits: small counts animate, a year like "1999" never does.
-  const match = value.match(/^(\d{1,3}(?:\.\d+)?)(.*)$/);
+  const match = value.match(/^(\d{1,3}(?:\.\d+)?)(?!\d)(.*)$/);
   const target = match ? parseFloat(match[1]) : 0;
   const decimals = match?.[1].split('.')[1]?.length ?? 0;
   const final = target.toFixed(decimals);

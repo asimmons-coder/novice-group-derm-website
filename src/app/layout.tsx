@@ -68,7 +68,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Novice Group Dermatology',
-    description: 'Skin health, elevated. Multiple generations. One standard of care.',
+    description: 'Family-owned medical, surgical, and cosmetic dermatology in Bloomfield Hills, Michigan, since 1999.',
     images: ['/og-image.jpg'],
   },
   robots: {

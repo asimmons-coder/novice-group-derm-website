@@ -29,6 +29,7 @@ export default function SkinGuidesPage() {
         primary="Answers to common"
         accent="skin questions."
         description="These guides explain common skin conditions and treatments in plain language: what causes them, how they are treated, and when it is time to see a dermatologist. Each one links to the providers at Novice Group Dermatology in Bloomfield Hills who treat it."
+        image={{ src: '/images/treatment-room.jpg', alt: 'A treatment room at Novice Group Dermatology' }}
       />
 
       {groups.map((group, index) => (

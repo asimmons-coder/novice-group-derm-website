@@ -1,5 +1,7 @@
-import { site, providers, services, faqs } from '@/lib/site';
+import { site, providers, services } from '@/lib/site';
 import { images } from '@/lib/images';
+
+const businessId = `${site.url}#business`;
 
 const providerImages: Record<string, string> = {
   'fred-novice': images.providers.fred,
@@ -8,13 +10,54 @@ const providerImages: Record<string, string> = {
   'erin-koppelman': images.providers.erin,
 };
 
+// Cities the practice draws from, used for areaServed.
+const areaServed = [
+  'Bloomfield Hills',
+  'Bloomfield Township',
+  'Birmingham',
+  'West Bloomfield',
+  'Troy',
+  'Royal Oak',
+].map((name) => ({ '@type': 'City', name: `${name}, Michigan` }));
+
+// Site-wide graph. FAQPage is deliberately not here: each page that shows an
+// FAQ list emits its own, so no page carries two FAQPage blocks.
 export function JsonLd() {
+  const people = providers.map((p) => {
+    const profileUrl = `${site.url}/providers/${p.slug}`;
+    return {
+      // schema.org has no Nurse type; non-physicians are a Person with a jobTitle.
+      '@type': p.schemaType === 'Physician' ? 'Physician' : 'Person',
+      '@id': profileUrl,
+      name: p.name,
+      jobTitle: p.role,
+      image: `${site.url}${providerImages[p.slug]}`,
+      url: profileUrl,
+      worksFor: { '@id': businessId },
+      description: p.bio,
+      knowsAbout: p.specialties,
+      hasCredential: p.credentials.map((credential) => ({
+        '@type': 'EducationalOccupationalCredential',
+        name: credential,
+      })),
+      ...(p.schemaType === 'Physician' ? { medicalSpecialty: 'Dermatology' } : {}),
+    };
+  });
+
   const data = {
     '@context': 'https://schema.org',
     '@graph': [
       {
+        '@type': 'WebSite',
+        '@id': `${site.url}#website`,
+        url: site.url,
+        name: site.name,
+        publisher: { '@id': businessId },
+        inLanguage: 'en-US',
+      },
+      {
         '@type': 'MedicalBusiness',
-        '@id': `${site.url}#business`,
+        '@id': businessId,
         name: site.name,
         alternateName: [site.alternateName, site.legal],
         legalName: site.legal,
@@ -27,6 +70,7 @@ export function JsonLd() {
         image: `${site.url}/og-image.jpg`,
         foundingDate: site.founded,
         priceRange: '$$$',
+        medicalSpecialty: ['Dermatology', 'Pathology'],
         sameAs: [site.social.facebook, site.social.instagram],
         hasMap: site.googleMaps,
         address: {
@@ -52,10 +96,7 @@ export function JsonLd() {
             closes: '17:00',
           },
         ],
-        areaServed: {
-          '@type': 'City',
-          name: 'Bloomfield Hills, Michigan',
-        },
+        areaServed,
         availableService: services.map((s) => ({
           '@type': 'MedicalProcedure',
           name: s.name,
@@ -76,30 +117,9 @@ export function JsonLd() {
             availableLanguage: 'English',
           },
         ],
+        employee: people.map((person) => ({ '@id': person['@id'] })),
       },
-      {
-        '@type': 'FAQPage',
-        '@id': `${site.url}#faq`,
-        mainEntity: faqs.map((f) => ({
-          '@type': 'Question',
-          name: f.q,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: f.a,
-          },
-        })),
-      },
-      ...providers.map((p) => ({
-        '@type': p.schemaType,
-        '@id': `${site.url}/our-story#${p.slug}`,
-        name: p.name,
-        jobTitle: p.role,
-        image: `${site.url}${providerImages[p.slug]}`,
-        url: `${site.url}/our-story#${p.slug}`,
-        worksFor: { '@id': `${site.url}#business` },
-        description: p.bio,
-        ...(p.schemaType === 'Physician' ? { medicalSpecialty: 'Dermatology' } : {}),
-      })),
+      ...people,
     ],
   };
 

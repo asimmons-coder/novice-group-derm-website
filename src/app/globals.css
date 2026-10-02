@@ -16,7 +16,8 @@
   /* Secondary palette */
   --color-sand: #E8DFD3;
   --color-sand-light: #F2EDE6;
-  --color-warm-gray: #8A7D72;
+  /* Darkened from #8A7D72 so body copy passes WCAG AA (5.4:1 on cream) */
+  --color-warm-gray: #6F6359;
   --color-taupe: #B8A99A;
 
   /* Accent palette */
@@ -26,6 +27,12 @@
   --color-gold-light: #E8D5B0;
   --color-sage-light: #E8EFE8;
   --color-sage-muted: #A8BCA8;
+
+  /* Accessible text and fill variants: sage and gold themselves are too light
+     for text on cream. Use these for text, icons, and filled buttons on light
+     backgrounds; keep the originals for dark sections and decoration. */
+  --color-sage-deep: #557055;
+  --color-gold-deep: #8A6A2E;
 }
 
 @layer base {
@@ -50,7 +57,7 @@
     font-weight: 600;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--color-sage);
+    color: var(--color-sage-deep);
   }
 
   .headline-display {
@@ -69,11 +76,181 @@
   }
 }
 
+/* Ambient motion. Every loop here is decorative and slow on purpose: the
+   brand is calm, so nothing should pulse faster than a resting breath. */
+@layer utilities {
+  .animate-spin-slow { animation: orbit 60s linear infinite; }
+  .animate-spin-slower { animation: orbit 110s linear infinite reverse; }
+  .animate-marquee { animation: marquee 48s linear infinite; }
+  .animate-float { animation: float 7s ease-in-out infinite; }
+  .animate-breathe { animation: breathe 6s ease-in-out infinite; }
+  .animate-drift { animation: drift 18s ease-in-out infinite; }
+  .animate-ripple { animation: ripple 6s cubic-bezier(0.22, 1, 0.36, 1) infinite; }
+  .animate-scan { animation: scan 5s ease-in-out infinite; }
+  .animate-morph { animation: morph 16s ease-in-out infinite; }
+  .animate-scroll-cue { animation: scroll-cue 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite; }
+  .pause-on-hover:hover .animate-marquee { animation-play-state: paused; }
+
+  /* Hero entrance runs in CSS, not JS, so it starts before hydration. The
+     headline only rises (never starts transparent) because it is the page's
+     largest paint, and hiding it would delay LCP until JavaScript loads. */
+  .hero-rise { animation: hero-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
+  .hero-rise-headline { animation: hero-rise-headline 0.9s cubic-bezier(0.22, 1, 0.36, 1) both; }
+}
+
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hero-rise-headline {
+  from { transform: translateY(14px); }
+  to { transform: translateY(0); }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.06); }
+}
+
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0); }
+  33% { transform: translate(6px, -8px); }
+  66% { transform: translate(-6px, 5px); }
+}
+
+@keyframes ripple {
+  0% { transform: scale(0.6); opacity: 0; }
+  20% { opacity: 0.5; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+@keyframes scan {
+  0%, 100% { transform: translate(-18px, -12px); }
+  50% { transform: translate(18px, 14px); }
+}
+
+@keyframes morph {
+  0%, 100% { border-radius: 58% 42% 38% 62% / 45% 55% 45% 55%; transform: rotate(0deg); }
+  33% { border-radius: 40% 60% 62% 38% / 55% 40% 60% 45%; transform: rotate(8deg); }
+  66% { border-radius: 62% 38% 46% 54% / 38% 62% 38% 62%; transform: rotate(-6deg); }
+}
+
+@keyframes scroll-cue {
+  0% { transform: scaleY(0); transform-origin: top; }
+  45% { transform: scaleY(1); transform-origin: top; }
+  55% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Service hero illustrations (src/components/art). They animate in CSS so the
+   server-rendered frame is complete before hydration. Each element's resting
+   style is the frame shown under prefers-reduced-motion, where the rule above
+   cuts every animation short. */
+@layer utilities {
+  .art-box-center { transform-box: fill-box; transform-origin: center; }
+  .art-box-top { transform-box: fill-box; transform-origin: 50% 0%; }
+  .art-draw { stroke-dasharray: 1; stroke-dashoffset: 0; }
+
+  /* Surgical: mark, excise, close, suture, and settle into a fine scar (16s) */
+  .ex-mark { opacity: 0; animation: ex-mark 16s ease-in-out infinite; }
+  .ex-lesion { opacity: 0; animation: ex-lesion 16s ease-in-out infinite; }
+  .ex-cut { opacity: 0; animation: ex-cut 16s cubic-bezier(0.65, 0, 0.35, 1) infinite; }
+  .ex-wound { opacity: 0; animation: ex-wound 16s ease-in-out infinite; }
+  .ex-lens { transform: scaleY(0.03); animation: ex-lens 16s cubic-bezier(0.65, 0, 0.35, 1) infinite; }
+  .ex-seam { animation: ex-seam 16s ease-in-out infinite; }
+  .ex-suture { animation: ex-suture 16s cubic-bezier(0.45, 0, 0.55, 1) infinite; }
+  .ex-scar { opacity: 0; animation: ex-scar 16s ease-in-out infinite; }
+
+  /* Cosmetic: collagen fills in beneath the surface and fine lines soften (11s) */
+  .co-crease { transform: scaleY(0.35); animation: co-crease 11s ease-in-out infinite; }
+  .co-plump { transform: scaleY(1.3); animation: co-plump 11s ease-in-out infinite; }
+  .co-droplet { transform: scale(1); animation: co-droplet 11s ease-in-out infinite; }
+}
+
+@keyframes ex-mark {
+  0% { opacity: 0; }
+  5%, 30% { opacity: 1; }
+  40%, 100% { opacity: 0; }
+}
+
+@keyframes ex-lesion {
+  0% { opacity: 0; }
+  5%, 22% { opacity: 1; }
+  30%, 100% { opacity: 0; }
+}
+
+@keyframes ex-cut {
+  0%, 9% { stroke-dashoffset: 1; opacity: 1; }
+  22%, 52% { stroke-dashoffset: 0; opacity: 1; }
+  58%, 100% { stroke-dashoffset: 0; opacity: 0; }
+}
+
+@keyframes ex-wound {
+  0%, 20% { opacity: 0; }
+  30%, 44% { opacity: 1; }
+  56%, 100% { opacity: 0; }
+}
+
+@keyframes ex-lens {
+  0%, 34% { transform: scaleY(1); }
+  58%, 100% { transform: scaleY(0.03); }
+}
+
+@keyframes ex-seam {
+  0%, 50% { opacity: 0; }
+  58%, 80% { opacity: 1; }
+  90%, 100% { opacity: 0; }
+}
+
+@keyframes ex-suture {
+  0%, 38% { stroke-dashoffset: 1; opacity: 1; }
+  60%, 78% { stroke-dashoffset: 0; opacity: 1; }
+  88%, 100% { stroke-dashoffset: 0; opacity: 0; }
+}
+
+@keyframes ex-scar {
+  0%, 80% { opacity: 0; }
+  90%, 95% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes co-crease {
+  0%, 8%, 100% { transform: scaleY(1); }
+  46%, 62% { transform: scaleY(0.35); }
+}
+
+@keyframes co-plump {
+  0%, 8%, 100% { transform: scaleY(1); }
+  46%, 62% { transform: scaleY(1.3); }
+}
+
+@keyframes co-droplet {
+  0%, 8%, 100% { transform: scale(0.55); }
+  46%, 62% { transform: scale(1); }
 }

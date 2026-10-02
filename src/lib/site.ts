@@ -2,7 +2,7 @@ export const site = {
   name: 'Novice Group Dermatology',
   legal: 'Novice Aesthetics and Dermatology PLLC',
   alternateName: 'Novice Group Derm',
-  tagline: 'Skin health, elevated.',
+  tagline: 'Family dermatology in Bloomfield Hills since 1999.',
   supportingLine: 'Multiple generations. One standard of care.',
   address: {
     street: '4120 West Maple Road, Suite 206',
@@ -86,7 +86,7 @@ export const services = [
     short: 'Surgical',
     accent: 'charcoal' as const,
     blurb:
-      'Mohs coordination, skin cancer surgery, mole and cyst removal — performed with precision and a focus on cosmetic outcomes.',
+      'Mohs coordination, skin cancer surgery, mole and cyst removal, performed with precision and a focus on cosmetic outcomes.',
   },
   {
     slug: 'dermatopathology',
@@ -105,7 +105,7 @@ export const providers = [
     role: 'Board-Certified Dermatologist & Dermatopathologist',
     yearsExperience: '42+',
     yearsLabel: 'Years of Experience',
-    headline: 'The patriarch. Trusted authority. Decades of cosmetic mastery.',
+    headline: 'Dermatologist and dermatopathologist with more than 30 years of cosmetic injection experience.',
     bio: 'Dr. Fred Novice founded the practice after completing his dermatology residency at Henry Ford Hospital, where he served as Chief Resident, and a dermatopathology fellowship at the University of Oklahoma. With more than 30 years of Botox and filler experience, he is among the most experienced cosmetic injectors practicing today, and has trained colleagues around the world in advanced injection techniques.',
     credentials: [
       'MD, University of Toronto (1983)',
@@ -125,13 +125,13 @@ export const providers = [
     role: 'Board-Certified Dermatologist',
     yearsExperience: '11+',
     yearsLabel: 'Years of Experience',
-    headline: 'The bridge between deep medical knowledge and patient-friendly education.',
+    headline: 'Evidence-based medical and cosmetic dermatology, explained in plain language.',
     bio: 'Dr. Karlee Novice trained at Henry Ford Hospital, where she served as Chief Resident from 2015 to 2018. She brings an evidence-based, approachable style to every visit, with multiple peer-reviewed publications on topics ranging from drug-induced phototoxicity to chemical peels and skin cancer education.',
     credentials: [
       'BA magna cum laude, Lehigh University',
       'MD cum laude, Loyola Stritch School of Medicine (Distinction in Research)',
       'Preliminary Internal Medicine, Loyola',
-      'Dermatology Residency, Henry Ford Hospital (Chief Resident, 2015–2018)',
+      'Dermatology Residency, Henry Ford Hospital (Chief Resident, 2015 to 2018)',
       'Board-Certified, Fellow of the American Academy of Dermatology',
       'Multiple peer-reviewed publications',
     ],
@@ -144,7 +144,7 @@ export const providers = [
     role: 'Board-Certified Dermatologist & Dermatopathologist',
     yearsExperience: 'Board-certified',
     yearsLabel: 'Dermatologist & dermatopathologist',
-    headline: 'Clinical excellence meets business innovation. The next generation.',
+    headline: 'Dermatologist and dermatopathologist with a focus on healthcare innovation.',
     bio: 'Dr. Taylor Novice is a board-certified dermatologist and dermatopathologist in the Novice family. After earning a BA summa cum laude from Duke and an MD from the University of Michigan, she completed an MBA at Michigan Ross with a focus on healthcare innovation, and trained in both dermatology and dermatopathology. As Academic Chief Resident at Henry Ford, she received the Outstanding Resident Award across the entire health system.',
     credentials: [
       'BA summa cum laude, Duke University (Phi Beta Kappa)',
@@ -161,9 +161,9 @@ export const providers = [
     slug: 'erin-koppelman',
     name: 'Erin Koppelman, MSN, APRN, NP-C',
     role: 'Board-Certified Nurse Practitioner',
-    yearsExperience: '13+ years',
+    yearsExperience: '13+',
     yearsLabel: 'Clinical experience',
-    headline: 'Hospital-trained clinician with a passion for dermatology.',
+    headline: 'Hospital-trained nurse practitioner focused on skin screenings and patient education.',
     bio: 'Erin is a board-certified Nurse Practitioner who earned her Bachelor of Science in Nursing at the University of Michigan and her Master of Science in Nursing in Adult Primary Care at Wayne State University. Before specializing in dermatology, she practiced hospital-based medicine in both cardiology and intensive care. She is a member of the American Academy of Nurse Practitioners, Michigan Council of Nurse Practitioners, and the National Academy of Dermatology Nurse Practitioners.',
     credentials: [
       'BSN, University of Michigan School of Nursing (2005)',

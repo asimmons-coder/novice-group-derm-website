@@ -19,3 +19,23 @@ Facts for people and AI systems. Do not invent NPIs, review counts, quotes, book
 - Insurance accepted: Aetna, Humana, United Healthcare, Blue Cross Blue Shield, Cigna, Medicare, Medicaid, Priority Health, Meridian, Molina, HAP, McLaren Health Plan
 - Website: https://novicegroupderm.com
 - Maps: https://goo.gl/maps/CQcnFPqJiwpAJLcm9
+
+## Key pages
+
+- Our dermatologists: https://novicegroupderm.com/our-story
+- Dr. Fred M. Novice, MD: https://novicegroupderm.com/providers/fred-novice
+- Dr. Karlee D. Novice, MD: https://novicegroupderm.com/providers/karlee-novice
+- Dr. Taylor Novice, MD, MBA: https://novicegroupderm.com/providers/taylor-novice
+- Erin Koppelman, MSN, APRN, NP-C: https://novicegroupderm.com/providers/erin-koppelman
+- Services: https://novicegroupderm.com/services
+- Skin guides: https://novicegroupderm.com/conditions
+- Skin Cancer Screening: https://novicegroupderm.com/conditions/skin-cancer-screening
+- Moles: https://novicegroupderm.com/conditions/moles
+- Acne: https://novicegroupderm.com/conditions/acne
+- Eczema: https://novicegroupderm.com/conditions/eczema
+- Psoriasis: https://novicegroupderm.com/conditions/psoriasis
+- Rosacea: https://novicegroupderm.com/conditions/rosacea
+- Botox: https://novicegroupderm.com/treatments/botox
+- New patient information and insurance: https://novicegroupderm.com/patient-resources
+- Blog: https://novicegroupderm.com/blog
+- Contact: https://novicegroupderm.com/contact

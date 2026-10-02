@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
-import { site } from '@/lib/site';
+import { site, providers } from '@/lib/site';
+import { guides, guidePath } from '@/lib/guides';
 import { posts } from '@/lib/posts';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -11,6 +12,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/services/cosmetic-aesthetics',
     '/services/surgical-dermatology',
     '/services/dermatopathology',
+    ...providers.map((provider) => `/providers/${provider.slug}`),
+    '/conditions',
+    ...guides.map(guidePath),
     '/skin-shop',
     '/patient-resources',
     '/contact',

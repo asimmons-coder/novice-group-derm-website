@@ -32,7 +32,7 @@ const bgClasses = {
   'warm-white': 'bg-warm-white',
   'sand-light': 'bg-sand-light',
   'deep-brown': 'bg-deep-brown text-warm-white',
-  sage: 'bg-sage text-warm-white',
+  sage: 'bg-sage-deep text-warm-white',
   'gradient-cosmetic':
     'bg-[linear-gradient(135deg,var(--color-sage-light)_0%,var(--color-blush-light)_50%,var(--color-sand-light)_100%)]',
 };

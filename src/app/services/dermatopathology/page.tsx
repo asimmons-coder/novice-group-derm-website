@@ -1,35 +1,20 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import { PageHero } from '@/components/ui/PageHero';
 import { Section } from '@/components/ui/Container';
 import { SignatureHeadline, SectionLabel } from '@/components/ui/SignatureHeadline';
-import { Reveal, StaggerGroup, StaggerItem } from '@/components/ui/Reveal';
+import { Reveal } from '@/components/ui/Reveal';
 import { LinkButton } from '@/components/ui/Button';
 import { BookingCTA } from '@/components/home/BookingCTA';
 import { images } from '@/lib/images';
+import { BiopsyJourney } from '@/components/services/BiopsyJourney';
 
-export const metadata: Metadata = {
-  title: 'Dermatopathology',
+export const metadata: Metadata = pageMetadata({
+  title: 'Dermatopathology in Bloomfield Hills, MI',
   description:
-    'Dermatopathology in Bloomfield Hills. A lab processes the slides. Dr. Fred or Dr. Taylor Novice, fellowship-trained dermatopathologists, read them.',
-  alternates: {
-    canonical: '/services/dermatopathology',
-  },
-};
-
-const steps = [
-  {
-    title: 'Biopsy',
-    body: 'Performed in our office during your visit, with care to minimize discomfort and scarring.',
-  },
-  {
-    title: 'Lab Processing',
-    body: 'Slides are processed by a laboratory. We do not run a pathology lab in the office.',
-  },
-  {
-    title: 'Your Doctor Reads Them',
-    body: 'Dr. Fred or Dr. Taylor reads the slides. The dermatologist who saw your skin is part of the diagnosis under the microscope.',
-  },
-];
+    'Dermatopathology in Bloomfield Hills, MI. A lab processes biopsy slides, and Dr. Fred or Dr. Taylor Novice, fellowship-trained dermatopathologists, read them.',
+  path: '/services/dermatopathology',
+});
 
 export default function DermatopathologyPage() {
   return (
@@ -38,7 +23,7 @@ export default function DermatopathologyPage() {
         label="Dermatopathology"
         primary="Diagnosis,"
         accent="under the microscope."
-        description="Dermatopathology is the medical specialty that diagnoses skin disease by examining tissue under the microscope. Two of our dermatologists are also fellowship-trained pathologists — meaning the doctor who examines your skin is also the one who reads your biopsy."
+        description="Dermatopathology is the medical specialty that diagnoses skin disease by examining tissue under the microscope. Two of our dermatologists are also fellowship-trained dermatopathologists, so the doctor who examines your skin can also read your biopsy."
         image={{
           src: images.services.pathology,
           alt: 'Dr. Taylor Novice at a microscope',
@@ -74,31 +59,7 @@ export default function DermatopathologyPage() {
         </Reveal>
       </Section>
 
-      <Section bg="warm-white" padding="xl">
-        <Reveal className="text-center mb-16">
-          <SectionLabel align="center">The Process</SectionLabel>
-          <SignatureHeadline
-            primary="From biopsy"
-            accent="to answer."
-            align="center"
-            size="lg"
-          />
-        </Reveal>
-
-        <StaggerGroup className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {steps.map((step, i) => (
-            <StaggerItem key={i}>
-              <div className="text-center md:text-left bg-cream rounded-3xl p-10 h-full border border-sand">
-                <div className="font-display text-6xl text-gold leading-none mb-6 select-none">
-                  {String(i + 1).padStart(2, '0')}
-                </div>
-                <h3 className="font-display text-2xl text-charcoal mb-4">{step.title}</h3>
-                <p className="text-warm-gray leading-relaxed">{step.body}</p>
-              </div>
-            </StaggerItem>
-          ))}
-        </StaggerGroup>
-      </Section>
+      <BiopsyJourney />
 
       <Section bg="deep-brown" padding="lg" size="narrow">
         <Reveal className="text-center">
@@ -125,7 +86,11 @@ export default function DermatopathologyPage() {
         </Reveal>
       </Section>
 
-      <BookingCTA />
+      <BookingCTA
+        primary="See the doctor"
+        accent="who reads the slide."
+        description="New patients welcome. Call or send a request to schedule an exam with one of our dermatologists."
+      />
     </>
   );
 }

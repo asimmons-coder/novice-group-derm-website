@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import Image from 'next/image';
 import { PageHero } from '@/components/ui/PageHero';
 import { Section } from '@/components/ui/Container';
@@ -8,52 +9,52 @@ import { Accordion } from '@/components/ui/Accordion';
 import { LinkButton } from '@/components/ui/Button';
 import { BookingCTA } from '@/components/home/BookingCTA';
 import { images } from '@/lib/images';
+import { CollagenArt } from '@/components/art/CollagenArt';
+import { TreatmentVignette, type TreatmentKey } from '@/components/art/TreatmentVignettes';
 
-export const metadata: Metadata = {
-  title: 'Cosmetic & Aesthetics',
+export const metadata: Metadata = pageMetadata({
+  title: 'Botox, Fillers & Cosmetic Dermatology in Bloomfield Hills, MI',
   description:
-    'Botox, fillers, microneedling, lasers, and chemical peels in Bloomfield Hills. Three decades of injection artistry from Dr. Fred Novice.',
-  alternates: {
-    canonical: '/services/cosmetic-aesthetics',
-  },
-};
+    'Botox, Dysport, dermal fillers, microneedling, lasers, and chemical peels with Dr. Fred Novice in Bloomfield Hills, serving Birmingham, Troy, and Metro Detroit.',
+  path: '/services/cosmetic-aesthetics',
+});
 
-const treatments = [
+const treatments: { name: string; description: string; art: TreatmentKey }[] = [
   {
     name: 'Botox & Dysport',
     description:
       'Precision neuromodulators for fine lines, brow lift, masseter shaping, and hyperhidrosis. Subtle, expressive, never frozen.',
-    image: images.cosmetic.botox,
+    art: 'neuromodulators',
   },
   {
     name: 'Dermal Fillers',
     description:
       'Juvederm and Restylane lines for lips, cheeks, jawline, temples, and hands. Restoring volume with the eye of an artist.',
-    image: images.cosmetic.fillers,
+    art: 'fillers',
   },
   {
     name: 'Kybella',
     description:
-      'Non-surgical reduction of submental fullness. A few sessions, lasting results — no surgery required.',
-    image: images.cosmetic.kybella,
+      'Non-surgical reduction of fullness under the chin, usually over a few sessions, with lasting results.',
+    art: 'kybella',
   },
   {
     name: 'Microneedling with PRP',
     description:
       'Stimulates collagen and elastin for firmer texture, reduced scarring, and an unmistakable glow.',
-    image: images.cosmetic.microneedling,
+    art: 'microneedling',
   },
   {
     name: 'Chemical Peels',
     description:
       'Medical-grade peels customized to your skin: brighter tone, smoother surface, refined pores.',
-    image: images.cosmetic.peels,
+    art: 'peels',
   },
   {
     name: 'Laser & Light',
     description:
       'Pigmentation, redness, scars, sun damage. Targeted laser and light therapies tuned to your skin.',
-    image: images.cosmetic.laser,
+    art: 'laser',
   },
 ];
 
@@ -61,12 +62,12 @@ const faqs = [
   {
     question: 'Will I look natural?',
     answer:
-      'That is the entire philosophy of the practice. With more than 30 years of injection experience, Dr. Fred Novice approaches each face individually — symmetry, movement, and expression are preserved. Our goal is for friends to say you look rested, not "done."',
+      'That is the entire philosophy of the practice. With more than 30 years of injection experience, Dr. Fred Novice approaches each face individually and preserves symmetry, movement, and expression. The goal is for friends to say you look rested.',
   },
   {
     question: 'Is there downtime?',
     answer:
-      'Botox and most filler appointments have minimal downtime — many patients return to work the same day. Lasers, peels, and microneedling have varying recovery from a few days of redness to a week of peeling, depending on intensity.',
+      'Botox and most filler appointments have minimal downtime, and many patients return to work the same day. Lasers, peels, and microneedling have varying recovery from a few days of redness to a week of peeling, depending on intensity.',
   },
   {
     question: 'How much does Botox cost?',
@@ -76,7 +77,7 @@ const faqs = [
   {
     question: 'How long do fillers last?',
     answer:
-      'Filler longevity depends on the product and the area — typically 9 to 24 months. We will recommend the right product and discuss what to expect for your specific treatment.',
+      'Filler longevity depends on the product and the area, typically 9 to 24 months. We will recommend the right product and discuss what to expect for your specific treatment.',
   },
   {
     question: 'Do you offer consultations?',
@@ -90,14 +91,11 @@ export default function CosmeticPage() {
     <>
       <PageHero
         label="Cosmetic & Aesthetics"
-        primary="Subtle refinement."
-        accent="Not reinvention."
-        description="Cosmetic dermatology done right is invisible — symmetrical, not stretched. With more than 30 years of injection experience, Dr. Fred Novice has trained colleagues across the world in the techniques that make natural results possible."
+        primary="Botox, fillers,"
+        accent="and skin rejuvenation."
+        description="Natural-looking cosmetic care from Dr. Fred Novice, who has more than 30 years of injection experience and has taught his techniques to colleagues around the world."
         bg="gradient-cosmetic"
-        image={{
-          src: images.cosmetic.botox,
-          alt: 'Dermatologist performing a cosmetic injection',
-        }}
+        art={<CollagenArt />}
       />
 
       <Section bg="cream" padding="xl">
@@ -115,14 +113,8 @@ export default function CosmeticPage() {
           {treatments.map((t) => (
             <StaggerItem key={t.name}>
               <div className="group h-full bg-warm-white rounded-3xl overflow-hidden border border-sand hover:-translate-y-1 hover:shadow-xl transition-all duration-500">
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <Image
-                    src={t.image}
-                    alt={t.name}
-                    fill
-                    sizes="(max-width: 768px) 90vw, 400px"
-                    className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
+                <div className="relative aspect-[4/3] overflow-hidden bg-[linear-gradient(160deg,var(--color-blush-light)_0%,var(--color-sand-light)_100%)]">
+                  <TreatmentVignette treatment={t.art} />
                   <div className="absolute top-0 left-0 right-0 h-1 bg-blush" />
                 </div>
                 <div className="p-7">
@@ -193,7 +185,11 @@ export default function CosmeticPage() {
         <Accordion items={faqs} />
       </Section>
 
-      <BookingCTA />
+      <BookingCTA
+        primary="Plan your cosmetic"
+        accent="consultation."
+        description="Start with a conversation about what you would like to refresh. Call or send a request to meet with Dr. Fred Novice."
+      />
     </>
   );
 }

@@ -11,7 +11,7 @@ const sizeStyles: Record<Size, { display: string; accent: string }> = {
 
 interface SignatureHeadlineProps {
   primary: string;
-  accent: string;
+  accent?: string;
   size?: Size;
   align?: 'left' | 'center';
   as?: 'h1' | 'h2' | 'h3';
@@ -36,11 +36,13 @@ export function SignatureHeadline({
       )}
     >
       <span className={clsx('block', styles.display)}>{primary}</span>
-      <span
-        className={clsx('headline-accent block mt-1 md:mt-2', styles.accent)}
-      >
-        {accent}
-      </span>
+      {accent ? (
+        <span
+          className={clsx('headline-accent block mt-1 md:mt-2', styles.accent)}
+        >
+          {accent}
+        </span>
+      ) : null}
     </Tag>
   );
 }
@@ -59,7 +61,7 @@ export function SectionLabel({
   className,
 }: SectionLabelProps) {
   const toneClass = {
-    sage: 'text-sage',
+    sage: 'text-sage-deep',
     gold: 'text-gold',
     cream: 'text-cream/80',
   }[tone];

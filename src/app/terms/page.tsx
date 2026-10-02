@@ -1,15 +1,14 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import { LegalPage } from '@/components/ui/LegalPage';
 import { site } from '@/lib/site';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Terms of Use',
   description:
     'Terms of use for the Novice Group Dermatology website, including medical disclaimer and conditions for using site content.',
-  alternates: {
-    canonical: '/terms',
-  },
-};
+  path: '/terms',
+});
 
 export default function TermsPage() {
   return (

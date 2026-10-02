@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { ChevronDown, Menu, X } from 'lucide-react';
+import { ChevronDown, Menu, Phone, X } from 'lucide-react';
 import { Logo } from '@/components/ui/Logo';
 import { LinkButton } from '@/components/ui/Button';
 import { navLinks, booking, services, site } from '@/lib/site';
@@ -123,7 +123,7 @@ export function Navbar() {
                     <div className="mt-1 border-t border-sand pt-1">
                       <Link
                         href="/services"
-                        className="block rounded-xl px-4 py-3 text-[13px] font-medium text-sage transition-colors duration-300 hover:bg-sage-light hover:text-charcoal focus-visible:bg-sage-light focus-visible:text-charcoal"
+                        className="block rounded-xl px-4 py-3 text-[13px] font-medium text-sage-deep transition-colors duration-300 hover:bg-sage-light hover:text-charcoal focus-visible:bg-sage-light focus-visible:text-charcoal"
                       >
                         All Services
                       </Link>
@@ -141,21 +141,30 @@ export function Navbar() {
           </LinkButton>
         </div>
 
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          className="xl:hidden p-2 -mr-2 text-charcoal"
-          aria-label={open ? 'Close menu' : 'Open menu'}
-          aria-expanded={open}
-        >
-          {open ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="xl:hidden flex items-center gap-1 -mr-2">
+          <a
+            href={site.phoneHref}
+            aria-label={`Call ${site.phone}`}
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full text-charcoal hover:bg-sand-light transition-colors"
+          >
+            <Phone size={20} />
+          </a>
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            className="inline-flex h-11 w-11 items-center justify-center text-charcoal"
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-expanded={open}
+          >
+            {open ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile overlay */}
       <div
         className={clsx(
-          'xl:hidden fixed inset-0 top-[68px] bg-cream isolation-isolate z-[60] transition-all duration-500',
+          'xl:hidden fixed inset-0 top-[68px] overflow-y-auto bg-cream isolation-isolate z-[60] transition-all duration-500',
           open ? 'visible pointer-events-auto' : 'invisible pointer-events-none',
         )}
         style={{ backgroundColor: 'var(--color-cream)' }}
@@ -171,7 +180,7 @@ export function Navbar() {
                 <Link
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="block py-5 font-display text-3xl text-charcoal hover:text-sage transition-colors"
+                  className="block py-5 font-display text-3xl text-charcoal hover:text-sage-deep transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -182,7 +191,7 @@ export function Navbar() {
                         <Link
                           href={`/services/${service.slug}`}
                           onClick={() => setOpen(false)}
-                          className="block py-2 text-sm font-medium text-warm-gray transition-colors hover:text-sage"
+                          className="block py-2 text-sm font-medium text-warm-gray transition-colors hover:text-sage-deep"
                         >
                           {service.name}
                         </Link>

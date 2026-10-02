@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { PageHero } from '@/components/ui/PageHero';
 import { Section } from '@/components/ui/Container';
@@ -6,14 +7,12 @@ import { Reveal } from '@/components/ui/Reveal';
 import { ContactForm } from '@/components/contact/ContactForm';
 import { site } from '@/lib/site';
 
-export const metadata: Metadata = {
-  title: 'Contact & Visit Us',
+export const metadata: Metadata = pageMetadata({
+  title: 'Contact Our Bloomfield Hills Office',
   description:
-    'Schedule an appointment at Novice Group Dermatology in Bloomfield Hills, Michigan. Call (248) 826-2536 or send a message.',
-  alternates: {
-    canonical: '/contact',
-  },
-};
+    'Visit Novice Group Dermatology at 4120 West Maple Road, Suite 206, Bloomfield Hills, MI. Call (248) 826-2536, Monday to Friday, 8:30 AM to 5 PM.',
+  path: '/contact',
+});
 
 const contactItems = [
   {
@@ -46,9 +45,9 @@ export default function ContactPage() {
     <>
       <PageHero
         label="Contact"
-        primary="Let&rsquo;s get you"
-        accent="on the calendar."
-        description="New patients welcome. Most major insurance accepted. Call us, send a message, or stop by — we look forward to meeting you."
+        primary="Visit us in"
+        accent="Bloomfield Hills."
+        description="New patients welcome. Most major insurance accepted. Call us, send a message, or stop by the office."
       />
 
       <Section bg="cream" padding="xl">
@@ -75,9 +74,9 @@ export default function ContactPage() {
                   <Wrapper
                     key={item.title}
                     {...(item.href ? { href: item.href } : {})}
-                    className="flex gap-5 items-start bg-warm-white border border-sand rounded-2xl p-6 hover:border-sage transition-colors"
+                    className="flex gap-5 items-start bg-warm-white border border-sand rounded-2xl p-6 hover:border-sage-deep transition-colors"
                   >
-                    <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-sage-light text-sage shrink-0">
+                    <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-sage-light text-sage-deep shrink-0">
                       <Icon size={18} />
                     </div>
                     <div>

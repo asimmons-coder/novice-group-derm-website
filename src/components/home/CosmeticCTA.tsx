@@ -7,18 +7,18 @@ const tags = ['Botox', 'Dysport', 'Fillers', 'Kybella', 'Microneedling', 'Peels'
 
 export function CosmeticCTA() {
   return (
-    <Section bg="gradient-cosmetic" padding="xl">
+    <Section bg="gradient-cosmetic" padding="xl" className="overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <Reveal>
           <SectionLabel>The Cosmetic Practice</SectionLabel>
           <SignatureHeadline
-            primary="Subtle refinement."
-            accent="Not reinvention."
+            primary="Natural-looking results"
+            accent="from an experienced hand."
             size="lg"
           />
           <p className="mt-8 text-lg text-charcoal/75 leading-relaxed max-w-xl">
-            Cosmetic dermatology done right is invisible. You should look like
-            yourself, rested. Symmetrical, not stretched. With more than three
+            Good cosmetic work is hard to spot. You should look like yourself,
+            rested and balanced. With more than three
             decades of injection experience, Dr. Fred Novice approaches every
             face with the eye of an artist and the precision of a surgeon.
           </p>
@@ -27,7 +27,7 @@ export function CosmeticCTA() {
             {tags.map((tag) => (
               <li
                 key={tag}
-                className="px-5 py-2.5 bg-warm-white/60 backdrop-blur-sm border border-warm-white rounded-full text-xs font-semibold text-charcoal/80 hover:bg-warm-white hover:scale-105 transition-all cursor-default"
+                className="px-5 py-2.5 bg-warm-white/60 backdrop-blur-sm border border-warm-white rounded-full text-xs font-semibold text-charcoal/80 hover:bg-warm-white transition-colors cursor-default"
               >
                 {tag}
               </li>
@@ -46,8 +46,26 @@ export function CosmeticCTA() {
           </div>
         </Reveal>
 
-        <Reveal delay={0.15}>
-          <div className="bg-warm-white/40 backdrop-blur-sm border border-warm-white/60 rounded-3xl p-10 md:p-14">
+        <Reveal delay={0.15} className="relative">
+          <div
+            aria-hidden
+            className="absolute -inset-6 md:-inset-10 animate-morph bg-[linear-gradient(135deg,var(--color-blush)_0%,var(--color-blush-light)_55%,var(--color-sage-light)_100%)] opacity-60 blur-2xl"
+          />
+          <svg
+            aria-hidden
+            viewBox="0 0 100 100"
+            className="absolute -top-8 -right-4 w-20 h-20 animate-float text-gold"
+          >
+            <path d="M50 8 Q50 50 92 50 Q50 50 50 92 Q50 50 8 50 Q50 50 50 8Z" fill="currentColor" fillOpacity="0.8" />
+          </svg>
+          <svg
+            aria-hidden
+            viewBox="0 0 100 100"
+            className="absolute bottom-10 -left-6 w-10 h-10 animate-float [animation-delay:-3s] text-blush"
+          >
+            <path d="M50 8 Q50 50 92 50 Q50 50 50 92 Q50 50 8 50 Q50 50 50 8Z" fill="currentColor" />
+          </svg>
+          <div className="relative bg-warm-white/40 backdrop-blur-sm border border-warm-white/60 rounded-3xl p-10 md:p-14">
             <p className="font-display text-5xl text-sand leading-none mb-6 select-none" aria-hidden>
               &ldquo;
             </p>

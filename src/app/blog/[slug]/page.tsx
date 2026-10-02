@@ -98,7 +98,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               className="object-cover"
             />
           </div>
-          <p className="text-[11px] uppercase tracking-[0.18em] font-semibold text-sage mb-8">
+          <p className="text-[11px] uppercase tracking-[0.18em] font-semibold text-sage-deep mb-8">
             {getAuthorLastName(author)}
           </p>
           <div className="space-y-5 text-warm-gray text-lg leading-relaxed">

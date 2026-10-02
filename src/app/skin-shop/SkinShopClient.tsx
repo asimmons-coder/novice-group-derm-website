@@ -114,8 +114,8 @@ export function SkinShopClient() {
             />
             <p className="mt-8 text-lg text-warm-gray leading-relaxed">
               Every product on this page is one our dermatologists actively
-              recommend. No paid placements, no white-label markups — just the
-              ingredients, formulations, and brands we trust on real patients.
+              recommend: the ingredients, formulations, and brands we trust on
+              real patients.
             </p>
           </Reveal>
         </Container>
@@ -168,7 +168,7 @@ export function SkinShopClient() {
                         className="object-contain p-6 transition-transform duration-700 group-hover:scale-105"
                       />
                       <div className="absolute top-4 left-4 bg-warm-white/90 backdrop-blur px-3 py-1 rounded-full">
-                        <span className="text-[9px] uppercase tracking-[0.15em] font-bold text-sage">
+                        <span className="text-[9px] uppercase tracking-[0.15em] font-bold text-sage-deep">
                           Derm Recommended
                         </span>
                       </div>
@@ -209,7 +209,7 @@ export function SkinShopClient() {
                     <h3 className="relative font-display text-lg text-charcoal leading-snug">
                       {p.name}
                     </h3>
-                    <span className="relative mt-4 flex items-center gap-2 text-[9px] uppercase tracking-[0.2em] text-sage font-semibold">
+                    <span className="relative mt-4 flex items-center gap-2 text-[9px] uppercase tracking-[0.2em] text-sage-deep font-semibold">
                       <span className="h-px w-4 bg-sage/40" />
                       {p.category}
                       <span className="h-px w-4 bg-sage/40" />
@@ -222,7 +222,7 @@ export function SkinShopClient() {
                       ))}
                     </ul>
                     <div className="absolute top-4 left-4 bg-warm-white/90 backdrop-blur px-3 py-1 rounded-full">
-                      <span className="text-[9px] uppercase tracking-[0.15em] font-bold text-sage">
+                      <span className="text-[9px] uppercase tracking-[0.15em] font-bold text-sage-deep">
                         Derm Recommended
                       </span>
                     </div>
@@ -230,7 +230,7 @@ export function SkinShopClient() {
                 )}
                 <div className="p-6 flex items-center justify-between">
                   <span className="text-base font-medium text-charcoal">{p.price}</span>
-                  <span className="text-[11px] uppercase tracking-widest text-warm-gray group-hover:text-sage transition-colors font-semibold">
+                  <span className="text-[11px] uppercase tracking-widest text-warm-gray group-hover:text-sage-deep transition-colors font-semibold">
                     In Office
                   </span>
                 </div>

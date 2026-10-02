@@ -21,9 +21,9 @@ const features = [
   {
     icon: Heart,
     accent: 'bg-gold',
-    title: 'Family, not a factory',
+    title: 'An independent family practice',
     body:
-      'In an industry where 35+ private equity platforms are buying up practices, the Novice family has chosen to stay independent. Patient care over shareholder returns. Continuity over churn. The same providers, visit after visit, generation after generation.',
+      'Private equity groups have bought many dermatology practices. The Novice family has chosen to stay independent, so you see the same providers, visit after visit, for years.',
   },
 ];
 

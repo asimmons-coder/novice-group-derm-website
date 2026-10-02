@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import { PageHero } from '@/components/ui/PageHero';
 import { Section } from '@/components/ui/Container';
 import { SignatureHeadline, SectionLabel } from '@/components/ui/SignatureHeadline';
@@ -6,24 +7,23 @@ import { Reveal } from '@/components/ui/Reveal';
 import { Accordion } from '@/components/ui/Accordion';
 import { ConditionsGrid, ProcessSteps } from '@/components/services/ConditionsGrid';
 import { BookingCTA } from '@/components/home/BookingCTA';
+import { MoleGuide } from '@/components/services/MoleGuide';
 import { images } from '@/lib/images';
 
-export const metadata: Metadata = {
-  title: 'Medical Dermatology',
+export const metadata: Metadata = pageMetadata({
+  title: 'Medical Dermatology in Bloomfield Hills, MI',
   description:
-    'Acne, eczema, psoriasis, rosacea, skin cancer screening, and more. Comprehensive medical dermatology in Bloomfield Hills, Michigan.',
-  alternates: {
-    canonical: '/services/medical-dermatology',
-  },
-};
+    'Acne, eczema, psoriasis, rosacea, and skin cancer screenings with dermatologists in Bloomfield Hills, Michigan, serving Birmingham, Troy, and Metro Detroit.',
+  path: '/services/medical-dermatology',
+});
 
 const conditions = [
-  { name: 'Acne', description: 'Personalized treatment for teens and adults — topical, oral, and procedural options.' },
-  { name: 'Eczema & Atopic Dermatitis', description: 'From mild flares to severe disease, including the latest biologics.' },
-  { name: 'Psoriasis', description: 'Topical, light therapy, oral, and biologic management for plaque, guttate, and inverse forms.' },
-  { name: 'Rosacea', description: 'Calming flares, addressing visible vessels, and protecting sensitive skin long-term.' },
-  { name: 'Skin Cancer Screening', description: 'Full-body exams with dermoscopy and same-day biopsies when needed.' },
-  { name: 'Mole Evaluation', description: 'Photographic monitoring of atypical nevi and routine surveillance.' },
+  { name: 'Acne', href: '/conditions/acne', description: 'Personalized treatment for teens and adults, with topical, oral, and procedural options.' },
+  { name: 'Eczema & Atopic Dermatitis', href: '/conditions/eczema', description: 'From mild flares to severe disease, including the latest biologics.' },
+  { name: 'Psoriasis', href: '/conditions/psoriasis', description: 'Topical, light therapy, oral, and biologic management for plaque, guttate, and inverse forms.' },
+  { name: 'Rosacea', href: '/conditions/rosacea', description: 'Calming flares, addressing visible vessels, and protecting sensitive skin long-term.' },
+  { name: 'Skin Cancer Screening', href: '/conditions/skin-cancer-screening', description: 'Full-body exams with dermoscopy and same-day biopsies when needed.' },
+  { name: 'Mole Evaluation', href: '/conditions/moles', description: 'Photographic monitoring of atypical nevi and routine surveillance.' },
   { name: 'Hair Loss & Alopecia', description: 'Workup and treatment for androgenetic, alopecia areata, and scarring forms.' },
   { name: 'Nail Conditions', description: 'Fungal infections, psoriasis, ingrown nails, and trauma-related changes.' },
   { name: 'Hyperhidrosis', description: 'Topicals, oral medications, and Botox injections for excessive sweating.' },
@@ -51,7 +51,7 @@ const faqs = [
   {
     question: 'Will I see a doctor or a midlevel?',
     answer:
-      'You will be seen by one of our board-certified dermatologists or our experienced nurse practitioner — your choice. We do not rotate patients through providers visit-to-visit.',
+      'You will be seen by one of our board-certified dermatologists or our experienced nurse practitioner, whichever you prefer. We do not rotate patients through providers visit-to-visit.',
   },
   {
     question: 'How quickly can I be seen for a suspicious mole?',
@@ -67,12 +67,14 @@ export default function MedicalDermatologyPage() {
         label="Medical Dermatology"
         primary="The clinical foundation"
         accent="of healthy skin."
-        description="From a kid&rsquo;s first acne flare to an adult&rsquo;s annual skin cancer screening, the medical side of dermatology is the heart of the practice. Three board-certified dermatologists and a nurse practitioner — listening carefully, diagnosing precisely, treating thoughtfully."
+        description="From a kid&rsquo;s first acne flare to an adult&rsquo;s annual skin cancer screening, the medical side of dermatology is the heart of the practice. Three dermatologists and a nurse practitioner take the time to listen, examine carefully, and explain the plan."
         image={{
           src: images.services.medical,
           alt: 'Drs. Fred and Karlee Novice reviewing a chart on a tablet',
         }}
       />
+
+      <MoleGuide />
 
       <ConditionsGrid
         label="Conditions We Treat"
@@ -111,7 +113,11 @@ export default function MedicalDermatologyPage() {
         <Accordion items={faqs} />
       </Section>
 
-      <BookingCTA />
+      <BookingCTA
+        primary="Book a skin check"
+        accent="with a dermatologist."
+        description="New patients welcome, and most major insurance is accepted. Call or send a request for a medical visit or full-body skin exam."
+      />
     </>
   );
 }

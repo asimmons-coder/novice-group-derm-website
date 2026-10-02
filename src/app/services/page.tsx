@@ -1,22 +1,21 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import Link from 'next/link';
 import Image from 'next/image';
 import { PageHero } from '@/components/ui/PageHero';
 import { Section } from '@/components/ui/Container';
 import { Reveal } from '@/components/ui/Reveal';
-import { ArrowLink } from '@/components/ui/Button';
+import { ArrowLabel } from '@/components/ui/Button';
 import { BookingCTA } from '@/components/home/BookingCTA';
 import { services } from '@/lib/site';
 import { images } from '@/lib/images';
 
-export const metadata: Metadata = {
-  title: 'Services',
+export const metadata: Metadata = pageMetadata({
+  title: 'Dermatology Services in Bloomfield Hills, MI',
   description:
-    'Medical, cosmetic, surgical, and dermatopathology services in Bloomfield Hills, Michigan. Complete skin care under one roof.',
-  alternates: {
-    canonical: '/services',
-  },
-};
+    'Medical, cosmetic, surgical, and dermatopathology care in Bloomfield Hills, Michigan, serving Birmingham, Troy, West Bloomfield, and Metro Detroit.',
+  path: '/services',
+});
 
 const serviceImages: Record<string, string> = {
   'medical-dermatology': images.services.medical,
@@ -57,16 +56,16 @@ export default function ServicesPage() {
                   </div>
                 </div>
                 <div className="lg:col-span-6">
-                  <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-sage mb-3 block">
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-sage-deep mb-3 block">
                     {s.short}
                   </span>
-                  <h2 className="font-display text-4xl md:text-5xl text-charcoal mb-6 group-hover:text-sage transition-colors">
+                  <h2 className="font-display text-4xl md:text-5xl text-charcoal mb-6 group-hover:text-sage-deep transition-colors">
                     {s.name}
                   </h2>
                   <p className="text-lg text-warm-gray leading-relaxed mb-8 max-w-xl">
                     {s.blurb}
                   </p>
-                  <ArrowLink href={`/services/${s.slug}`}>Explore</ArrowLink>
+                  <ArrowLabel>Explore</ArrowLabel>
                 </div>
               </Link>
             </Reveal>

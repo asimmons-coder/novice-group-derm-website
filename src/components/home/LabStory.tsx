@@ -4,6 +4,7 @@ import { Section } from '@/components/ui/Container';
 import { SignatureHeadline, SectionLabel } from '@/components/ui/SignatureHeadline';
 import { ArrowLink } from '@/components/ui/Button';
 import { Reveal } from '@/components/ui/Reveal';
+import { MicroscopeLens } from './MicroscopeLens';
 
 const LAB_IMAGE = '/images/lab-microscope.jpg';
 
@@ -31,13 +32,17 @@ export function LabStory() {
             className="absolute -bottom-10 -right-10 hidden md:block w-60 h-60 bg-gold/10 rounded-full blur-3xl opacity-60"
           />
 
+          <Reveal delay={0.6} className="absolute -bottom-12 -left-6 md:-left-12 z-20">
+            <MicroscopeLens />
+          </Reveal>
+
           <Reveal
             delay={0.4}
             className="absolute top-8 -right-4 md:right-[-5%] bg-warm-white p-5 rounded-2xl shadow-xl border border-sand max-w-[220px] z-20"
           >
             <div className="flex items-center gap-3 mb-3">
               <div className="w-8 h-8 rounded-full bg-sage-light flex items-center justify-center">
-                <CheckCircle2 className="text-sage" size={16} />
+                <CheckCircle2 className="text-sage-deep" size={16} />
               </div>
               <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-charcoal">
                 Slide Review
@@ -49,7 +54,7 @@ export function LabStory() {
           </Reveal>
         </Reveal>
 
-        <Reveal delay={0.15}>
+        <Reveal delay={0.15} className="pt-10 lg:pt-0">
           <SectionLabel>The Diagnostic Edge</SectionLabel>
           <SignatureHeadline
             primary="Precision diagnosis."

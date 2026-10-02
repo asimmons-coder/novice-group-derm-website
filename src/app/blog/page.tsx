@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import Link from 'next/link';
 import { PageHero } from '@/components/ui/PageHero';
 import { Section } from '@/components/ui/Container';
@@ -11,15 +12,12 @@ import {
   formatPostDate,
 } from '@/lib/posts';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: 'Blog & Education',
   description:
     'Skin health education from board-certified dermatologists. Articles on conditions, cosmetics, sun protection, and skincare.',
-  robots: { index: true, follow: true },
-  alternates: {
-    canonical: '/blog',
-  },
-};
+  path: '/blog',
+});
 
 export default function BlogPage() {
   return (
@@ -42,17 +40,17 @@ export default function BlogPage() {
                   className="group flex h-full flex-col bg-warm-white rounded-3xl overflow-hidden border border-sand hover:-translate-y-1 hover:shadow-xl transition-all duration-500"
                 >
                   <div className="p-7 flex flex-col flex-1">
-                    <p className="text-[11px] uppercase tracking-[0.18em] font-semibold text-sage mb-3">
+                    <p className="text-[11px] uppercase tracking-[0.18em] font-semibold text-sage-deep mb-3">
                       {formatPostDate(post.date)}
                       <span className="text-warm-gray"> · {getAuthorLastName(author)}</span>
                     </p>
-                    <h2 className="font-display text-2xl text-charcoal mb-3 group-hover:text-sage transition-colors">
+                    <h2 className="font-display text-2xl text-charcoal mb-3 group-hover:text-sage-deep transition-colors">
                       {post.title}
                     </h2>
                     <p className="text-sm text-warm-gray leading-relaxed mb-6 flex-1">
                       {post.description}
                     </p>
-                    <span className="text-sm font-semibold text-sage">Read the note</span>
+                    <span className="text-sm font-semibold text-sage-deep">Read the note</span>
                   </div>
                 </Link>
               </StaggerItem>

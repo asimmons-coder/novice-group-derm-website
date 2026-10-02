@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { site } from '@/lib/site';
 import { useForm } from 'react-hook-form';
 import { CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
@@ -58,18 +59,18 @@ export function ContactForm() {
   if (submitted) {
     return (
       <div className="text-center py-10">
-        <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-sage-light text-sage mb-6">
+        <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-sage-light text-sage-deep mb-6">
           <CheckCircle2 size={28} />
         </div>
-        <h3 className="font-display text-2xl text-charcoal mb-2">Message received</h3>
+        <h3 className="font-display text-2xl text-charcoal mb-2">Message sent</h3>
         <p className="text-warm-gray max-w-sm mx-auto">
-          Thank you for reaching out. A member of our team will respond within
-          one business day.
+          Thank you for reaching out. Our office will be in touch. If your
+          question is urgent, call us at {site.phone}.
         </p>
         <button
           type="button"
           onClick={() => setSubmitted(false)}
-          className="mt-8 text-xs uppercase tracking-widest text-sage font-semibold"
+          className="mt-8 text-xs uppercase tracking-widest text-sage-deep font-semibold"
         >
           Send another message
         </button>
@@ -143,7 +144,7 @@ export function ContactForm() {
           rows={5}
           {...register('message', { required: 'Required' })}
           className="form-input resize-none"
-          placeholder="Tell us briefly what you would like to discuss."
+          placeholder="Tell us briefly what you would like to schedule. Please leave out medical details; we will cover those by phone or at your visit."
         />
       </Field>
 
@@ -155,7 +156,7 @@ export function ContactForm() {
 
       <div className="pt-2">
         <Button type="submit" variant="primary" size="lg" withArrow disabled={isSubmitting}>
-          {isSubmitting ? 'Sending…' : 'Send Message'}
+          {isSubmitting ? 'Opening email…' : 'Send Message'}
         </Button>
       </div>
 

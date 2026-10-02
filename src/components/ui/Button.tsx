@@ -6,7 +6,7 @@ type Variant = 'primary' | 'outline' | 'dark' | 'ghost' | 'white' | 'white-outli
 
 const variantStyles: Record<Variant, string> = {
   primary:
-    'bg-sage text-warm-white hover:bg-sage/90 border border-sage shadow-sm',
+    'bg-sage-deep text-warm-white hover:bg-sage-deep/90 border border-sage-deep shadow-sm',
   outline:
     'bg-transparent text-charcoal border border-charcoal/30 hover:border-charcoal hover:bg-charcoal hover:text-warm-white',
   dark: 'bg-charcoal text-warm-white hover:bg-deep-brown border border-charcoal',
@@ -105,18 +105,32 @@ interface ArrowLinkProps {
   className?: string;
 }
 
-export function ArrowLink({ href, children, className }: ArrowLinkProps) {
+const arrowClasses =
+  'group inline-flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-charcoal';
+
+function ArrowInner({ children }: { children: React.ReactNode }) {
   return (
-    <Link
-      href={href}
-      className={clsx(
-        'group inline-flex items-center gap-3 text-xs uppercase tracking-widest font-semibold text-charcoal',
-        className,
-      )}
-    >
+    <>
       <span>{children}</span>
       <span className="block w-10 h-px bg-charcoal/30 group-hover:w-16 group-hover:bg-sage transition-all duration-300" />
-      <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300 text-sage" />
+      <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300 text-sage-deep" />
+    </>
+  );
+}
+
+export function ArrowLink({ href, children, className }: ArrowLinkProps) {
+  return (
+    <Link href={href} className={clsx(arrowClasses, className)}>
+      <ArrowInner>{children}</ArrowInner>
     </Link>
+  );
+}
+
+// Same look as ArrowLink, for use inside an element that is already a link.
+export function ArrowLabel({ children, className }: { children: React.ReactNode; className?: string }) {
+  return (
+    <span className={clsx(arrowClasses, className)}>
+      <ArrowInner>{children}</ArrowInner>
+    </span>
   );
 }

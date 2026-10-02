@@ -12,7 +12,7 @@ const cards = [
     description:
       'Acne, eczema, psoriasis, rosacea, skin cancer screening, mole monitoring. The clinical foundation of every healthy skin journey.',
     accent: 'bg-sage',
-    iconBg: 'bg-sage-light text-sage',
+    iconBg: 'bg-sage-light text-sage-deep',
   },
   {
     slug: 'dermatopathology',
@@ -21,7 +21,7 @@ const cards = [
     description:
       'A lab processes the slides. The dermatologist who examines your skin reads them.',
     accent: 'bg-gold',
-    iconBg: 'bg-gold-light text-gold',
+    iconBg: 'bg-gold-light text-gold-deep',
   },
   {
     slug: 'cosmetic-aesthetics',
@@ -37,7 +37,7 @@ const cards = [
     icon: Scissors,
     title: 'Surgical Procedures',
     description:
-      'Skin cancer surgery, Mohs coordination, mole and cyst removal — performed with precision and a focus on cosmetic outcomes.',
+      'Skin cancer surgery, Mohs coordination, mole and cyst removal, performed with precision and a focus on cosmetic outcomes.',
     accent: 'bg-charcoal',
     iconBg: 'bg-sand text-charcoal',
   },
@@ -55,9 +55,9 @@ export function ServicesGrid() {
           size="lg"
         />
         <p className="mt-6 max-w-2xl mx-auto text-warm-gray text-lg">
-          Most practices send patients across town for biopsies, surgery, or
-          cosmetic care. We don&rsquo;t. Every step happens here, with the doctors
-          you already know.
+          Medical visits, biopsies, skin surgery, and cosmetic treatments are
+          handled by the same doctors you already know. When you need Mohs
+          surgery, we coordinate it for you.
         </p>
       </Reveal>
 
@@ -65,10 +65,10 @@ export function ServicesGrid() {
         {cards.map((card) => {
           const Icon = card.icon;
           return (
-            <StaggerItem key={card.slug}>
+            <StaggerItem key={card.slug} className="h-full">
               <Link
                 href={`/services/${card.slug}`}
-                className="group relative block h-full bg-warm-white border border-sand rounded-3xl p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:border-charcoal/10 overflow-hidden"
+                className="group relative flex h-full flex-col bg-warm-white border border-sand rounded-3xl p-8 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:border-charcoal/10 overflow-hidden"
               >
                 <span
                   aria-hidden
@@ -80,10 +80,10 @@ export function ServicesGrid() {
                 <h3 className="font-display text-xl text-charcoal mb-3">
                   {card.title}
                 </h3>
-                <p className="text-sm text-warm-gray leading-relaxed mb-8">
+                <p className="flex-1 text-sm text-warm-gray leading-relaxed mb-8">
                   {card.description}
                 </p>
-                <span className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-charcoal/80 group-hover:text-sage transition-colors">
+                <span className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-charcoal/80 group-hover:text-sage-deep transition-colors">
                   Learn More
                   <ArrowUpRight size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </span>

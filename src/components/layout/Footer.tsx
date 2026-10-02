@@ -9,6 +9,7 @@ const practiceLinks = [
   { label: 'Our Story', href: '/our-story' },
   { label: 'Blog', href: '/blog' },
   { label: 'Patient Resources', href: '/patient-resources' },
+  { label: 'Skin Guides', href: '/conditions' },
   { label: 'Insurance', href: '/patient-resources#insurance' },
   { label: 'Forms', href: '/patient-resources#forms' },
   { label: 'Pay Online', href: site.payOnline },
@@ -59,9 +60,9 @@ export function Footer() {
 
           {/* Services */}
           <div className="md:col-span-2">
-            <h4 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-sage mb-5">
+            <h2 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-sage mb-5">
               Services
-            </h4>
+            </h2>
             <ul className="space-y-3 text-sm text-cream/80">
               {services.map((s) => (
                 <li key={s.slug}>
@@ -83,9 +84,9 @@ export function Footer() {
 
           {/* Practice */}
           <div className="md:col-span-3">
-            <h4 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-sage mb-5">
+            <h2 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-sage mb-5">
               Practice
-            </h4>
+            </h2>
             <ul className="space-y-3 text-sm text-cream/80">
               {practiceLinks.map((l) => (
                 <li key={l.href}>
@@ -99,9 +100,9 @@ export function Footer() {
 
           {/* Connect */}
           <div className="md:col-span-3">
-            <h4 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-sage mb-5">
+            <h2 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-sage mb-5">
               Connect
-            </h4>
+            </h2>
             <ul className="space-y-3 text-sm text-cream/80">
               {connectLinks.map((l) => {
                 const Icon = l.icon;

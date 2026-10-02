@@ -1,21 +1,23 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import Image from 'next/image';
+import Link from 'next/link';
 import { PageHero } from '@/components/ui/PageHero';
 import { Section } from '@/components/ui/Container';
 import { SignatureHeadline, SectionLabel } from '@/components/ui/SignatureHeadline';
 import { Reveal } from '@/components/ui/Reveal';
 import { BookingCTA } from '@/components/home/BookingCTA';
+import { ArrowLink } from '@/components/ui/Button';
+import { FamilyLineage } from '@/components/story/FamilyLineage';
 import { providers } from '@/lib/site';
 import { images } from '@/lib/images';
 
-export const metadata: Metadata = {
-  title: 'Our Story & Providers',
+export const metadata: Metadata = pageMetadata({
+  title: 'Our Dermatologists: Dr. Fred, Karlee & Taylor Novice',
   description:
-    'Multiple generations of board-certified dermatologists in Bloomfield Hills. Meet Dr. Fred, Dr. Karlee, and Dr. Taylor Novice — all trained at Henry Ford Hospital.',
-  alternates: {
-    canonical: '/our-story',
-  },
-};
+    'Meet Dr. Fred, Dr. Karlee, and Dr. Taylor Novice and nurse practitioner Erin Koppelman, the family-led team behind Novice Group Dermatology in Bloomfield Hills, MI.',
+  path: '/our-story',
+});
 
 const providerImages: Record<string, string> = {
   'fred-novice': images.providers.fred,
@@ -31,7 +33,7 @@ export default function OurStoryPage() {
         label="Our Story"
         primary="A family practice,"
         accent="multiple generations deep."
-        description="Since 1999, Dr. Fred Novice has led Novice Group Dermatology with a simple commitment: deliver the kind of care a family doctor used to deliver — personal, continuous, and uncompromising. His daughters Dr. Karlee and Dr. Taylor have since joined him. All three trained at Henry Ford Hospital. All three are board-certified."
+        description="Dr. Fred Novice opened Novice Group Dermatology in 1999 to deliver the kind of care a family doctor used to: personal, continuous, and thorough. His daughters Dr. Karlee and Dr. Taylor have since joined him. All three trained at Henry Ford Hospital."
       />
 
       {/* Practice History Narrative */}
@@ -40,15 +42,15 @@ export default function OurStoryPage() {
           <p>
             Dr. Fred Novice completed his dermatology residency at Henry Ford Hospital
             as Chief Resident, then a dermatopathology fellowship at the University of
-            Oklahoma — a rare dual specialization that would shape the practice he
+            Oklahoma. That rare dual specialization shaped the practice he
             opened in Bloomfield Hills in 1999. From the beginning, he insisted on
             reading his own slides under the microscope, trusting no one else with
-            that step in the diagnosis. Two and a half decades later, that&rsquo;s still
+            that step in the diagnosis. More than 25 years later, that&rsquo;s still
             how the practice operates.
           </p>
           <p>
             Patients who walked in during the early years for acne or eczema have
-            since brought their children — and now their grandchildren. The continuity
+            since brought their children, and now their grandchildren. The continuity
             isn&rsquo;t a marketing slogan; it&rsquo;s a model of care that has become rare in
             modern dermatology. As private equity has bought up dermatology practices
             across the country, the Novice family has chosen, deliberately, to remain
@@ -60,6 +62,8 @@ export default function OurStoryPage() {
           </p>
         </Reveal>
       </Section>
+
+      <FamilyLineage />
 
       {/* Providers */}
       <Section bg="cream" padding="xl" id="providers">
@@ -93,7 +97,7 @@ export default function OurStoryPage() {
                     />
                   </div>
                   <div className="mt-6 inline-flex items-center gap-3 bg-warm-white border border-sand rounded-full px-5 py-2.5 shadow-sm">
-                    <span className="font-display text-gold text-xl">{p.yearsExperience}</span>
+                    <span className="font-display text-gold-deep text-xl">{p.yearsExperience}</span>
                     <span className="text-[10px] uppercase tracking-[0.15em] text-warm-gray font-semibold">
                       {p.yearsLabel}
                     </span>
@@ -103,7 +107,9 @@ export default function OurStoryPage() {
                 <div className="lg:col-span-7">
                   <SectionLabel>{p.role}</SectionLabel>
                   <h3 className="font-display text-4xl md:text-5xl text-charcoal mb-6 leading-tight">
-                    {p.name}
+                    <Link href={`/providers/${p.slug}`} className="hover:text-sage-deep transition-colors">
+                      {p.name}
+                    </Link>
                   </h3>
                   <p className="font-accent text-2xl text-charcoal/80 mb-8 max-w-xl">
                     {p.headline}
@@ -134,6 +140,9 @@ export default function OurStoryPage() {
                       </span>
                     ))}
                   </div>
+                  <ArrowLink href={`/providers/${p.slug}`} className="mt-10">
+                    Full profile
+                  </ArrowLink>
                 </div>
               </div>
             </Reveal>
@@ -173,7 +182,11 @@ export default function OurStoryPage() {
         </div>
       </Section>
 
-      <BookingCTA />
+      <BookingCTA
+        primary="Meet the family"
+        accent="in person."
+        description="New patients welcome. Most major insurance accepted. Call or send a request to book your first visit."
+      />
     </>
   );
 }

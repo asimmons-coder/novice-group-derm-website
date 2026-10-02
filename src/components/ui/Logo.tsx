@@ -12,7 +12,6 @@ export function Logo({ variant = 'dark', className }: LogoProps) {
   return (
     <Link
       href="/"
-      aria-label="Novice Group Dermatology — Home"
       className={clsx('inline-flex items-center gap-3', className)}
     >
       <span

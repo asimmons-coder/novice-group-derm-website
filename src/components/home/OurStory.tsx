@@ -64,14 +64,13 @@ export function OurStory() {
             <p>
               Dr. Fred Novice founded the practice in 1999 after building one of
               the most respected dermatology and dermatopathology careers in
-              Michigan. His daughters Dr. Karlee and
-              Dr. Taylor have since joined him — all three trained at Henry Ford
+              Michigan. Today his daughters Dr. Karlee and
+              Dr. Taylor have joined him. All three trained at Henry Ford
               Hospital, all three board-certified.
             </p>
             <p>
-              Continuity of care isn&rsquo;t a marketing line here. It&rsquo;s how the
-              practice operates: the same family of doctors who saw you for
-              your first acne visit can still be there for your child&rsquo;s.
+              The same family of doctors who saw you for your first acne visit
+              can still be there for your child&rsquo;s.
             </p>
           </div>
           <div className="mt-10">
@@ -80,24 +79,24 @@ export function OurStory() {
         </Reveal>
       </div>
 
-      <Reveal className="rounded-[2.5rem] bg-deep-brown text-warm-white p-10 md:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
+      <Reveal className="rounded-[2.5rem] bg-deep-brown text-warm-white p-10 md:p-14 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10">
         <div className="max-w-xl">
           <SignatureHeadline
             as="h3"
-            primary="Independent. Family-Owned."
-            accent="Patient-First."
+            primary="Independent and"
+            accent="family-owned."
             size="md"
             className="mb-6 text-warm-white [&_.headline-accent]:text-gold"
           />
           <p className="text-cream/70 leading-relaxed">
             In an era of rapid private equity consolidation in dermatology,
-            Novice Group remains fully independent. Our clinical decisions are
-            driven by excellence and patient outcomes, not corporate bottom
-            lines.
+            Novice Group remains fully independent. The doctors who treat you
+            are the people who own the practice and make its clinical
+            decisions.
           </p>
         </div>
         <div className="flex gap-10 md:gap-12 shrink-0">
-          <div className="text-left md:text-center">
+          <div className="text-left lg:text-center">
             <p className="font-display text-4xl md:text-5xl text-gold leading-none">
               1999
             </p>
@@ -106,7 +105,7 @@ export function OurStory() {
             </p>
           </div>
           <div className="w-px bg-cream/10" />
-          <div className="text-left md:text-center">
+          <div className="text-left lg:text-center">
             <p className="font-display text-4xl md:text-5xl text-gold leading-none">
               3
             </p>

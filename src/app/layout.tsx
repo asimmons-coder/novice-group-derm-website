@@ -5,6 +5,7 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { Analytics } from '@/components/seo/Analytics';
+import { ScrollProgress } from '@/components/motion/ScrollProgress';
 
 const playfair = Playfair_Display({
   variable: '--font-playfair',
@@ -67,7 +68,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Novice Group Dermatology',
-    description: 'Skin health, elevated. Multiple generations. One standard of care.',
+    description: 'Family-owned medical, surgical, and cosmetic dermatology in Bloomfield Hills, Michigan, since 1999.',
     images: ['/og-image.jpg'],
   },
   robots: {
@@ -99,6 +100,7 @@ export default function RootLayout({
         </a>
         <JsonLd />
         <Analytics />
+        <ScrollProgress />
         <Navbar />
         <main id="main-content" className="flex-1">
           {children}
